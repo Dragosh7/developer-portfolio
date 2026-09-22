@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mini-CV and Professional Resume of Dragoș Tecuci — Software Engineer & QA Specialist based in Cluj-Napoca, Romania. ATS-optimized layout for digital viewing and PDF printing.">
+  <meta name="author" content="Dragoș Tecuci">
+
+  <title>Dragoș Tecuci — Curriculum Vitae (Resume)</title>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Production Design System Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================================
+       TOP ACTION BAR (Hidden in Print)
+       ============================================================================ -->
+  <div class="resume-action-bar">
+    <div class="container resume-action-bar-inner">
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="index.html" class="brand-logo" style="margin-right: 0.25rem; text-decoration: none;" aria-label="Dragoș Tecuci Home">
+          <span class="brand-mark" style="width: 32px; height: 32px;"><img src="assets/images/me.jpg" alt="Dragoș Tecuci" class="brand-avatar-img"></span>
+        </a>
+        <a href="index.html" class="btn btn-secondary btn-sm" style="padding: 0.4rem 0.8rem; font-size: 0.8125rem;">
+          <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Portfolio</span>
+        </a>
+        <a href="services.html" class="btn btn-secondary btn-sm" style="padding: 0.4rem 0.8rem; font-size: 0.8125rem;">
+          <span>🛠️ Servicii Cluj</span>
+        </a>
+        <a href="blog.html" class="btn btn-secondary btn-sm" style="padding: 0.4rem 0.8rem; font-size: 0.8125rem;">
+          <span>Blog</span>
+        </a>
+      </div>
+
+      <div class="resume-action-buttons">
+        <div class="lang-toggle" role="group" aria-label="Language selection" style="margin-right: 0.25rem;">
+          <button type="button" class="lang-btn active" data-lang="ro">RO</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <button class="theme-toggle-btn" type="button" aria-label="Toggle light or dark theme" title="Toggle theme" style="width: 32px; height: 32px;">
+          <svg class="icon-moon" viewBox="0 0 24 24" style="width: 15px; height: 15px;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" style="width: 15px; height: 15px;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <button onclick="window.print()" class="btn btn-primary btn-sm" style="padding: 0.4rem 0.9rem; font-size: 0.8125rem;">
+          <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>Print / Save as PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================================
+       STANDALONE RESUME DOCUMENT (ATS-Friendly, Formatted for Screen & Print)
+       ============================================================================ -->
+  <main class="container">
+    <article class="resume-paper" id="resume-document">
+
+      <!-- Header Section: Contact & Identity -->
+      <header class="resume-header">
+        <div class="resume-avatar-frame" title="Dragoș Tecuci">
+          <img src="assets/images/me.jpg" alt="Dragoș Tecuci" class="resume-avatar-img">
+        </div>
+        <div class="resume-header-info">
+          <h1 class="resume-name">Dragoș Tecuci</h1>
+          <div class="resume-title">Software Engineer &amp; QA Specialist • UTCN Entrepreneurship Master's Candidate</div>
+
+          <div class="resume-contact-list">
+            <div class="resume-contact-item">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+              <span>Cluj-Napoca, Romania</span>
+            </div>
+
+            <div class="resume-contact-item">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <button type="button" data-copy-text="tecuci.dragos@example.com" data-copy-message="Email copied to clipboard!" style="background: none; border: none; padding: 0; color: inherit; font-size: inherit; text-decoration: underline; cursor: pointer;">
+                tecuci.dragos@example.com
+              </button>
+            </div>
+
+            <div class="resume-contact-item">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25a1.62 1.62 0 1 0 1.62 1.62 1.62 1.62 0 0 0-1.62-1.62z"/></svg>
+              <a href="https://www.linkedin.com/in/tecuci-dragos" target="_blank" rel="noopener noreferrer">linkedin.com/in/tecuci-dragos</a>
+            </div>
+
+            <div class="resume-contact-item">
+              <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              <a href="https://github.com/Dragosh7" target="_blank" rel="noopener noreferrer">github.com/Dragosh7</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Section: Professional Summary -->
+      <section class="resume-section">
+        <h2 class="resume-section-title">Professional Summary</h2>
+        <p style="font-size: var(--font-size-sm); line-height: var(--leading-relaxed); color: var(--text-secondary);">
+          Fullstack Java Software Engineer with 2+ years of production experience designing and deploying scalable 
+          backend microservices (Spring Boot, PostgreSQL, Docker) paired with a deep specialization in Quality Assurance 
+          and automated test frameworks (Selenium, Playwright, Cypress). Currently completing a Master's degree in 
+          Entrepreneurship at the Technical University of Cluj-Napoca (UTCN), synthesizing technical craftsmanship with 
+          financial modeling, cloud unit economics, and agile product ownership to build resilient, commercially viable software.
+        </p>
+      </section>
+
+      <!-- Section: Technical Competencies -->
+      <section class="resume-section">
+        <h2 class="resume-section-title">Technical Competencies</h2>
+        <div class="resume-grid-2">
+          <div>
+            <div style="font-size: var(--font-size-xs); font-weight: bold; text-transform: uppercase; color: var(--text-primary); margin-bottom: 2px;">
+              Languages &amp; Core
+            </div>
+            <div style="font-size: var(--font-size-xs); font-family: var(--font-mono); color: var(--text-secondary); margin-bottom: var(--space-3);">
+              Java (Advanced), TypeScript, Python, JavaScript (ES6+), SQL, HTML5 / CSS3
+            </div>
+
+            <div style="font-size: var(--font-size-xs); font-weight: bold; text-transform: uppercase; color: var(--text-primary); margin-bottom: 2px;">
+              Backend &amp; Fullstack
+            </div>
+            <div style="font-size: var(--font-size-xs); font-family: var(--font-mono); color: var(--text-secondary); margin-bottom: var(--space-3);">
+              Spring Boot, RESTful APIs, Microservices, Hibernate / JPA, Redis, Testcontainers
+            </div>
+
+            <div style="font-size: var(--font-size-xs); font-weight: bold; text-transform: uppercase; color: var(--text-primary); margin-bottom: 2px;">
+              Databases &amp; DevOps
+            </div>
+            <div style="font-size: var(--font-size-xs); font-family: var(--font-mono); color: var(--text-secondary);">
+              PostgreSQL, MySQL, Docker, CI/CD (GitHub Actions), Linux / Bash, Git
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size: var(--font-size-xs); font-weight: bold; text-transform: uppercase; color: var(--text-primary); margin-bottom: 2px;">
+              QA &amp; Test Automation
+            </div>
+            <div style="font-size: var(--font-size-xs); font-family: var(--font-mono); color: var(--text-secondary); margin-bottom: var(--space-3);">
+              Selenium (Java), Playwright (Python), Cypress (TypeScript), JUnit, TestNG, Shift-Left Strategy
+            </div>
+
+            <div style="font-size: var(--font-size-xs); font-weight: bold; text-transform: uppercase; color: var(--text-primary); margin-bottom: 2px;">
+              Business &amp; Product Strategy
+            </div>
+            <div style="font-size: var(--font-size-xs); font-family: var(--font-mono); color: var(--text-secondary); margin-bottom: var(--space-3);">
+              Financial Modeling, Cloud Unit Economics, Cost Planning, Strategic Innovation, Agile / Scrum
+            </div>
+
+            <div style="font-size: var(--font-size-xs); font-weight: bold; text-transform: uppercase; color: var(--text-primary); margin-bottom: 2px;">
+              Languages Spoken
+            </div>
+            <div style="font-size: var(--font-size-xs); font-family: var(--font-mono); color: var(--text-secondary);">
+              English (Professional Working Proficiency), Romanian (Native / Bilingual)
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Professional Experience -->
+      <section class="resume-section">
+        <h2 class="resume-section-title">Professional Experience</h2>
+
+        <!-- Role 1 -->
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <span class="resume-entry-title">Software Engineer (Java)</span> — 
+              <span class="resume-entry-company">Software Engineering &amp; Distributed Systems</span>
+            </div>
+            <span class="resume-entry-dates">Jul 2024 — Present (~2+ yrs) | Cluj-Napoca, Romania</span>
+          </div>
+          <ul class="resume-bullets">
+            <li>
+              <strong>Architecture &amp; Microservices:</strong> Architect, develop, and maintain robust RESTful APIs and backend microservices using Java and Spring Boot.
+            </li>
+            <li>
+              <strong>Performance Optimization:</strong> Refactored high-traffic database queries and service endpoints, improving average response times by <strong>over 30%</strong>.
+            </li>
+            <li>
+              <strong>Shift-Left Quality:</strong> Integrated unit, integration, and contract tests (JUnit, Testcontainers) into sprint cycles, sustaining <strong>zero critical production regressions</strong>.
+            </li>
+            <li>
+              <strong>Feature Ownership:</strong> Took end-to-end ownership of core platform initiatives from architectural design through cross-browser automated verification to production release.
+            </li>
+            <li>
+              <strong>Engineering Mentorship:</strong> Mentored junior engineers on clean code conventions, test automation best practices, and effective distributed debugging.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <span class="resume-entry-title">Software QA Engineer</span> — 
+              <span class="resume-entry-company">QA Automation &amp; Test Engineering</span>
+            </div>
+            <span class="resume-entry-dates">Jul 2023 — Jul 2024 (1 yr 1 mo) | Cluj-Napoca, Romania</span>
+          </div>
+          <ul class="resume-bullets">
+            <li>
+              <strong>Multi-Framework Automation:</strong> Designed and deployed automated test suites across <strong>Selenium (Java)</strong>, <strong>Playwright (Python)</strong>, and <strong>Cypress (TypeScript)</strong> for enterprise web applications.
+            </li>
+            <li>
+              <strong>Execution Acceleration:</strong> Parallelized test execution across Chromium, Firefox, and WebKit inside containerized workers, reducing regression feedback loops from <strong>4.5 hours to 28 minutes (-89%)</strong>.
+            </li>
+            <li>
+              <strong>Efficiency Gains:</strong> Decreased manual regression overhead by <strong>over 75%</strong> by architecting modular, reusable page-object scripts and network stubs.
+            </li>
+            <li>
+              <strong>Defect Prevention:</strong> Achieved a <strong>0% defect escape rate</strong> on mission-critical UI customer flows across 6 consecutive months of deployment.
+            </li>
+            <li>
+              <strong>CI/CD Gatekeeping:</strong> Automated continuous test execution and quarantine rules in GitHub Actions pipelines to isolate flaky tests without stalling developer builds.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section: Education -->
+      <section class="resume-section">
+        <h2 class="resume-section-title">Education</h2>
+
+        <!-- Degree 1 -->
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <span class="resume-entry-title">Master's Degree in Entrepreneurship / Entrepreneurial Studies</span> — 
+              <span class="resume-entry-company">Technical University of Cluj-Napoca (UTCN)</span>
+            </div>
+            <span class="resume-entry-dates">2025 — 2027 (In Progress)</span>
+          </div>
+          <ul class="resume-bullets">
+            <li>
+              Graduate curriculum bridging software engineering with business viability: Financial Management, Cash Flow Modeling, Cloud Unit Economics, and Strategic Innovation.
+            </li>
+            <li>
+              Synthesizing software architecture decisions with ROI assessments and infrastructure cost-per-user planning.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Degree 2 -->
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <span class="resume-entry-title">Bachelor's Degree in Computer Software Engineering</span> — 
+              <span class="resume-entry-company">Technical University of Cluj-Napoca (UTCN)</span>
+            </div>
+            <span class="resume-entry-dates">2021 — 2025 (Completed)</span>
+          </div>
+          <ul class="resume-bullets">
+            <li>
+              Rigorous 4-year engineering foundation in Computer Science, Object-Oriented Design (Java, C++), Distributed Systems, Database Management Systems (SQL), and Software Verification.
+            </li>
+            <li>
+              Led capstone fullstack software development deployments and test automation implementations.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section: Flagship Technical Projects -->
+      <section class="resume-section">
+        <h2 class="resume-section-title">Flagship Technical Projects</h2>
+
+        <!-- Project 1: FullStackApplication -->
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <span class="resume-entry-title">Scalable Energy Management &amp; Real-Time Telemetry Platform</span>
+              <span style="font-size: 0.8rem; color: var(--text-tertiary); margin-left: 0.5rem;">[Java, Spring Boot, React, REST, PostgreSQL, Docker]</span>
+            </div>
+            <span class="resume-entry-dates">2024 — 2025</span>
+          </div>
+          <div style="font-size: var(--font-size-xs); font-family: var(--font-mono); margin-bottom: var(--space-1);">
+            <a href="https://github.com/Dragosh7/FullStackApplication" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">github.com/Dragosh7/FullStackApplication</a>
+          </div>
+          <ul class="resume-bullets">
+            <li>
+              Architected a high-throughput distributed platform for real-time sensor ingestion, energy data processing, and telemetry visualization.
+            </li>
+            <li>
+              Implemented decoupled Spring Boot REST microservices with JWT authentication and responsive React client monitoring, sustaining 99.9% reliability under simulated data bursts.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Project 2: Multi-threading Queue Management -->
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <span class="resume-entry-title">Multithreaded Task Queue &amp; Concurrency Simulation Engine</span>
+              <span style="font-size: 0.8rem; color: var(--text-tertiary); margin-left: 0.5rem;">[Java, Concurrency Primitives, Thread Pools, Blocking Queues]</span>
+            </div>
+            <span class="resume-entry-dates">2024</span>
+          </div>
+          <div style="font-size: var(--font-size-xs); font-family: var(--font-mono); margin-bottom: var(--space-1);">
+            <a href="https://github.com/Dragosh7/Multi-threading-queue-management" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">github.com/Dragosh7/Multi-threading-queue-management</a>
+          </div>
+          <ul class="resume-bullets">
+            <li>
+              Engineered a concurrent discrete-event simulation scheduler dynamically distributing dynamic client task streams across synchronized worker threads.
+            </li>
+            <li>
+              Prevented thread starvation and deadlocks via custom load-balancing algorithms, achieving a <strong>+320% throughput gain</strong> and sub-15ms p99 handoff latency.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Project 3: API-Intercepts -->
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <span class="resume-entry-title">API Intercepts &amp; Resilient E2E Test Automation Harness</span>
+              <span style="font-size: 0.8rem; color: var(--text-tertiary); margin-left: 0.5rem;">[TypeScript, Cypress, QA Automation, Chaos Testing]</span>
+            </div>
+            <span class="resume-entry-dates">2024</span>
+          </div>
+          <div style="font-size: var(--font-size-xs); font-family: var(--font-mono); margin-bottom: var(--space-1);">
+            <a href="https://github.com/Dragosh7/API-Intercepts" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">github.com/Dragosh7/API-Intercepts</a>
+          </div>
+          <ul class="resume-bullets">
+            <li>
+              Constructed an automated E2E test harness leveraging Cypress <code>cy.intercept()</code> to simulate server chaos, synthetic latency, and HTTP failures (404, 500, 503).
+            </li>
+            <li>
+              Eliminated unhandled UI crashes across critical user flows and reduced regression runtime to &lt; 3 minutes with headless test execution.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Project 4: Benchmark-App -->
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <span class="resume-entry-title">Native Hardware Benchmarking &amp; Thermal Telemetry Suite</span>
+              <span style="font-size: 0.8rem; color: var(--text-tertiary); margin-left: 0.5rem;">[C++, Systems Programming, Hardware Diagnostics, Win32 API]</span>
+            </div>
+            <span class="resume-entry-dates">2024</span>
+          </div>
+          <div style="font-size: var(--font-size-xs); font-family: var(--font-mono); margin-bottom: var(--space-1);">
+            <a href="https://github.com/Dragosh7/Benchmark-App" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">github.com/Dragosh7/Benchmark-App</a>
+          </div>
+          <ul class="resume-bullets">
+            <li>
+              Built a native low-level diagnostic utility measuring multi-core CPU computing limits, thermal throttling curves, SSD read/write I/O, and network ping stability.
+            </li>
+            <li>
+              Directly powers on-the-spot thermal stress testing and empirical validation before and after laptop/PC cooling maintenance in Cluj-Napoca.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Core Production Script -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

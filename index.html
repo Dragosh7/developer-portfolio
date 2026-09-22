@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dragoș Tecuci — Software Engineer & QA Specialist in Cluj-Napoca, Romania. Fullstack Java microservices, test automation architecture (Selenium, Playwright, Cypress), and UTCN Entrepreneurship Master's candidate.">
+  <meta name="author" content="Dragoș Tecuci">
+  <meta name="keywords" content="Dragoș Tecuci, Software Engineer, Java, Spring Boot, QA Automation, Selenium, Playwright, Cypress, UTCN Entrepreneurship, Cluj-Napoca, Fullstack Developer">
+
+  <title>Dragosh</title>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Production Design System Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================================
+       STICKY NAVBAR
+       ============================================================================ -->
+  <header class="site-navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="Dragoș Tecuci Home">
+        <span class="brand-mark"><img src="assets/images/me.jpg" alt="Dragoș Tecuci" class="brand-avatar-img"></span>
+        <span class="brand-name">Dragoș Tecuci</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <a href="#about" class="nav-link" data-i18n="nav.about">Despre mine</a>
+        <a href="#experience" class="nav-link" data-i18n="nav.experience">Experiență</a>
+        <a href="#projects" class="nav-link" data-i18n="nav.projects">Proiecte</a>
+        <a href="#skills" class="nav-link" data-i18n="nav.skills">Abilități</a>
+        <a href="services.html" class="nav-link" data-i18n="nav.services" style="color: var(--accent-secondary); font-weight: 600;">🛠️ Servicii Cluj</a>
+        <a href="blog.html" class="nav-link" data-i18n="nav.blog">Blog</a>
+        <a href="resume.html" class="nav-link" data-i18n="nav.resume">Mini-CV</a>
+      </nav>
+
+      <!-- Action Group: Language Toggle, Theme Toggle & Mobile Menu Trigger -->
+      <div class="nav-actions">
+        <!-- Language Switcher Pill -->
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn active" data-lang="ro">RO</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <button class="theme-toggle-btn" type="button" aria-label="Toggle light or dark theme" title="Toggle color theme">
+          <!-- Moon Icon (Dark Mode active) -->
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- Sun Icon (Light Mode active) -->
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <button class="mobile-toggle-btn" type="button" aria-label="Open mobile navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div style="padding: var(--space-4); border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between;">
+      <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); font-weight: 700;">Limbă / Language</span>
+      <div class="lang-toggle" role="group" aria-label="Language selection mobile">
+        <button type="button" class="lang-btn active" data-lang="ro">RO</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+    <a href="#about" class="nav-link" data-i18n="nav.about">Despre mine</a>
+    <a href="#experience" class="nav-link" data-i18n="nav.experience">Experiență</a>
+    <a href="#projects" class="nav-link" data-i18n="nav.projects">Proiecte</a>
+    <a href="#skills" class="nav-link" data-i18n="nav.skills">Abilități</a>
+    <a href="services.html" class="nav-link" data-i18n="nav.services" style="color: var(--accent-secondary); font-weight: 600;">🛠️ Servicii Cluj</a>
+    <a href="evidence.html" class="nav-link" data-i18n="nav.evidence">Evidență Lucrări 🔒</a>
+    <a href="blog.html" class="nav-link" data-i18n="nav.blog">Blog</a>
+    <a href="resume.html" class="nav-link" data-i18n="nav.resume">Mini-CV / Resume</a>
+    <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+  </aside>
+
+  <main id="main-content">
+    <!-- ============================================================================
+         HERO SECTION
+         ============================================================================ -->
+    <section class="section hero-section" id="about">
+      <div class="container">
+        <div class="hero-content">
+          <!-- Hero Profile Avatar & Availability Badge -->
+          <div class="hero-profile-row">
+            <div class="hero-avatar-wrapper" title="Dragoș Tecuci — Inginer Software &amp; Specialist QA">
+              <div class="hero-avatar-glow"></div>
+              <div class="hero-avatar-ring">
+                <img src="assets/images/me.jpg" alt="Dragoș Tecuci - Profil" class="hero-avatar-img">
+              </div>
+              <span class="hero-avatar-status" title="Disponibil pentru proiecte"></span>
+            </div>
+            <div class="status-badge">
+              <span class="status-indicator"></span>
+              <span data-i18n="hero.status">Disponibil pentru proiecte &amp; colaborări</span>
+            </div>
+          </div>
+
+          <h1 class="hero-title" data-i18n="hero.title">
+            Dragoș Tecuci - <br>
+            <span class="text-accent-gradient">Inginer Software</span> &amp; Specialist QA
+          </h1>
+
+          <p class="hero-bio" data-i18n="hero.bio">
+            <em>"Facem programarea să pară simplă, cu cafea."</em> Inginer Fullstack &amp; testare automată QA stabilit în <strong>Cluj-Napoca, România</strong>, 
+            masterand în <strong>Antreprenoriat la UTCN</strong> (2025–2027). Construiesc backend-uri Java fiabile, creez 
+            cadre robuste de testare automată (Cypress, Selenium) și ofer mentenanță meticuloasă hardware &amp; termică pentru PC/laptopuri comunității locale.
+          </p>
+
+          <!-- Primary CTAs -->
+          <div class="hero-cta-group">
+            <a href="services.html" class="btn btn-primary" data-i18n="hero.cta_services">
+              <span>🛠️ Servicii Cluj</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="blog.html" class="btn btn-secondary" data-i18n="hero.cta_blog">
+              <span>Citește Blogul</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="resume.html" class="btn btn-outline" data-i18n="hero.cta_cv">
+              <span>Vezi Mini-CV</span>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </a>
+          </div>
+
+          <!-- Social Quick Links -->
+          <div class="social-pills-group">
+            <a href="https://www.linkedin.com/in/tecuci-dragos" class="social-pill" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25a1.62 1.62 0 1 0 1.62 1.62 1.62 1.62 0 0 0-1.62-1.62z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+
+            <a href="https://github.com/Dragosh7" class="social-pill" target="_blank" rel="noopener noreferrer" title="GitHub Profile (Dragosh7)">
+              <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              <span>GitHub</span>
+            </a>
+
+
+            <button type="button" class="social-pill" data-copy-text="tecuci.dragos@example.com" data-copy-message="Email address copied to clipboard!" title="Copy Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span>Copy Email</span>
+            </button>
+
+            <span class="social-pill" style="cursor: default;" title="Base Location">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+              <span>Cluj-Napoca, RO</span>
+            </span>
+          </div>
+
+          <!-- ========================================================================
+               DUAL-GATEWAY HUB (Generative UI Card Architecture)
+               Organizes Dragoș's two core specialties into intuitive, actionable cards
+               ======================================================================== -->
+          <div class="dual-gateway-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-4); margin-top: var(--space-8); text-align: left;">
+            <!-- Gateway Card 1: Tech Services in Cluj -->
+            <div class="gateway-card" style="background: var(--bg-card); border: 1px solid var(--border-default); border-radius: var(--radius-xl); padding: var(--space-6); transition: all var(--transition-base); box-shadow: var(--shadow-sm); position: relative; overflow: hidden;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-3);">
+                <span class="tag" data-i18n="gateway.tech.badge" style="background: rgba(37, 211, 102, 0.12); color: var(--brand-whatsapp); border-color: rgba(37, 211, 102, 0.3); font-weight: 700;">
+                  📍 Cluj-Napoca Local
+                </span>
+                <span data-i18n="gateway.tech.turnaround" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-emerald); font-weight: 600;">
+                  Rezolvare 2–4 ore
+                </span>
+              </div>
+              <h3 data-i18n="gateway.tech.title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: var(--space-2); color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+                <span>🛠️</span> Servicii PC &amp; Laptop
+              </h3>
+              <p data-i18n="gateway.tech.desc" style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: var(--space-4);">
+                Instalare Windows 10/11 optimizat, curățare completă de praf și înlocuire pastă termică premium (Arctic MX-6 / Noctua) cu <strong>test de temperatură pe loc, la predare</strong>.
+              </p>
+              <ul class="gateway-list">
+                <li data-i18n="gateway.tech.f1" style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;"><span style="color: var(--accent-emerald);">✔</span> Formatare corectă, drivere &amp; pachet Office</li>
+                <li data-i18n="gateway.tech.f2" style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;"><span style="color: var(--accent-emerald);">✔</span> Răcire optimizată (-27°C în FurMark/Cinebench)</li>
+                <li data-i18n="gateway.tech.f3" style="display: flex; align-items: center; gap: 0.4rem;"><span style="color: var(--accent-emerald);">✔</span> Upgrade SSD/RAM &amp; asistență gratuită</li>
+              </ul>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <a href="services.html" class="btn btn-primary btn-sm" data-i18n="gateway.tech.btn_catalog" style="flex: 1; justify-content: center; text-align: center;">
+                  <span>Vezi Catalog &amp; Tarife</span>
+                  <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://wa.me/40700000000?text=Salut%20Drago%C8%99,%20a%C8%99%20dori%20o%20programare%20pentru%20servicii%20PC%20%C3%AEn%20Cluj." target="_blank" class="btn btn-secondary btn-sm" style="background: rgba(37, 211, 102, 0.12); color: var(--brand-whatsapp); border-color: rgba(37, 211, 102, 0.3);">
+                  <span>💬 WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Gateway Card 2: Software Engineering & QA -->
+            <div class="gateway-card" style="background: var(--bg-card); border: 1px solid var(--border-default); border-radius: var(--radius-xl); padding: var(--space-6); transition: all var(--transition-base); box-shadow: var(--shadow-sm); position: relative; overflow: hidden;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-3);">
+                <span class="tag" data-i18n="gateway.eng.badge" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-primary); border-color: rgba(99, 102, 241, 0.3); font-weight: 700;">
+                  💻 Fullstack &amp; QA
+                </span>
+                <span data-i18n="gateway.eng.turnaround" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-tertiary);">
+                  UTCN MS '27
+                </span>
+              </div>
+              <h3 data-i18n="gateway.eng.title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: var(--space-2); color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+                <span>⚙️</span> Inginerie Software &amp; QA
+              </h3>
+              <p data-i18n="gateway.eng.desc" style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: var(--space-4);">
+                Microservicii Java &amp; Spring Boot rezistente, triada de testare automată (Selenium, Playwright, Cypress) și modelare financiară a costurilor cloud.
+              </p>
+              <ul class="gateway-list">
+                <li data-i18n="gateway.eng.f1" style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;"><span style="color: var(--accent-primary);">✔</span> 15k req/min throughput &amp; zero regresii critice</li>
+                <li data-i18n="gateway.eng.f2" style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;"><span style="color: var(--accent-primary);">✔</span> Arhitectură shift-left &amp; CI/CD pipelines</li>
+                <li data-i18n="gateway.eng.f3" style="display: flex; align-items: center; gap: 0.4rem;"><span style="color: var(--accent-primary);">✔</span> Masterat Antreprenoriat la UTCN Cluj</li>
+              </ul>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <a href="#projects" class="btn btn-secondary btn-sm" data-i18n="gateway.eng.btn_projects" style="flex: 1; justify-content: center; text-align: center;">
+                  <span>Proiecte Flagship</span>
+                </a>
+                <a href="resume.html" class="btn btn-outline btn-sm" data-i18n="gateway.eng.btn_cv">
+                  <span>Mini-CV 📄</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================================================
+             METRICS / HIGHLIGHTS BANNER
+             ======================================================================== -->
+        <div class="metrics-banner">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-value" data-i18n="metrics.m1_value">2+ Ani</span>
+              <div class="metric-label" data-i18n="metrics.m1_label">Inginerie Software &amp; QA</div>
+              <div class="metric-subtext" data-i18n="metrics.m1_sub">Microservicii Java, Spring Boot &amp; testare shift-left</div>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-value" data-i18n="metrics.m2_value">3 Cadre</span>
+              <div class="metric-label" data-i18n="metrics.m2_label">Testare Automată E2E</div>
+              <div class="metric-subtext" data-i18n="metrics.m2_sub">Selenium (Java), Playwright (Python), Cypress (TS)</div>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-value" data-i18n="metrics.m3_value">15k req/min</span>
+              <div class="metric-label" data-i18n="metrics.m3_label">Debit Microservicii</div>
+              <div class="metric-subtext" data-i18n="metrics.m3_sub">Pipeline comenzi concurent cu zero regresii critice</div>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-value" data-i18n="metrics.m4_value">UTCN Dual</span>
+              <div class="metric-label" data-i18n="metrics.m4_label">Masterat Antreprenoriat + Licență</div>
+              <div class="metric-subtext" data-i18n="metrics.m4_sub">Măiestrie software + modelare unit economics &amp; ROI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         INTEGRATED TECH SERVICES SPOTLIGHT (CLUJ-NAPOCA)
+         Gives visitors instant clarity on Dragoș's hands-on PC/Laptop services!
+         ============================================================================ -->
+    <section class="section" id="tech-services" style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-header text-center" style="max-width: 800px; margin: 0 auto var(--space-8) auto;">
+          <span class="section-eyebrow" data-i18n="techspotlight.eyebrow" style="color: var(--brand-whatsapp);">🛠️ Servicii Cluj-Napoca</span>
+          <h2 class="section-title" data-i18n="techspotlight.title">Servicii Software &amp; Mentenanță Laptop / PC</h2>
+          <p class="section-description" data-i18n="techspotlight.desc">
+            Servicii de calitate superioară realizate de un inginer software. Rezolvare rapidă în aceeași zi, prețuri transparente și <strong>testul de temperatură efectuat la fața locului</strong>, la predare.
+          </p>
+        </div>
+
+        <!-- 3 Featured Service Packages -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-5); margin-bottom: var(--space-8);">
+          <!-- Package 1 -->
+          <div class="service-spotlight-card" style="background: var(--bg-card); border: 1px solid var(--border-default); border-radius: var(--radius-xl); padding: var(--space-6); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+                <span class="tag" data-i18n="techspotlight.c1_tag" style="background: rgba(59, 130, 246, 0.12); color: var(--accent-secondary);">💻 Software</span>
+                <span data-i18n="techspotlight.c1_time" style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-tertiary);">2–3 ore</span>
+              </div>
+              <h3 data-i18n="techspotlight.c1_title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Instalare Windows 10/11 + Office</h3>
+              <p data-i18n="techspotlight.c1_desc" style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: var(--space-4);">
+                Formatare corectă partiții, instalare oficială Windows fără bloatware, instalare toate driverele și pachet complet Microsoft Office + utilitare.
+              </p>
+            </div>
+            <div>
+              <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-primary); margin-bottom: var(--space-3);">119 RON</div>
+              <a href="services.html#services-catalog" class="btn btn-outline btn-sm" data-i18n="techspotlight.c1_btn" style="width: 100%; justify-content: center;">Detalii Serviciu</a>
+            </div>
+          </div>
+
+          <!-- Package 2 -->
+          <div class="service-spotlight-card" style="background: var(--bg-card); border: 1px solid var(--border-default); border-radius: var(--radius-xl); padding: var(--space-6); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+                <span class="tag" data-i18n="techspotlight.c2_tag" style="background: rgba(245, 158, 11, 0.12); color: var(--accent-amber);">🔧 Hardware</span>
+                <span data-i18n="techspotlight.c2_time" style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-tertiary);">1.5–2 ore</span>
+              </div>
+              <h3 data-i18n="techspotlight.c2_title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Curățare Praf + Pastă Arctic MX-6</h3>
+              <p data-i18n="techspotlight.c2_desc" style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: var(--space-4);">
+                Demontare meticuloasă, curățare ventilatoare și radiatoare de cupru, schimb pastă termică de înaltă conductivitate și test temperatură pe loc.
+              </p>
+            </div>
+            <div>
+              <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-primary); margin-bottom: var(--space-3);">119 RON</div>
+              <a href="services.html#services-catalog" class="btn btn-outline btn-sm" data-i18n="techspotlight.c2_btn" style="width: 100%; justify-content: center;">Detalii Serviciu</a>
+            </div>
+          </div>
+
+          <!-- Package 3 (Combo Rebirth) -->
+          <div class="service-spotlight-card" style="background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: var(--radius-xl); padding: var(--space-6); display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 20px -5px var(--accent-primary-glow);">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+                <span class="tag" data-i18n="techspotlight.c3_badge" style="background: var(--accent-primary); color: #fff; font-weight: 700;">⚡ Pachet Rebirth Total</span>
+                <span class="tag" data-i18n="techspotlight.c3_save" style="background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald);">Economisești 80 RON</span>
+              </div>
+              <h3 data-i18n="techspotlight.c3_title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Curățare Completă + Windows Curat</h3>
+              <p data-i18n="techspotlight.c3_desc" style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: var(--space-4);">
+                Soluția completă: curățare de praf, pastă termică nouă, Windows 10/11 instalat pe curat, drivere, Office și backup de siguranță fișiere.
+              </p>
+            </div>
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: var(--space-3);">
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--accent-emerald);">199 RON</span>
+                <span style="font-size: 0.875rem; text-decoration: line-through; color: var(--text-tertiary);">279 RON</span>
+              </div>
+              <a href="services.html#command-center" class="btn btn-primary btn-sm" data-i18n="techspotlight.c3_btn" style="width: 100%; justify-content: center;">Calculează &amp; Comandă</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Big CTA Bar to Full Services Page -->
+        <div class="tech-spotlight-banner">
+          <div style="text-align: left;">
+            <h4 data-i18n="techspotlight.banner_title" style="font-size: 1.125rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">
+              Ai nevoie de o intervenție sau o estimare exactă în Cluj?
+            </h4>
+            <p data-i18n="techspotlight.banner_desc" style="font-size: 0.8125rem; color: var(--text-secondary); margin: 0;">
+              Vizitează portalul dedicat cu calculator de preț în timp real, simulator termic și galerie cu lucrări efectuate.
+            </p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <a href="services.html" class="btn btn-primary" data-i18n="techspotlight.banner_btn1" style="white-space: nowrap;">
+              <span>Deschide Pagina de Servicii &amp; Calculator ➔</span>
+            </a>
+            <a href="https://wa.me/40700000000?text=Salut%20Drago%C8%99,%20am%20o%20problem%C4%83%20cu%20laptopul/PC-ul%20%C3%AEn%20Cluj." target="_blank" class="btn btn-secondary" data-i18n="techspotlight.banner_btn2" style="background: var(--brand-whatsapp); color: #fff; border-color: var(--brand-whatsapp); white-space: nowrap;">
+              <span>💬 Scrie-mi pe WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============================================================================
+         MINI-CV / CAREER & EDUCATION TIMELINE
+         ============================================================================ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow" data-i18n="exp.eyebrow">Traiectorie Profesională</span>
+          <h2 class="section-title" data-i18n="exp.title">Experiență &amp; Educație</h2>
+          <p class="section-description" data-i18n="exp.desc">
+            Îmbinând ingineria backend fullstack cu verificarea calității automate și modelarea strategică de business.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <!-- Item 1: Software Engineer (Java) -->
+          <div class="timeline-item active">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Software Engineer (Java)</h3>
+                  <div class="timeline-company">Full-time • Cluj-Napoca, Romania</div>
+                </div>
+                <span class="timeline-dates">Jul 2024 — Present (~2+ yrs)</span>
+              </div>
+              <p style="font-size: var(--font-size-sm); margin-bottom: var(--space-3);">
+                Driving fullstack feature development and scalable backend Java microservices with an end-to-end 
+                quality-first mindset. Collaborating in cross-functional agile squads to take product initiatives 
+                from architectural design through testing to production release.
+              </p>
+              <div class="timeline-achievements">
+                <div class="timeline-achievement">
+                  Architected and maintained resilient RESTful APIs and backend microservices using <strong>Java, Spring Boot, and PostgreSQL</strong>.
+                </div>
+                <div class="timeline-achievement">
+                  Refactored high-traffic database queries and service endpoints, improving response times by over <strong>30%</strong>.
+                </div>
+                <div class="timeline-achievement">
+                  Incorporated shift-left testing practices into sprint cycles, writing comprehensive unit, integration (Testcontainers), and contract tests.
+                </div>
+                <div class="timeline-achievement">
+                  Successfully delivered key platform features on schedule while maintaining <strong>zero critical production regressions</strong>.
+                </div>
+              </div>
+              <div class="tag-list" style="margin-top: var(--space-4); margin-bottom: 0;">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">Microservices</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Docker</span>
+                <span class="tag">JUnit</span>
+                <span class="tag">CI/CD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Software QA Engineer -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Software QA Engineer</h3>
+                  <div class="timeline-company">Full-time • Cluj-Napoca, Romania</div>
+                </div>
+                <span class="timeline-dates">Jul 2023 — Jul 2024 (1 yr 1 mo)</span>
+              </div>
+              <p style="font-size: var(--font-size-sm); margin-bottom: var(--space-3);">
+                Engineered automated test suites and robust testing infrastructure across enterprise web applications. 
+                Developed deep proficiency across three primary automation paradigms: Selenium (Java), Playwright (Python), 
+                and Cypress (TypeScript).
+              </p>
+              <div class="timeline-achievements">
+                <div class="timeline-achievement">
+                  Decreased manual regression testing overhead by over <strong>75%</strong> by architecting modular, reusable automated test scripts.
+                </div>
+                <div class="timeline-achievement">
+                  Configured containerized parallel test execution across Chromium, Firefox, and WebKit, slashing feedback loops from <strong>4.5 hours down to 28 minutes (-89%)</strong>.
+                </div>
+                <div class="timeline-achievement">
+                  Integrated automated regression test suites into CI/CD pipelines (GitHub Actions/Jenkins) for continuous build verification and deployment gatekeeping.
+                </div>
+                <div class="timeline-achievement">
+                  Achieved <strong>0% defect escape rate</strong> on critical UI workflows across 6 consecutive months of production deployments.
+                </div>
+              </div>
+              <div class="tag-list" style="margin-top: var(--space-4); margin-bottom: 0;">
+                <span class="tag">Selenium (Java)</span>
+                <span class="tag">Playwright (Python)</span>
+                <span class="tag">Cypress (TypeScript)</span>
+                <span class="tag">E2E Automation</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Docker</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Master's Degree in Entrepreneurship -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Master's Degree in Entrepreneurship / Entrepreneurial Studies</h3>
+                  <div class="timeline-company">Technical University of Cluj-Napoca (UTCN)</div>
+                </div>
+                <span class="timeline-dates">2025 — 2027 (In Progress)</span>
+              </div>
+              <p style="font-size: var(--font-size-sm); margin-bottom: var(--space-3);">
+                Graduate program focused on bridging technical engineering with commercial viability. Specializing 
+                in financial modeling, cloud unit economics, cost planning, cash flow forecasting, and scaling agile product teams.
+              </p>
+              <div class="timeline-achievements">
+                <div class="timeline-achievement">
+                  Synthesizing fullstack engineering knowledge with financial forecasting to evaluate software architecture decisions from both a technical and ROI perspective.
+                </div>
+                <div class="timeline-achievement">
+                  Focus modules: Turning Tech into Sustainable Business, Financial Management, Cost Planning &amp; Cloud Unit Economics, Strategic Innovation.
+                </div>
+              </div>
+              <div class="tag-list" style="margin-top: var(--space-4); margin-bottom: 0;">
+                <span class="tag">Financial Modeling</span>
+                <span class="tag">Cloud Unit Economics</span>
+                <span class="tag">Cost Planning</span>
+                <span class="tag">Strategic Innovation</span>
+                <span class="tag">Product Management</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Bachelor's Degree in Computer Software Engineering -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Bachelor's Degree in Computer Software Engineering</h3>
+                  <div class="timeline-company">Technical University of Cluj-Napoca (UTCN)</div>
+                </div>
+                <span class="timeline-dates">2021 — 2025 (Completed)</span>
+              </div>
+              <p style="font-size: var(--font-size-sm); margin-bottom: var(--space-3);">
+                Rigorous 4-year engineering curriculum covering core computer science fundamentals: object-oriented programming 
+                (Java, C++), distributed systems, database design, networking, and automated software verification.
+              </p>
+              <div class="timeline-achievements">
+                <div class="timeline-achievement">
+                  Graduated with strong technical grounding in software architecture and automated quality assurance, leading capstone fullstack software deployments.
+                </div>
+                <div class="timeline-achievement">
+                  Focus areas: Object-Oriented Design Patterns, Distributed Systems, Software Verification &amp; Testing, Relational DBs (SQL).
+                </div>
+              </div>
+              <div class="tag-list" style="margin-top: var(--space-4); margin-bottom: 0;">
+                <span class="tag">Java</span>
+                <span class="tag">Software Architecture</span>
+                <span class="tag">Distributed Systems</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Software Verification</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mini-CV Link Button -->
+        <div style="text-align: center; margin-top: var(--space-10);">
+          <a href="resume.html" class="btn btn-primary" data-i18n="exp.btn_cv">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>Vezi &amp; Printează Mini-CV (PDF)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============================================================================
+         FEATURED PROJECTS SECTION (With Interactive Filter)
+         ============================================================================ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow" data-i18n="proj.eyebrow">Sisteme &amp; Arhitecturi</span>
+          <h2 class="section-title" data-i18n="proj.title">Proiecte Flagship</h2>
+          <p class="section-description" data-i18n="proj.desc">
+            Inițiative inginerești axate pe microservicii distribuite, cadre avansate de testare automată și calculatoare de unit economics.
+          </p>
+        </div>
+
+        <!-- Project Category Filter Bar -->
+        <div class="filter-bar projects-filter-bar justify-center">
+          <button class="filter-btn active" data-filter="all" type="button"><span class="filter-label" data-i18n="proj.filter_all">Toate Proiectele</span> <span class="filter-count">4</span></button>
+          <button class="filter-btn" data-filter="backend" type="button"><span class="filter-label" data-i18n="proj.filter_backend">Backend &amp; Fullstack</span> <span class="filter-count">2</span></button>
+          <button class="filter-btn" data-filter="qa" type="button"><span class="filter-label" data-i18n="proj.filter_qa">QA &amp; Automatizare</span> <span class="filter-count">1</span></button>
+          <button class="filter-btn" data-filter="strategy" type="button"><span class="filter-label" data-i18n="proj.filter_strategy">Sisteme &amp; Strategie</span> <span class="filter-count">1</span></button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card" data-category="backend">
+            <div class="project-badge-bar">
+              <span class="project-badge">Backend &amp; Fullstack</span>
+              <span class="project-year">2024–2025</span>
+            </div>
+            <h3 class="project-title" data-i18n="projects.p1_title">Scalable Energy Management &amp; Real-Time Telemetry Platform</h3>
+            <p class="project-description">
+              A high-performance fullstack platform designed for real-time sensor data ingestion, scalable processing, 
+              and intuitive energy telemetry monitoring with Java, Spring Boot, and React.
+            </p>
+            <div style="background-color: var(--bg-secondary); border-radius: var(--radius-md); padding: var(--space-3); margin-bottom: var(--space-4); border: 1px solid var(--border-subtle);">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-emerald); font-weight: bold; margin-bottom: 2px;">
+                ⚡ Real-time Ingestion • Modular Architecture • 99.9% Reliability
+              </div>
+              <div style="font-size: 0.75rem; color: var(--text-tertiary);">
+                Engineered for high scalability, asynchronous processing, and resilient data persistence.
+              </div>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">React</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Distributed Systems</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Docker</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/Dragosh7/FullStackApplication" class="project-action-link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="projects.btn_repo">GitHub Repository ↗</span>
+              </a>
+              <a href="blog.html" class="project-action-link">
+                <span>Arhitectură &amp; Articol 📖</span>
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card" data-category="backend">
+            <div class="project-badge-bar">
+              <span class="project-badge">Concurrency &amp; Systems</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-title" data-i18n="projects.p2_title">Multithreaded Task Queue &amp; Concurrency Management Engine</h3>
+            <p class="project-description">
+              A core multithreaded queuing engine engineered to balance dynamic task streams across dedicated worker threads 
+              using Java concurrency utilities (thread pools, blocking queues, atomic operations).
+            </p>
+            <div style="background-color: var(--bg-secondary); border-radius: var(--radius-md); padding: var(--space-3); margin-bottom: var(--space-4); border: 1px solid var(--border-subtle);">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-emerald); font-weight: bold; margin-bottom: 2px;">
+                ⚡ +320% Throughput Gain • 0 Thread Starvation • &lt;15ms P99 Latency
+              </div>
+              <div style="font-size: 0.75rem; color: var(--text-tertiary);">
+                Dynamic workload allocation with real-time queue depth telemetry and deadlock-free synchronization.
+              </div>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Java</span>
+              <span class="tag">Multithreading</span>
+              <span class="tag">Concurrency Primitives</span>
+              <span class="tag">Thread Pools</span>
+              <span class="tag">Queue Algorithms</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/Dragosh7/Multi-threading-queue-management" class="project-action-link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="projects.btn_repo">GitHub Repository ↗</span>
+              </a>
+              <a href="https://github.com/Dragosh7/Multi-threading-queue-management#readme" class="project-action-link" target="_blank" rel="noopener noreferrer">
+                <span>Arhitectură &amp; Benchmarks ⚡</span>
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card" data-category="qa">
+            <div class="project-badge-bar">
+              <span class="project-badge">QA Automation</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-title" data-i18n="projects.p3_title">API Intercepts &amp; Resilient UI Test Automation Harness</h3>
+            <p class="project-description">
+              A robust frontend test automation harness utilizing Cypress cy.intercept() to validate client-side 
+              fault tolerance against chaotic, slow, or failing backend API responses.
+            </p>
+            <div style="background-color: var(--bg-secondary); border-radius: var(--radius-md); padding: var(--space-3); margin-bottom: var(--space-4); border: 1px solid var(--border-subtle);">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-emerald); font-weight: bold; margin-bottom: 2px;">
+                ⚡ 100% Error Scenario Coverage • &lt;3 min Headless Run • Zero Unhandled UI Crashes
+              </div>
+              <div style="font-size: 0.75rem; color: var(--text-tertiary);">
+                Dynamic HTTP mock injection (404/500/503), simulated latency, and client UI fallback verification.
+              </div>
+            </div>
+            <div class="tag-list">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Cypress</span>
+              <span class="tag">cy.intercept()</span>
+              <span class="tag">QA Automation</span>
+              <span class="tag">Chaos Engineering</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/Dragosh7/API-Intercepts" class="project-action-link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="projects.btn_repo">GitHub Repository ↗</span>
+              </a>
+              <a href="blog.html" class="project-action-link">
+                <span>Ghid QA &amp; Cypress 🎯</span>
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card" data-category="strategy">
+            <div class="project-badge-bar">
+              <span class="project-badge">Hardware &amp; Systems</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-title" data-i18n="projects.p4_title">Native Hardware Benchmarking &amp; Thermal Telemetry Suite</h3>
+            <p class="project-description">
+              A high-precision native C++ systems utility engineered to measure raw CPU computing limits, 
+              network roundtrip responsiveness, and disk read/write throughput under sustained stress loads.
+            </p>
+            <div style="background-color: var(--bg-secondary); border-radius: var(--radius-md); padding: var(--space-3); margin-bottom: var(--space-4); border: 1px solid var(--border-subtle);">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-emerald); font-weight: bold; margin-bottom: 2px;">
+                ⚡ Bit-level Accuracy • CPU + SSD + Net Profiling • Powers Live Handover Benchmarks
+              </div>
+              <div style="font-size: 0.75rem; color: var(--text-tertiary);">
+                Direct kernel timers and hardware stress testing informing Cluj-Napoca PC/laptop thermal overhauls.
+              </div>
+            </div>
+            <div class="tag-list">
+              <span class="tag">C++</span>
+              <span class="tag">Systems Programming</span>
+              <span class="tag">Hardware Benchmarking</span>
+              <span class="tag">Thermals</span>
+              <span class="tag">Profiling</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/Dragosh7/Benchmark-App" class="project-action-link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="projects.btn_repo">GitHub Repository ↗</span>
+              </a>
+              <a href="services.html#thermals" class="project-action-link">
+                <span>Simulator Termic Live 🧪</span>
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============================================================================
+         SKILLS MATRIX SECTION
+         ============================================================================ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow" data-i18n="skills.eyebrow">Competențe Tehnice</span>
+          <h2 class="section-title" data-i18n="skills.title">Abilități &amp; Tehnologii</h2>
+          <p class="section-description" data-i18n="skills.desc">
+            O privire de ansamblu asupra limbajelor de programare, arhitecturilor backend, suitelor de testare și modelării economice.
+          </p>
+        </div>
+
+        <div class="skills-matrix">
+          <!-- Category 1: Programming Languages -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <h3 class="skill-category-title">Programming Languages</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Java (3+ yrs)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>TypeScript</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Python</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>JavaScript (ES6+)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>SQL (PostgreSQL / MySQL)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>HTML5 &amp; CSS3</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Backend & Fullstack Architecture -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+              </div>
+              <h3 class="skill-category-title">Backend &amp; Fullstack</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Spring Boot</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>RESTful API Design</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Microservices Architecture</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Hibernate / JPA</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Fullstack Integration</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Redis Caching</span>
+            </div>
+          </div>
+
+          <!-- Category 3: QA & Test Automation -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <h3 class="skill-category-title">QA &amp; Test Automation</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Selenium (Java)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Playwright (Python)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Cypress (TypeScript)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>JUnit &amp; TestNG</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>API Testing (Postman)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Shift-Left Testing Mindset</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Databases & DevOps Infrastructure -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </div>
+              <h3 class="skill-category-title">Databases &amp; DevOps</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>PostgreSQL &amp; MySQL</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Docker &amp; Docker Compose</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>CI/CD &amp; GitHub Actions</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Git Branching Workflows</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Linux CLI &amp; Bash</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Testcontainers</span>
+            </div>
+          </div>
+
+          <!-- Category 5: Business, Strategy & Leadership -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </div>
+              <h3 class="skill-category-title">Business &amp; Strategy</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Financial Modeling &amp; P&amp;L</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Cloud Unit Economics</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Strategic Innovation</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Agile / Scrum Feature Ownership</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Cross-Functional Leadership</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>UTCN Entrepreneurship MS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============================================================================
+         BLOG PREVIEW SECTION
+         ============================================================================ -->
+    <section class="section" id="blog-preview">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow" data-i18n="blog.eyebrow">Perspective &amp; Articole Inginerești</span>
+          <h2 class="section-title" data-i18n="blog.title">Ultimele Articole</h2>
+          <p class="section-description" data-i18n="blog.desc">
+            Analize tehnice aprofundate despre testarea modernă și reflexii despre îmbinarea ingineriei software cu studiile antreprenoriale.
+          </p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Article Card 1 -->
+          <article class="blog-card">
+            <div class="blog-meta">
+              <span class="blog-date">2026-08-15</span>
+              <span class="blog-read-time">5 min read</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="blog.html?post=bridging-engineering-and-quality">Bridging Software Engineering and Quality: Why Developers Should Think Like QA Engineers</a>
+            </h3>
+            <p class="blog-excerpt">
+              An in-depth exploration of how hands-on test automation across Selenium, Playwright, and Cypress 
+              transforms developer perspective, accelerates delivery, and creates bulletproof software architectures.
+            </p>
+            <div class="tag-list" style="margin-bottom: var(--space-4);">
+              <span class="tag">Software Engineering</span>
+              <span class="tag">QA Automation</span>
+              <span class="tag">Playwright</span>
+              <span class="tag">Cypress</span>
+            </div>
+            <div class="blog-footer">
+              <span class="text-muted text-mono" style="font-size: var(--font-size-xs);">By Dragoș Tecuci</span>
+              <a href="blog.html?post=bridging-engineering-and-quality" class="blog-read-more" data-i18n="blog.read_more">
+                <span>Citește Articolul</span>
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article Card 2 -->
+          <article class="blog-card">
+            <div class="blog-meta">
+              <span class="blog-date">2026-09-02</span>
+              <span class="blog-read-time">6 min read</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="blog.html?post=tech-to-entrepreneurship-lessons">From Code to Capital: What My UTCN Entrepreneurship Master's Taught Me About Engineering</a>
+            </h3>
+            <p class="blog-excerpt">
+              Reflections from a software engineer pursuing a Master's in Entrepreneurship at UTCN. Why understanding 
+              financial modeling, cost planning, and unit economics fundamentally transforms how we design software systems.
+            </p>
+            <div class="tag-list" style="margin-bottom: var(--space-4);">
+              <span class="tag">Entrepreneurship</span>
+              <span class="tag">Unit Economics</span>
+              <span class="tag">UTCN</span>
+              <span class="tag">Leadership</span>
+            </div>
+            <div class="blog-footer">
+              <span class="text-muted text-mono" style="font-size: var(--font-size-xs);">By Dragoș Tecuci</span>
+              <a href="blog.html?post=tech-to-entrepreneurship-lessons" class="blog-read-more" data-i18n="blog.read_more">
+                <span>Citește Articolul</span>
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--space-8);">
+          <a href="blog.html" class="btn btn-secondary" data-i18n="blog.btn_all">
+            <span>Explorează Toate Articolele</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============================================================================
+         CONTACT & INVITATION SECTION
+         ============================================================================ -->
+    <section class="section" id="contact">
+      <div class="container container-narrow text-center">
+        <span class="section-eyebrow" data-i18n="contact.eyebrow">Colaborare &amp; Contact</span>
+        <h2 class="section-title" data-i18n="contact.title">Hai să construim ceva durabil împreună</h2>
+        <p class="section-description" data-i18n="contact.desc" style="margin: var(--space-4) auto var(--space-8) auto;">
+          Fie că ai nevoie de un inginer Java perseverent, un arhitect QA pentru a crește calitatea livrărilor, sau o gândire antreprenorială axată pe eficiență, mi-ar face mare plăcere să colaborăm.
+        </p>
+
+        <div class="hero-cta-group justify-center">
+          <button type="button" class="btn btn-primary" data-copy-text="tecuci.dragos@example.com" data-copy-message="Email address copied to clipboard!" data-i18n="contact.btn_email">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>Copiază Email</span>
+          </button>
+          <a href="https://www.linkedin.com/in/tecuci-dragos" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="contact.btn_linkedin">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25a1.62 1.62 0 1 0 1.62 1.62 1.62 1.62 0 0 0-1.62-1.62z"/></svg>
+            <span>Conectează-te pe LinkedIn</span>
+          </a>
+          <a href="resume.html" class="btn btn-outline" data-i18n="contact.btn_cv">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>Vezi Mini-CV</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================================
+       SITE FOOTER
+       ============================================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <a href="index.html" class="brand-logo">
+          <span class="brand-mark"><img src="assets/images/me.jpg" alt="Dragoș Tecuci" class="brand-avatar-img"></span>
+          <span class="brand-name">Dragoș Tecuci</span>
+        </a>
+        <div class="footer-links">
+          <a href="#about" class="footer-link" data-i18n="nav.about">Despre mine</a>
+          <a href="#experience" class="footer-link" data-i18n="nav.experience">Experiență</a>
+          <a href="#projects" class="footer-link" data-i18n="nav.projects">Proiecte</a>
+          <a href="#skills" class="footer-link" data-i18n="nav.skills">Abilități</a>
+          <a href="services.html" class="footer-link" data-i18n="nav.services">🛠️ Servicii Cluj</a>
+          <a href="blog.html" class="footer-link" data-i18n="nav.blog">Blog</a>
+          <a href="resume.html" class="footer-link" data-i18n="nav.resume">Mini-CV</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer.copy">
+          &copy; 2026 Dragoș Tecuci. Creat cu atenție în Cluj-Napoca, România.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://www.linkedin.com/in/tecuci-dragos" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/Dragosh7" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <button type="button" class="footer-link" data-copy-text="tecuci.dragos@example.com" data-copy-message="Email copied to clipboard!" style="background: none; border: none; cursor: pointer; padding: 0;">Email</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Production Script -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

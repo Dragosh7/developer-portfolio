@@ -1,0 +1,40 @@
+[
+  {
+    "id": "edu-1",
+    "degree": "Master's Degree",
+    "fieldOfStudy": "Entrepreneurship / Entrepreneurial Studies",
+    "institution": "Technical University of Cluj-Napoca (UTCN)",
+    "location": "Cluj-Napoca, Romania",
+    "startDate": "2025",
+    "endDate": "2027",
+    "status": "In Progress",
+    "description": "Graduate program dedicated to bridging engineering precision with business viability and market leadership. Focuses on turning technology into sustainable commercial ventures, mastering financial planning, cost modeling, and scaling agile organizations.",
+    "focusAreas": [
+      "Turning Technology into Sustainable Business",
+      "Financial Management & Cash Flow Modeling",
+      "Cost Planning & Cloud Unit Economics",
+      "Strategic Innovation & Go-to-Market Execution",
+      "Project & Agile Product Management"
+    ],
+    "highlights": "Synthesizing fullstack engineering knowledge with financial forecasting to evaluate software architecture decisions from both a technical and ROI perspective."
+  },
+  {
+    "id": "edu-2",
+    "degree": "Bachelor's Degree",
+    "fieldOfStudy": "Computer Software Engineering",
+    "institution": "Technical University of Cluj-Napoca (UTCN)",
+    "location": "Cluj-Napoca, Romania",
+    "startDate": "2021",
+    "endDate": "2025",
+    "status": "Completed",
+    "description": "Rigorous 4-year engineering curriculum covering core computer science fundamentals, software architecture, algorithms, distributed systems, database design, and software verification.",
+    "focusAreas": [
+      "Object-Oriented Programming & Design Patterns (Java, C++)",
+      "Distributed Systems & Database Management Systems (SQL)",
+      "Software Testing, Verification & Quality Assurance",
+      "Operating Systems, Networking & Cloud Concepts",
+      "Algorithms, Data Structures & Computational Complexity"
+    ],
+    "highlights": "Graduated with strong technical grounding in software architecture and automated quality assurance, leading capstone software initiatives and fullstack system deployments."
+  }
+]

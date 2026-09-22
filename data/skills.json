@@ -1,0 +1,56 @@
+{
+  "categories": [
+    {
+      "name": "Programming Languages",
+      "skills": [
+        { "name": "Java", "level": "Advanced", "yearsOfExperience": 3, "highlight": "Primary backend language; Spring Boot services, enterprise design patterns." },
+        { "name": "TypeScript", "level": "Proficient", "yearsOfExperience": 2, "highlight": "Type-safe fullstack and automated testing with Cypress." },
+        { "name": "Python", "level": "Proficient", "yearsOfExperience": 2, "highlight": "Browser test automation with Playwright and scripting." },
+        { "name": "JavaScript (ES6+)", "level": "Proficient", "yearsOfExperience": 3, "highlight": "Modern DOM manipulation, async programming, UI components." },
+        { "name": "SQL", "level": "Proficient", "yearsOfExperience": 3, "highlight": "Complex queries, indexing, schema design across PostgreSQL and MySQL." },
+        { "name": "HTML5 / CSS3", "level": "Proficient", "yearsOfExperience": 3, "highlight": "Semantic markup, modern styling, responsive layouts." }
+      ]
+    },
+    {
+      "name": "Backend & Fullstack Architecture",
+      "skills": [
+        { "name": "Spring Boot", "level": "Advanced", "highlight": "REST API development, Spring Data JPA, Spring Security, microservice configuration." },
+        { "name": "RESTful API Design", "level": "Advanced", "highlight": "Contract-first API design, error handling, versioning, performance tuning." },
+        { "name": "Microservices", "level": "Proficient", "highlight": "Decoupled architecture, service discovery, distributed logging, resilient communication." },
+        { "name": "Hibernate / JPA", "level": "Proficient", "highlight": "ORM entity mappings, query optimization, caching strategies." },
+        { "name": "Fullstack Integration", "level": "Proficient", "highlight": "Connecting reactive frontend interfaces to high-availability Java backends." }
+      ]
+    },
+    {
+      "name": "QA & Test Automation",
+      "skills": [
+        { "name": "Selenium (Java)", "level": "Expert", "highlight": "Automated web application testing, Page Object Model, grid orchestration." },
+        { "name": "Playwright (Python)", "level": "Expert", "highlight": "Fast, reliable multi-browser automation, network interception, async execution." },
+        { "name": "Cypress (TypeScript)", "level": "Expert", "highlight": "Modern frontend end-to-end testing, component testing, real-time DOM debugging." },
+        { "name": "JUnit & TestNG", "level": "Advanced", "highlight": "Unit and integration test suites, parameterized tests, assertions." },
+        { "name": "API Testing (Postman / REST Assured)", "level": "Advanced", "highlight": "Automated endpoint validation, payload assertions, mocking." },
+        { "name": "Shift-Left Testing Mindset", "level": "Expert", "highlight": "Early defect prevention, static analysis, continuous testing in CI/CD." }
+      ]
+    },
+    {
+      "name": "Databases & DevOps Infrastructure",
+      "skills": [
+        { "name": "PostgreSQL & MySQL", "level": "Proficient", "highlight": "Relational schema modeling, query optimization, transaction management." },
+        { "name": "Docker", "level": "Proficient", "highlight": "Containerization of services, multi-stage Dockerfiles, Docker Compose for dev/test." },
+        { "name": "CI/CD & GitHub Actions", "level": "Proficient", "highlight": "Automating test runs, build verifications, and deployment stages on commit/PR." },
+        { "name": "Git & GitHub", "level": "Advanced", "highlight": "Branching workflows, code review hygiene, collaborative release tagging." },
+        { "name": "Linux & Shell Scripting", "level": "Proficient", "highlight": "CLI navigation, build automation, environment configuration." }
+      ]
+    },
+    {
+      "name": "Business, Strategy & Leadership",
+      "skills": [
+        { "name": "Financial Management & Modeling", "level": "Proficient", "highlight": "UTCN Master's focus: cash flow forecasting, P&L analysis, ROI assessment." },
+        { "name": "Cost Planning & Cloud Unit Economics", "level": "Proficient", "highlight": "Aligning architectural decisions with infrastructure cost per user." },
+        { "name": "Strategic Innovation", "level": "Proficient", "highlight": "Translating emerging technological capabilities into viable commercial solutions." },
+        { "name": "Agile & Scrum Methodologies", "level": "Advanced", "highlight": "Sprint ceremonies, backlog grooming, velocity tracking, feature ownership." },
+        { "name": "Cross-Functional Collaboration", "level": "Advanced", "highlight": "Bridging technical engineering, QA, product management, and business stakeholders." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+[
+  {
+    "id": "fullstack-energy-management",
+    "title": "Scalable Energy Management & Real-Time Telemetry Platform",
+    "subtitle": "High-throughput distributed backend built with Java and Spring Boot",
+    "featured": true,
+    "summary": "A high-performance fullstack platform designed for real-time sensor data ingestion, scalable processing, and intuitive energy telemetry visualization.",
+    "description": "Architected for high scalability and real-time interaction in distributed environments. The system handles continuous data streams from remote energy nodes, processing inputs through optimized Java pipelines and persisting state with robust consistency guarantees. Features modular service separation, RESTful APIs, and responsive client monitoring.",
+    "techTags": [
+      "Java",
+      "Spring Boot",
+      "React",
+      "REST APIs",
+      "Distributed Systems",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "impactMetrics": [
+      { "label": "Processing Model", "value": "Real-time", "description": "Continuous data streaming with low-latency state synchronization." },
+      { "label": "Architecture", "value": "Decoupled", "description": "Independent backend service contracts for reliable scaling." },
+      { "label": "Reliability", "value": "99.9%", "description": "Zero packet drop under sustained simulated data bursts." }
+    ],
+    "repoUrl": "https://github.com/Dragosh7/FullStackApplication",
+    "demoUrl": "https://github.com/Dragosh7/FullStackApplication",
+    "date": "2024 - 2025"
+  },
+  {
+    "id": "multithreaded-queue-engine",
+    "title": "Multithreaded Task Queue & Concurrency Management Engine",
+    "subtitle": "High-throughput asynchronous task scheduler using Java concurrency primitives",
+    "featured": true,
+    "summary": "A core multithreaded queuing engine engineered to balance dynamic task loads across dedicated worker threads without bottlenecks or thread starvation.",
+    "description": "Built to tackle asynchronous workload distribution and synchronization challenges in compute-heavy systems. Employs Java's concurrency utilities (thread pools, blocking queues, atomic operations) to dynamically allocate and execute bursty task streams. Features real-time queue depth monitoring, simulation modes, and deadlock-free synchronization.",
+    "techTags": [
+      "Java",
+      "Multithreading",
+      "Concurrency Primitives",
+      "Thread Pools",
+      "Queue Algorithms",
+      "Performance Tuning"
+    ],
+    "impactMetrics": [
+      { "label": "Throughput Gain", "value": "+320%", "description": "Parallel thread execution compared to sequential queue processing." },
+      { "label": "Thread Starvation", "value": "0", "description": "Fair distribution algorithms prevent low-priority task starvation." },
+      { "label": "Latency P99", "value": "< 15ms", "description": "Sub-millisecond handoff across synchronized worker pools." }
+    ],
+    "repoUrl": "https://github.com/Dragosh7/Multi-threading-queue-management",
+    "demoUrl": "https://github.com/Dragosh7/Multi-threading-queue-management",
+    "date": "2024"
+  },
+  {
+    "id": "api-intercepts-cypress",
+    "title": "API Intercepts & Resilient UI Test Automation Harness",
+    "subtitle": "Advanced Cypress test suite simulating edge-case network payloads and backend failures",
+    "featured": true,
+    "summary": "A robust frontend test automation harness utilizing Cypress cy.intercept() to validate client-side fault tolerance against faulty or degraded APIs.",
+    "description": "Created to verify that modern web applications gracefully handle backend chaos. By intercepting HTTP network traffic and dynamically injecting custom HTTP status codes (404, 500, 503), malformed JSON, and synthetic network latency, the suite ensures UI interfaces display proper user-friendly fallbacks without unhandled exceptions or broken layouts.",
+    "techTags": [
+      "TypeScript",
+      "Cypress",
+      "API Mocking (cy.intercept)",
+      "QA Automation",
+      "Chaos Engineering",
+      "Frontend Resilience"
+    ],
+    "impactMetrics": [
+      { "label": "Edge Case Coverage", "value": "100%", "description": "All critical HTTP error scenarios and timeout states verified." },
+      { "label": "Regression Speed", "value": "< 3 min", "description": "Fast headless test execution integrated into development workflows." },
+      { "label": "UI Crash Prevention", "value": "Zero Unhandled", "description": "Ensures clean toast/modal feedback on every network failure." }
+    ],
+    "repoUrl": "https://github.com/Dragosh7/API-Intercepts",
+    "demoUrl": "https://github.com/Dragosh7/API-Intercepts",
+    "date": "2024"
+  },
+  {
+    "id": "hardware-benchmark-suite",
+    "title": "Native Hardware Benchmarking & Thermal Telemetry Suite",
+    "subtitle": "Low-level C++ benchmarking utility measuring CPU throughput, network latency, and SSD I/O",
+    "featured": false,
+    "summary": "A high-precision native C++ systems utility engineered to measure raw CPU computing limits, network roundtrip times, and disk read/write throughput.",
+    "description": "Developed out of a deep passion for hardware health and thermal performance. The application executes synthetic workloads across processor cores while gathering telemetry on memory throughput, network responsiveness, and drive I/O. Directly informs the hardware maintenance and on-the-spot thermal stress testing provided on the Cluj tech repair floor.",
+    "techTags": [
+      "C++",
+      "Systems Programming",
+      "Hardware Benchmarking",
+      "CPU & SSD Telemetry",
+      "Performance Profiling",
+      "Thermals"
+    ],
+    "impactMetrics": [
+      { "label": "Measurement Accuracy", "value": "Bit-level", "description": "Direct kernel and hardware timer calls for low-overhead sampling." },
+      { "label": "Subsystem Coverage", "value": "CPU + SSD + Net", "description": "Holistic stress profiling across primary system bottlenecks." },
+      { "label": "Thermal Verification", "value": "Direct Delta", "description": "Powers real-world before/after validation on laptop cooling overhauls." }
+    ],
+    "repoUrl": "https://github.com/Dragosh7/Benchmark-App",
+    "demoUrl": "https://github.com/Dragosh7/Benchmark-App",
+    "date": "2024"
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "exp-1",
+    "role": "Software Engineer (Java)",
+    "company": "Software Engineering & Distributed Systems",
+    "companyPlaceholder": false,
+    "location": "Cluj-Napoca, Romania",
+    "employmentType": "Full-time",
+    "startDate": "2024-07",
+    "endDate": "Present",
+    "current": true,
+    "duration": "Jul 2024 - Present (~2+ years)",
+    "summary": "Driving fullstack feature development and scalable backend Java microservices with an end-to-end quality-first mindset. Collaborating in cross-functional agile squads to take product initiatives from architectural design through testing to production release.",
+    "responsibilities": [
+      "Architect, develop, and maintain robust RESTful APIs and backend microservices using Java and Spring Boot.",
+      "Design frontend components and integrate dynamic fullstack interfaces with modern web standards.",
+      "Take full feature ownership from initial product discovery and requirements grooming through to automated testing and deployment.",
+      "Incorporate shift-left testing practices into the sprint lifecycle, writing comprehensive unit, integration, and contract tests.",
+      "Collaborate with product managers, QA specialists, and DevOps engineers in agile ceremonies to iteratively ship customer-facing enhancements."
+    ],
+    "achievements": [
+      "Successfully owned and delivered key platform features on schedule while maintaining zero critical production regressions.",
+      "Refactored high-traffic database queries and service endpoints, improving response times by over 30%.",
+      "Mentored junior team members on clean code conventions, test automation best practices, and effective debugging techniques."
+    ],
+    "technologies": [
+      "Java",
+      "Spring Boot",
+      "REST APIs",
+      "Microservices",
+      "PostgreSQL",
+      "Docker",
+      "Git",
+      "JUnit",
+      "CI/CD Pipelines",
+      "Agile/Scrum"
+    ]
+  },
+  {
+    "id": "exp-2",
+    "role": "Software QA Engineer",
+    "company": "QA Automation & Test Engineering",
+    "companyPlaceholder": false,
+    "location": "Cluj-Napoca, Romania",
+    "employmentType": "Full-time",
+    "startDate": "2023-07",
+    "endDate": "2024-07",
+    "current": false,
+    "duration": "Jul 2023 - Jul 2024 (1 yr 1 mo)",
+    "summary": "Engineered automated test suites and robust testing infrastructure across enterprise web applications. Developed deep proficiency in three primary automation frameworks: Selenium with Java, Playwright with Python, and Cypress with TypeScript, dramatically accelerating release cycles and elevating build confidence.",
+    "responsibilities": [
+      "Developed and maintained cross-browser automated test suites using Selenium with Java for core enterprise web workflows.",
+      "Built high-performance, parallelized browser automation suites using Playwright with Python to validate dynamic frontend interactions and network mocking.",
+      "Implemented comprehensive end-to-end (E2E) UI testing frameworks with Cypress and TypeScript for modern single-page applications.",
+      "Integrated automated regression test suites into CI/CD pipelines (GitHub Actions/Jenkins) for continuous build validation and gatekeeping.",
+      "Authored clear test plans, executed risk-based exploratory testing, and triaged defects alongside core engineering teams."
+    ],
+    "achievements": [
+      "Decreased manual regression testing overhead by over 75% by architecting modular, reusable automated test scripts.",
+      "Configured parallel test execution across Chromium, Firefox, and WebKit, reducing regression feedback loops from hours to minutes.",
+      "Established standard QA reporting metrics, giving stakeholders transparent visibility into code coverage, build stability, and test flakiness."
+    ],
+    "technologies": [
+      "Selenium",
+      "Java",
+      "Playwright",
+      "Python",
+      "Cypress",
+      "TypeScript",
+      "E2E Testing",
+      "CI/CD Integration",
+      "Postman",
+      "Git",
+      "JIRA"
+    ]
+  }
+]

@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DT Service Registry — Evidență Lucrări &amp; Intervenții Tehnice | Dragoș Tecuci</title>
+  <meta name="description" content="Registru privat securizat de evidență a lucrărilor de reparații IT, mentenanță termică și optimizări software/hardware — Dragoș Tecuci, Cluj-Napoca.">
+  <meta name="author" content="Dragoș Tecuci">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Production Design Tokens & Dedicated Modular Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/services.css">
+
+  <style>
+    /* Specialized In-Page Enhancements for Private Evidence Registry */
+    .registry-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: var(--accent-primary);
+      border-radius: var(--radius-full);
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      font-weight: var(--font-bold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-left: var(--space-2);
+      vertical-align: middle;
+    }
+
+    .evidence-main-content {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-16);
+      min-height: calc(100vh - var(--navbar-height) - 120px);
+    }
+
+    .evidence-header-block {
+      margin-bottom: var(--space-8);
+    }
+
+    .evidence-page-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: var(--font-extrabold);
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .evidence-page-desc {
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+      max-width: 780px;
+      line-height: var(--leading-normal);
+    }
+
+    /* Category Badges */
+    .category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      font-weight: var(--font-bold);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .category-badge.category-combo {
+      background: rgba(99, 102, 241, 0.12);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+    }
+
+    [data-theme="light"] .category-badge.category-combo,
+    body.light-theme .category-badge.category-combo {
+      color: #4338ca;
+      background: rgba(99, 102, 241, 0.14);
+      border-color: rgba(99, 102, 241, 0.35);
+    }
+
+    .category-badge.category-hardware {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    [data-theme="light"] .category-badge.category-hardware,
+    body.light-theme .category-badge.category-hardware {
+      color: #b45309;
+      background: rgba(245, 158, 11, 0.14);
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+
+    .category-badge.category-software {
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    [data-theme="light"] .category-badge.category-software,
+    body.light-theme .category-badge.category-software {
+      color: #0284c7;
+      background: rgba(56, 189, 248, 0.14);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    /* Action Print Hover */
+    .btn-table-action.action-print:hover {
+      color: var(--temp-cool);
+      border-color: rgba(16, 185, 129, 0.4);
+      background: var(--temp-cool-bg);
+    }
+
+    /* PIN Gate Additions */
+    .pin-actions-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+    }
+
+    .btn-pin-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: transparent;
+      border: none;
+      color: var(--text-tertiary);
+      font-size: var(--font-size-xs);
+      font-family: var(--font-mono);
+      cursor: pointer;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-fast);
+    }
+
+    .btn-pin-toggle:hover {
+      color: var(--text-primary);
+    }
+
+    .btn-pin-toggle svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .pin-unlock-btn {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: 0.75rem 1.25rem;
+      font-weight: var(--font-bold);
+      font-size: var(--font-size-sm);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      margin-bottom: var(--space-4);
+    }
+
+    .pin-unlock-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+    }
+
+    .pin-footer-links {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: var(--space-4);
+      margin-top: var(--space-2);
+    }
+
+    .pin-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: var(--font-size-xs);
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .pin-back-link:hover {
+      color: var(--accent-primary);
+    }
+
+    /* Modal Form Controls */
+    .form-row {
+      display: flex;
+      gap: var(--space-4);
+    }
+
+    .form-helper {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-tertiary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+    }
+
+    .modal-close-btn:hover {
+      color: var(--text-primary);
+      background: var(--bg-tertiary);
+    }
+
+    .modal-close-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+    }
+
+    /* Job Details Modal Formatting */
+    .job-details-grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    .job-details-header-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+    }
+
+    .job-meta-title {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-extrabold);
+      color: var(--accent-primary);
+    }
+
+    .job-meta-sub {
+      font-size: var(--font-size-xs);
+      color: var(--text-tertiary);
+    }
+
+    .job-info-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    @media (max-width: 600px) {
+      .job-info-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .job-info-box {
+      padding: var(--space-4);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+    }
+
+    .job-info-box-title {
+      font-size: var(--font-size-xs);
+      font-family: var(--font-mono);
+      font-weight: var(--font-bold);
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-2);
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: var(--space-1);
+    }
+
+    .job-info-value {
+      font-size: var(--font-size-sm);
+      color: var(--text-primary);
+      line-height: var(--leading-normal);
+    }
+
+    .job-thermal-badge-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4);
+      background: linear-gradient(135deg, var(--temp-hot-bg) 0%, var(--temp-cool-bg) 100%);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+    }
+
+    .thermal-metric-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .thermal-metric-label {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+    }
+
+    .thermal-metric-val {
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      font-weight: var(--font-extrabold);
+    }
+
+    .thermal-metric-val.hot { color: var(--temp-hot); }
+    .thermal-metric-val.cool { color: var(--temp-cool); }
+
+    .thermal-metric-delta {
+      padding: 0.25rem 0.75rem;
+      background: var(--temp-cool);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-extrabold);
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 12px var(--temp-cool-glow);
+    }
+
+    /* Toast Notification Styles */
+    .toast-container {
+      position: fixed;
+      bottom: var(--space-6);
+      right: var(--space-6);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      pointer-events: none;
+    }
+
+    .toast {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-5);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      color: var(--text-primary);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-medium);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.25s var(--ease-spring);
+      pointer-events: auto;
+    }
+
+    .toast.toast-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast-icon {
+      width: 18px;
+      height: 18px;
+      stroke: var(--accent-emerald);
+      fill: none;
+      stroke-width: 2.2;
+      flex-shrink: 0;
+    }
+
+    /* Empty State for Table */
+    .evidence-empty-state {
+      padding: var(--space-12) var(--space-4);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .empty-state-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-default);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-tertiary);
+    }
+
+    .empty-state-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .empty-state-title {
+      font-size: var(--font-size-md);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+    }
+
+    .empty-state-desc {
+      font-size: var(--font-size-xs);
+      color: var(--text-secondary);
+      max-width: 420px;
+    }
+
+    /* Print Formatting Control */
+    @media screen {
+      .printable-job-sheet {
+        display: none !important;
+      }
+    }
+
+    @media print {
+      body.printing-single-receipt .site-navbar,
+      body.printing-single-receipt .evidence-stats-bar,
+      body.printing-single-receipt .evidence-toolbar,
+      body.printing-single-receipt .evidence-table-container,
+      body.printing-single-receipt .evidence-modal-backdrop,
+      body.printing-single-receipt .site-footer,
+      body.printing-single-receipt .toast-container,
+      body.printing-single-receipt .evidence-header-block {
+        display: none !important;
+      }
+
+      body.printing-single-receipt .printable-job-sheet {
+        display: block !important;
+        padding: 24pt !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================================
+       1. PIN AUTHENTICATION GATE OVERLAY (.pin-gate-overlay)
+       ============================================================================ -->
+  <div id="pinGateOverlay" class="pin-gate-overlay" aria-modal="true" role="dialog" aria-labelledby="pinGateTitle">
+    <div class="pin-gate-card" id="pinGateCard">
+      <div class="pin-lock-icon">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+
+      <h2 id="pinGateTitle" class="pin-gate-title">Panou Evidență Lucrări</h2>
+      <p class="pin-gate-desc">
+        Acces privat securizat pentru evidența intervențiilor tehnice, gestiunea clienților și telemetrie termică. Introduceți codul PIN (implicit: <strong>1234</strong>).
+      </p>
+
+      <form id="pinGateForm" onsubmit="return false;">
+        <div class="pin-input-group" id="pinInputGroup">
+          <input type="password" class="pin-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" autocomplete="off" data-index="0" aria-label="PIN digit 1" autofocus>
+          <input type="password" class="pin-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" autocomplete="off" data-index="1" aria-label="PIN digit 2">
+          <input type="password" class="pin-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" autocomplete="off" data-index="2" aria-label="PIN digit 3">
+          <input type="password" class="pin-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" autocomplete="off" data-index="3" aria-label="PIN digit 4">
+        </div>
+
+        <div class="pin-actions-row">
+          <button type="button" class="btn-pin-toggle" id="btnTogglePinVisibility" title="Comută vizibilitate PIN">
+            <svg id="pinEyeIcon" viewBox="0 0 24 24">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <span id="pinToggleLabel">Afișează PIN</span>
+          </button>
+        </div>
+
+        <div style="margin-bottom: var(--space-3);">
+          <button type="button" id="btnQuickUnlockDemo" class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center; gap: 0.5rem; background: rgba(99, 102, 241, 0.12); color: var(--accent-primary); border-color: rgba(99, 102, 241, 0.35); font-weight: 600;">
+            <span>⚡ Deblocare Rapidă Demo (PIN: 1234)</span>
+          </button>
+        </div>
+
+        <button type="button" id="btnPinUnlock" class="btn btn-primary pin-unlock-btn">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+          </svg>
+          <span>Deblochează Registrul / Unlock</span>
+        </button>
+
+        <div id="pinErrorMessage" class="pin-error-message" role="alert"></div>
+
+        <div class="pin-footer-links">
+          <a href="services.html" class="pin-back-link">
+            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Înapoi la Servicii Publice / Back to Public Services</span>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================================
+       2. TOP NAVIGATION & ACTION BAR
+       ============================================================================ -->
+  <header class="site-navbar">
+    <div class="container navbar-container">
+      <a href="evidence.html" class="brand-logo" aria-label="DT Service Registry">
+        <span class="brand-mark"><img src="assets/images/me.jpg" alt="Dragoș Tecuci" class="brand-avatar-img"></span>
+        <span class="brand-name">
+          DT Registry
+          <span class="registry-badge">Evidență Lucrări</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" aria-label="Registry Navigation">
+        <a href="services.html" class="nav-link" title="Pagina publică de prezentare a serviciilor și estimări">
+          <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; margin-right: 4px;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span>Servicii Publice</span>
+        </a>
+        <a href="index.html" class="nav-link" title="Portofoliul principal Dragoș Tecuci">
+          <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; margin-right: 4px;">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Portofoliu</span>
+        </a>
+      </nav>
+
+      <!-- Action Group: Export Tools, PIN Management & Theme Toggle -->
+      <div class="nav-actions">
+        <!-- Export CSV Button -->
+        <button type="button" id="btnExportCsv" class="btn-export" title="Descarcă registrul în format CSV (compatibil Excel cu caractere românești)">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Export CSV</span>
+        </button>
+
+        <!-- Export JSON Button -->
+        <button type="button" id="btnExportJson" class="btn-export" title="Exportă backup complet structurat JSON">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Export JSON</span>
+        </button>
+
+        <!-- Change PIN Action -->
+        <button type="button" id="btnOpenChangePin" class="btn-export" title="Schimbă codul PIN de securitate">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>Schimbă PIN</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn" type="button" aria-label="Comută tema întunecată / luminoasă" title="Comută tema">
+          <!-- Moon Icon (Dark Mode active) -->
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- Sun Icon (Light Mode active) -->
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Lock Button -->
+        <button type="button" id="btnLockRegistry" class="btn-export" title="Blochează panoul și cere PIN la re-accesare" style="color: var(--accent-rose);">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>Blochează</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================================
+       3. MAIN EVIDENCE DASHBOARD CONTAINER
+       ============================================================================ -->
+  <main class="container evidence-main-content">
+
+    <!-- Page Title & Scope Header -->
+    <div class="evidence-header-block">
+      <h1 class="evidence-page-title">
+        <span>Registru Intervenții &amp; Evidență Lucrări</span>
+        <span class="live-status-pill">
+          <span class="live-status-dot"></span>
+          <span>Sincronizat LocalStorage</span>
+        </span>
+      </h1>
+      <p class="evidence-page-desc">
+        Evidența internă securizată a intervențiilor tehnice, curățărilor profesionale cu pastă termică premium și optimizărilor de sistem realizate în Cluj-Napoca.
+      </p>
+    </div>
+
+    <!-- ============================================================================
+         4. KPI STATS DASHBOARD (.evidence-stats-bar & .kpi-grid)
+         ============================================================================ -->
+    <section class="evidence-stats-bar" aria-label="Statistici Cheie Service">
+      <div class="kpi-grid">
+        <!-- KPI 1: Total Lucrări -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Total Lucrări</span>
+            <div class="kpi-icon-wrap" style="color: var(--accent-primary);">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-val" id="kpiTotalJobs">0</div>
+          <div class="kpi-trend trend-neutral">
+            <span>Intervenții înregistrate</span>
+          </div>
+        </div>
+
+        <!-- KPI 2: Finalizate / Completed -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Finalizate &amp; Predate</span>
+            <div class="kpi-icon-wrap" style="color: var(--temp-cool);">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-val" id="kpiCompletedJobs" style="color: var(--temp-cool);">0</div>
+          <div class="kpi-trend trend-positive" id="kpiCompletedRate">
+            <span>100% rată succes</span>
+          </div>
+        </div>
+
+        <!-- KPI 3: Venituri Generate (RON) -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Venituri Generate</span>
+            <div class="kpi-icon-wrap" style="color: var(--combo-accent);">
+              <svg viewBox="0 0 24 24">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-val" id="kpiTotalRevenue">0 RON</div>
+          <div class="kpi-trend trend-neutral">
+            <span>Încasări totale service</span>
+          </div>
+        </div>
+
+        <!-- KPI 4: Reducere Medie Temperatură -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Reducere Medie Temp.</span>
+            <div class="kpi-icon-wrap" style="color: var(--temp-hot);">
+              <svg viewBox="0 0 24 24">
+                <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-val" id="kpiAvgThermalDrop" style="color: var(--temp-cool);">-0.0 °C</div>
+          <div class="kpi-trend trend-positive">
+            <span>Eficiență termică dovedită</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         5. SEARCH & FILTER TOOLBAR (.evidence-toolbar)
+         ============================================================================ -->
+    <section class="evidence-toolbar" aria-label="Bara de Căutare și Filtrare">
+      <div class="evidence-toolbar-left">
+        <!-- Search Input -->
+        <div class="evidence-search-wrap">
+          <svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" id="evidenceSearchInput" class="evidence-search-input" placeholder="Caută client, telefon, model dispozitiv, note..." autocomplete="off">
+        </div>
+
+        <!-- Category Dropdown Filter -->
+        <select id="evidenceCategoryFilter" class="evidence-select" aria-label="Filtru Categorie">
+          <option value="all">Toate Categoriile</option>
+          <option value="Hardware">Hardware</option>
+          <option value="Software">Software</option>
+          <option value="Combo">Pachet Combo</option>
+        </select>
+
+        <!-- Status Dropdown Filter -->
+        <select id="evidenceStatusFilter" class="evidence-select" aria-label="Filtru Status">
+          <option value="all">Toate Statusurile</option>
+          <option value="Delivered">Predat / Delivered</option>
+          <option value="Completed">Finalizat / Completed</option>
+          <option value="In Progress">În Lucru / In Progress</option>
+        </select>
+      </div>
+
+      <div class="evidence-toolbar-right">
+        <!-- Add New Job Button -->
+        <button type="button" id="btnAddNewJob" class="btn-add-record">
+          <svg viewBox="0 0 24 24">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>+ Adaugă Intervenție Nouă</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         6. PROFESSIONAL DATA TABLE (.evidence-table-container)
+         ============================================================================ -->
+    <section class="evidence-table-container" aria-label="Tabelul Intervențiilor Tehnice">
+      <table class="evidence-table" id="evidenceTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Data</th>
+            <th>Client &amp; Telefon</th>
+            <th>Model Dispozitiv</th>
+            <th>Categorie</th>
+            <th>Operațiuni Efectuate</th>
+            <th>Temp. Înainte / După</th>
+            <th>Preț</th>
+            <th>Status</th>
+            <th style="text-align: right;">Acțiuni</th>
+          </tr>
+        </thead>
+        <tbody id="evidenceTableBody">
+          <!-- Dynamically populated by evidence.js -->
+        </tbody>
+      </table>
+
+      <!-- Empty State -->
+      <div id="evidenceEmptyState" class="evidence-empty-state" style="display: none;">
+        <div class="empty-state-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+        <div class="empty-state-title">Nicio intervenție găsită</div>
+        <p class="empty-state-desc">Nu a fost găsită nicio înregistrare conform filtrelor de căutare selectate.</p>
+        <button type="button" id="btnResetFilters" class="btn-export" style="margin-top: var(--space-2);">
+          Resetează Filtrele
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================================
+       7. SITE FOOTER
+       ============================================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <a href="index.html" class="brand-logo">
+          <span class="brand-mark"><img src="assets/images/me.jpg" alt="Dragoș Tecuci" class="brand-avatar-img"></span>
+          <span class="brand-name">Dragoș Tecuci</span>
+        </a>
+        <div class="footer-links">
+          <a href="services.html" class="footer-link">Servicii IT Cluj</a>
+          <a href="index.html#about" class="footer-link">Despre</a>
+          <a href="index.html#projects" class="footer-link">Proiecte</a>
+          <a href="blog.html" class="footer-link">Blog</a>
+          <a href="resume.html" class="footer-link">Mini-CV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Dragoș Tecuci. Private Evidence Registry &bull; Cluj-Napoca, România.
+        </div>
+        <div class="flex items-center gap-4">
+          <button type="button" id="btnRestoreSeedData" class="footer-link" style="background:none; border:none; padding:0; cursor:pointer;" title="Reîncarcă cele 5 înregistrări inițiale din fișierul seed">
+            Reinițializează Date Seed
+          </button>
+          <a href="services.html" class="footer-link">Portal Servicii Publice</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================================
+       8. MODAL: ADAUGĂ / EDITEAZĂ INTERVENȚIE (.evidence-modal-backdrop)
+       ============================================================================ -->
+  <div id="jobModalBackdrop" class="evidence-modal-backdrop" aria-modal="true" role="dialog" aria-labelledby="jobModalTitle">
+    <div class="evidence-modal">
+      <div class="evidence-modal-header">
+        <h3 id="jobModalTitle" class="evidence-modal-title">Adaugă Intervenție Nouă</h3>
+        <button type="button" class="modal-close-btn" id="btnCloseJobModal" aria-label="Închide fereastra">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="evidence-modal-body">
+        <form id="jobForm">
+          <input type="hidden" id="formJobId" name="id">
+
+          <div class="evidence-form-grid">
+            <!-- Client Name -->
+            <div class="form-group">
+              <label for="formClientName" class="form-label">Nume Client *</label>
+              <input type="text" id="formClientName" class="form-input" placeholder="ex: Mihai Popescu" required>
+            </div>
+
+            <!-- Client Phone -->
+            <div class="form-group">
+              <label for="formClientPhone" class="form-label">Telefon Client *</label>
+              <input type="tel" id="formClientPhone" class="form-input" placeholder="ex: +40 742 123 456" required>
+            </div>
+
+            <!-- Device Model -->
+            <div class="form-group">
+              <label for="formDeviceModel" class="form-label">Model Dispozitiv *</label>
+              <input type="text" id="formDeviceModel" class="form-input" placeholder="ex: Lenovo Legion Y540-15IRH" required>
+            </div>
+
+            <!-- Category -->
+            <div class="form-group">
+              <label for="formCategory" class="form-label">Categorie Intervenție *</label>
+              <select id="formCategory" class="form-select-ctrl" required>
+                <option value="Combo">Combo (Hardware + Software)</option>
+                <option value="Hardware">Hardware (Curățare / Pastă / Piese)</option>
+                <option value="Software">Software (OS / Optimizare / Date)</option>
+              </select>
+            </div>
+
+            <!-- Date -->
+            <div class="form-group">
+              <label for="formDate" class="form-label">Data Intervenției *</label>
+              <input type="date" id="formDate" class="form-input" required>
+            </div>
+
+            <!-- Status -->
+            <div class="form-group">
+              <label for="formStatus" class="form-label">Status *</label>
+              <select id="formStatus" class="form-select-ctrl" required>
+                <option value="Delivered">Predat / Delivered</option>
+                <option value="Completed">Finalizat / Completed</option>
+                <option value="In Progress">În Lucru / In Progress</option>
+              </select>
+            </div>
+
+            <!-- Price (RON) -->
+            <div class="form-group">
+              <label for="formPrice" class="form-label">Preț (RON) *</label>
+              <input type="number" id="formPrice" class="form-input" min="0" step="5" placeholder="ex: 220" required>
+            </div>
+
+            <!-- Temperatures in 2 columns -->
+            <div class="form-group">
+              <label for="formTempBefore" class="form-label">Temp. Înainte (°C)</label>
+              <input type="number" id="formTempBefore" class="form-input" min="0" max="120" placeholder="ex: 95">
+              <span class="form-helper">Temperatură maximă înregistrată la recepție</span>
+            </div>
+
+            <div class="form-group">
+              <label for="formTempAfter" class="form-label">Temp. După (°C)</label>
+              <input type="number" id="formTempAfter" class="form-input" min="0" max="120" placeholder="ex: 69">
+              <span class="form-helper">Temperatură obținută după service</span>
+            </div>
+
+            <!-- Issues Reported -->
+            <div class="form-group form-group-full">
+              <label for="formIssuesReported" class="form-label">Defecțiuni &amp; Simptome Reclamate *</label>
+              <textarea id="formIssuesReported" class="form-textarea" placeholder="Descrieți simptomele raportate de client (supraîncălzire, throttling, zgomot, erori OS)..." required></textarea>
+            </div>
+
+            <!-- Actions Taken -->
+            <div class="form-group form-group-full">
+              <label for="formActionsTaken" class="form-label">Operațiuni Efectuate &amp; Soluții Tehnice *</label>
+              <textarea id="formActionsTaken" class="form-textarea" placeholder="Descrieți intervenția pas cu pas (dezasamblare, pastă termică, decolmatare, reinstalare, teste stabilitate)..." required></textarea>
+            </div>
+
+            <!-- Notes -->
+            <div class="form-group form-group-full">
+              <label for="formNotes" class="form-label">Note Suplimentare, Locație Predare &amp; Garanție</label>
+              <textarea id="formNotes" class="form-textarea" placeholder="ex: Predat clientului în cartierul Mănăștur. Test Cinebench efectuat live. Garanție 30 zile inclusă."></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="evidence-modal-footer">
+        <button type="button" class="btn-export" id="btnCancelJobForm">Anulează</button>
+        <button type="button" class="btn-add-record" id="btnSaveJobForm">Salvează Intervenția</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================================
+       9. MODAL: DETALII INTERVENȚIE & PRINT RECEIPT
+       ============================================================================ -->
+  <div id="detailsModalBackdrop" class="evidence-modal-backdrop" aria-modal="true" role="dialog" aria-labelledby="detailsModalTitle">
+    <div class="evidence-modal" style="max-width: 740px;">
+      <div class="evidence-modal-header">
+        <h3 id="detailsModalTitle" class="evidence-modal-title">Fișă Intervenție Tehnică</h3>
+        <button type="button" class="modal-close-btn" id="btnCloseDetailsModal" aria-label="Închide fereastra">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="evidence-modal-body" id="detailsModalBody">
+        <!-- Rendered dynamically by evidence.js -->
+      </div>
+
+      <div class="evidence-modal-footer">
+        <button type="button" class="btn-export" id="btnCloseDetailsBottom">Închide</button>
+        <button type="button" class="btn-export" id="btnEditFromDetails" style="color: var(--accent-amber);">
+          <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+          </svg>
+          <span>Editează</span>
+        </button>
+        <button type="button" class="btn-add-record" id="btnPrintReceiptAction">
+          <svg viewBox="0 0 24 24">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>Printează Fișă Service / Print Receipt</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================================
+       10. MODAL: SCHIMBĂ CODUL PIN
+       ============================================================================ -->
+  <div id="changePinModalBackdrop" class="evidence-modal-backdrop" aria-modal="true" role="dialog" aria-labelledby="changePinModalTitle">
+    <div class="evidence-modal" style="max-width: 440px;">
+      <div class="evidence-modal-header">
+        <h3 id="changePinModalTitle" class="evidence-modal-title">Schimbare Cod PIN</h3>
+        <button type="button" class="modal-close-btn" id="btnCloseChangePinModal" aria-label="Închide fereastra">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="evidence-modal-body">
+        <form id="changePinForm">
+          <div class="form-group" style="margin-bottom: var(--space-4);">
+            <label for="currentPinInput" class="form-label">PIN Curent *</label>
+            <input type="password" id="currentPinInput" class="form-input" maxlength="4" inputmode="numeric" placeholder="4 cifre" required autocomplete="off">
+          </div>
+
+          <div class="form-group" style="margin-bottom: var(--space-4);">
+            <label for="newPinInput" class="form-label">PIN Nou (4 cifre) *</label>
+            <input type="password" id="newPinInput" class="form-input" maxlength="4" inputmode="numeric" placeholder="4 cifre" required autocomplete="off">
+          </div>
+
+          <div class="form-group" style="margin-bottom: var(--space-4);">
+            <label for="confirmPinInput" class="form-label">Confirmare PIN Nou *</label>
+            <input type="password" id="confirmPinInput" class="form-input" maxlength="4" inputmode="numeric" placeholder="repetați cele 4 cifre" required autocomplete="off">
+          </div>
+
+          <div id="changePinErrorMessage" class="pin-error-message" role="alert"></div>
+        </form>
+      </div>
+
+      <div class="evidence-modal-footer">
+        <button type="button" class="btn-export" id="btnCancelChangePin">Anulează</button>
+        <button type="button" class="btn-add-record" id="btnSaveNewPin">Actualizează PIN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================================
+       11. PRINTABLE JOB SHEET CONTAINER (@media print)
+       ============================================================================ -->
+  <div id="printableJobSheet" class="printable-job-sheet">
+    <!-- Populated dynamically by evidence.js before window.print() -->
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="evidenceToastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Evidence Core Standalone Script -->
+  <script src="assets/js/evidence.js"></script>
+</body>
+</html>

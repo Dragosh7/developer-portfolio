@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Technical blog and engineering essays by Dragoș Tecuci — Exploring modern test automation (Selenium, Playwright, Cypress), fullstack Java microservices, and entrepreneurship economics.">
+  <meta name="author" content="Dragoș Tecuci">
+
+  <title>Blog &amp; Engineering Writing — Dragoș Tecuci</title>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Production Design System Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Reading Progress Bar (Active when reading an article) -->
+  <div class="reading-progress-container" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
+
+  <!-- ============================================================================
+       STICKY NAVBAR
+       ============================================================================ -->
+  <header class="site-navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="Dragoș Tecuci Home">
+        <span class="brand-mark"><img src="assets/images/me.jpg" alt="Dragoș Tecuci" class="brand-avatar-img"></span>
+        <span class="brand-name">Dragoș Tecuci</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <a href="index.html#about" class="nav-link" data-i18n="nav.about">Despre mine</a>
+        <a href="index.html#experience" class="nav-link" data-i18n="nav.experience">Experiență</a>
+        <a href="index.html#projects" class="nav-link" data-i18n="nav.projects">Proiecte</a>
+        <a href="index.html#skills" class="nav-link" data-i18n="nav.skills">Abilități</a>
+        <a href="services.html" class="nav-link" data-i18n="nav.services" style="color: var(--accent-secondary); font-weight: 600;">🛠️ Servicii Cluj</a>
+        <a href="evidence.html" class="nav-link" data-i18n="nav.evidence">Evidență 🔒</a>
+        <a href="blog.html" class="nav-link active" data-i18n="nav.blog">Blog</a>
+        <a href="resume.html" class="nav-link" data-i18n="nav.resume">Mini-CV</a>
+      </nav>
+
+      <!-- Action Group: Language Toggle, Theme Toggle & Mobile Menu Trigger -->
+      <div class="nav-actions">
+        <!-- Language Switcher Pill -->
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn active" data-lang="ro">RO</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <button class="theme-toggle-btn" type="button" aria-label="Toggle light or dark theme" title="Toggle color theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <button class="mobile-toggle-btn" type="button" aria-label="Open mobile navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div style="padding: var(--space-4); border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between;">
+      <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); font-weight: 700;">Limbă / Language</span>
+      <div class="lang-toggle" role="group" aria-label="Language selection mobile">
+        <button type="button" class="lang-btn active" data-lang="ro">RO</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+    <a href="index.html#about" class="nav-link" data-i18n="nav.about">Despre mine</a>
+    <a href="index.html#experience" class="nav-link" data-i18n="nav.experience">Experiență</a>
+    <a href="index.html#projects" class="nav-link" data-i18n="nav.projects">Proiecte</a>
+    <a href="index.html#skills" class="nav-link" data-i18n="nav.skills">Abilități</a>
+    <a href="services.html" class="nav-link" data-i18n="nav.services" style="color: var(--accent-secondary); font-weight: 600;">🛠️ Servicii Cluj</a>
+    <a href="evidence.html" class="nav-link" data-i18n="nav.evidence">Evidență Lucrări 🔒</a>
+    <a href="blog.html" class="nav-link active" data-i18n="nav.blog">Blog</a>
+    <a href="resume.html" class="nav-link" data-i18n="nav.resume">Mini-CV / Resume</a>
+    <a href="index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+  </aside>
+
+  <main id="main-content">
+    <div class="container section">
+
+      <!-- ========================================================================
+           VIEW 1: ARTICLES LIST PORTAL (Shown when no ?post=... is selected)
+           ======================================================================== -->
+      <div id="articles-list-container">
+        <div class="section-header">
+          <span class="section-eyebrow" data-i18n="blog.eyebrow">Perspective &amp; Articole Inginerești</span>
+          <h1 class="section-title" data-i18n="blog.header_title">The Engineering &amp; Venture Blog</h1>
+          <p class="section-description" data-i18n="blog.header_desc">
+            Essays on architectural shift-left quality, multi-framework test automation (Selenium, Playwright, Cypress), 
+            and bridging technical systems with entrepreneurial unit economics.
+          </p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="search" 
+            class="search-input" 
+            id="blog-search-input" 
+            placeholder="Search articles by title, topic, or keyword..." 
+            data-i18n-attr="placeholder:blog.search_placeholder"
+            aria-label="Search articles"
+          >
+        </div>
+
+        <!-- Tag Filter Pills -->
+        <div class="filter-bar" id="blog-tags-filter">
+          <button class="filter-btn active" data-tag="all" type="button"><span class="filter-label" data-i18n="blog.filter_all">All Topics</span></button>
+          <button class="filter-btn" data-tag="qa automation" type="button"><span class="filter-label">QA Automation</span></button>
+          <button class="filter-btn" data-tag="entrepreneurship" type="button"><span class="filter-label">Entrepreneurship</span></button>
+          <button class="filter-btn" data-tag="playwright" type="button"><span class="filter-label">Playwright &amp; Cypress</span></button>
+          <button class="filter-btn" data-tag="unit economics" type="button"><span class="filter-label">Unit Economics</span></button>
+          <button class="filter-btn" data-tag="software engineering" type="button"><span class="filter-label">Software Engineering</span></button>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="blog-grid" id="blog-cards-grid">
+          <!-- Article 1 -->
+          <article class="blog-card" data-tags="software engineering qa automation java playwright cypress selenium devops testing strategy">
+            <div class="blog-meta">
+              <span class="blog-date">2026-08-15</span>
+              <span class="blog-read-time">5 min read</span>
+            </div>
+            <h2 class="blog-title">
+              <a href="blog.html?post=bridging-engineering-and-quality">Bridging Software Engineering and Quality: Why Developers Should Think Like QA Engineers</a>
+            </h2>
+            <p class="blog-excerpt">
+              An in-depth exploration of how hands-on test automation across Selenium, Playwright, and Cypress transforms developer perspective, accelerates delivery, and creates bulletproof software architectures.
+            </p>
+            <div class="tag-list" style="margin-bottom: var(--space-4);">
+              <span class="tag">Software Engineering</span>
+              <span class="tag">QA Automation</span>
+              <span class="tag">Playwright</span>
+              <span class="tag">Cypress</span>
+              <span class="tag">Selenium</span>
+              <span class="tag">Java</span>
+            </div>
+            <div class="blog-footer">
+              <span class="text-muted text-mono" style="font-size: var(--font-size-xs);">By Dragoș Tecuci</span>
+              <a href="blog.html?post=bridging-engineering-and-quality" class="blog-read-more">
+                <span>Read Full Essay</span>
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card" data-tags="entrepreneurship software architecture financial modeling unit economics utcn engineering leadership">
+            <div class="blog-meta">
+              <span class="blog-date">2026-09-02</span>
+              <span class="blog-read-time">6 min read</span>
+            </div>
+            <h2 class="blog-title">
+              <a href="blog.html?post=tech-to-entrepreneurship-lessons">From Code to Capital: What My UTCN Entrepreneurship Master's Taught Me About Engineering</a>
+            </h2>
+            <p class="blog-excerpt">
+              Reflections from a software engineer pursuing a Master's in Entrepreneurship at the Technical University of Cluj-Napoca (UTCN). Why understanding financial modeling, cost planning, and unit economics fundamentally transforms how we design software systems.
+            </p>
+            <div class="tag-list" style="margin-bottom: var(--space-4);">
+              <span class="tag">Entrepreneurship</span>
+              <span class="tag">Unit Economics</span>
+              <span class="tag">Financial Modeling</span>
+              <span class="tag">UTCN</span>
+              <span class="tag">Leadership</span>
+            </div>
+            <div class="blog-footer">
+              <span class="text-muted text-mono" style="font-size: var(--font-size-xs);">By Dragoș Tecuci</span>
+              <a href="blog.html?post=tech-to-entrepreneurship-lessons" class="blog-read-more">
+                <span>Read Full Essay</span>
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- No search results state -->
+        <div id="no-articles-message" style="display: none; text-align: center; padding: var(--space-16) 0;">
+          <h3 style="color: var(--text-primary); margin-bottom: var(--space-2);">No matching articles found</h3>
+          <p class="text-secondary">Try adjusting your search query or selecting "All Topics".</p>
+        </div>
+      </div>
+
+      <!-- ========================================================================
+           VIEW 2: ARTICLE READER VIEW (Active when reading an article via ?post=...)
+           ======================================================================== -->
+      <div id="article-reader-container" style="display: none;">
+        <div id="article-reader-content">
+          <!-- Content dynamically rendered via parseMarkdown() in app.js -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ============================================================================
+       SITE FOOTER
+       ============================================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <a href="index.html" class="brand-logo">
+          <span class="brand-mark"><img src="assets/images/me.jpg" alt="Dragoș Tecuci" class="brand-avatar-img"></span>
+          <span class="brand-name">Dragoș Tecuci</span>
+        </a>
+        <div class="footer-links">
+          <a href="index.html#about" class="footer-link" data-i18n="nav.about">Despre mine</a>
+          <a href="index.html#experience" class="footer-link" data-i18n="nav.experience">Experiență</a>
+          <a href="index.html#projects" class="footer-link" data-i18n="nav.projects">Proiecte</a>
+          <a href="index.html#skills" class="footer-link" data-i18n="nav.skills">Abilități</a>
+          <a href="services.html" class="footer-link" data-i18n="nav.services">🛠️ Servicii Cluj</a>
+          <a href="blog.html" class="footer-link" data-i18n="nav.blog">Blog</a>
+          <a href="resume.html" class="footer-link" data-i18n="nav.resume">Mini-CV</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer.copy">
+          &copy; 2026 Dragoș Tecuci. Creat cu atenție în Cluj-Napoca, România.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://www.linkedin.com/in/tecuci-dragos" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/Dragosh7" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <button type="button" class="footer-link" data-copy-text="tecuci.dragos@example.com" data-copy-message="Email copied to clipboard!" style="background: none; border: none; cursor: pointer; padding: 0;">Email</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Production Script -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

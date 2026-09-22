@@ -1,0 +1,32 @@
+{
+  "name": "Dragoș Tecuci",
+  "title": "Software Engineer & QA Specialist",
+  "location": "Cluj-Napoca, Romania",
+  "email": "tecuci.dragos@example.com",
+  "github": "https://github.com/Dragosh7",
+  "linkedin": "https://www.linkedin.com/in/tecuci-dragos",
+  "avatarUrl": "assets/images/me.jpg",
+  "tagline": "Making coding look easy, with coffee",
+  "bio": "Software engineer and QA specialist based in Cluj-Napoca, pursuing a Master's in Entrepreneurship at UTCN. I build dependable backend systems, craft thorough automated test suites, and provide meticulous PC/laptop hardware and thermal maintenance.",
+  "about": {
+    "summary": "Hi, I'm Dragoș! I'm a software engineer and QA specialist based in Cluj-Napoca, currently completing my Master's degree in Entrepreneurship at the Technical University of Cluj-Napoca (UTCN). I love building software that is reliable by design—from concurrent Java microservices and resilient Cypress/Selenium test harnesses to native C++ hardware benchmarking utilities. Alongside software development, I offer hands-on hardware thermal maintenance and system optimization across Cluj, making sure devices stay whisper-quiet and operate at peak performance.",
+    "highlights": [
+      "Backend & fullstack engineering with Java, Spring Boot, and multithreaded concurrent task queues.",
+      "Comprehensive QA automation expertise across Cypress (TypeScript API intercepts) and Selenium (Java E2E testing).",
+      "Native systems programming and benchmarking in C++, analyzing real-time CPU throttling, memory latency, and SSD I/O.",
+      "Master's in Entrepreneurship at UTCN (2025–2027), uniting clean engineering practices with product strategy and transparent client service."
+    ],
+    "interests": [
+      "Distributed Systems & Concurrency (Java / Spring)",
+      "Automated Testing & API Interception (Cypress, Selenium)",
+      "Hardware Performance & Thermal Telemetry",
+      "Product Strategy & Tech Entrepreneurship"
+    ]
+  },
+  "contact": {
+    "location": "Cluj-Napoca, Romania",
+    "email": "tecuci.dragos@example.com",
+    "linkedin": "https://www.linkedin.com/in/tecuci-dragos",
+    "github": "https://github.com/Dragosh7"
+  }
+}

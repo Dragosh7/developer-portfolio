@@ -1,0 +1,739 @@
+{
+  "provider": {
+    "name": "Dragoș Tecuci",
+    "role": "Software Engineer & Hardware/Systems Specialist",
+    "tagline": "Making coding look easy, with coffee",
+    "github": "https://github.com/Dragosh7",
+    "linkedin": "https://www.linkedin.com/in/tecuci-dragos",
+    "phone": "+40 700 000 000",
+    "phonePlaceholderNote": "[TODO: Customize phone]",
+    "whatsappUrl": "https://wa.me/40700000000",
+    "whatsappPlaceholderNote": "[TODO: Customize WhatsApp]",
+    "email": "tecuci.dragos@example.com",
+    "emailPlaceholderNote": "[TODO: Customize email]",
+    "location": "Cluj-Napoca, Romania",
+    "neighborhoods": [
+      "Mănăștur",
+      "Mărăști",
+      "Zorilor",
+      "Centru",
+      "Gheorgheni"
+    ],
+    "pickupDropoffNote": "Predare personală sau preluare/predare flexibilă în cartierele principale din Cluj-Napoca.",
+    "pickupDropoffNoteEn": "Flexible personal drop-off or pickup/delivery across major Cluj-Napoca neighborhoods."
+  },
+  "ro": {
+    "meta": {
+      "title": "Servicii Software & Mentenanță Hardware PC / Laptop | Dragoș Tecuci Cluj-Napoca",
+      "subtitle": "Mentenanță termică riguroasă, pastă termică de înaltă performanță, instalare Windows optimizat și upgrade-uri hardware rapide în Cluj-Napoca.",
+      "badge": "Cluj-Napoca & Împrejurimi",
+      "rating": "5.0 ★★★★★ (Garanție la Predare)",
+      "location": "Cluj-Napoca (Mănăștur, Mărăști, Zorilor, Centru, Gheorgheni)"
+    },
+    "hero": {
+      "headline": "Performanță Maximă și Răcire Fără Compromis Pentru PC-ul Sau Laptopul Tău",
+      "subheadline": "Servicii software rapide și mentenanță hardware meticuloasă realizate de un inginer software. Testăm temperaturile la fața locului, la predare, pentru ca tu să vezi exact diferența înainte să plătești.",
+      "ctaPrimary": "Solicită Programare",
+      "ctaSecondary": "Vezi Servicii & Prețuri",
+      "ctaGallery": "Galerie Lucrări",
+      "whatsappCta": "Scrie-mi pe WhatsApp",
+      "phoneCta": "Apelează Acum"
+    },
+    "originalAnnouncements": {
+      "softwareAnnouncement": {
+        "title": "Anunț Servicii Software Rapide & Optimizare",
+        "content": "Te ajut cu servicii software rapide, realizate cu atenție și profesionalism, ca tu să te poți baza pe dispozitivul tău la capacitate maximă.\n\nServicii oferite:\n- Instalare / Reinstalare Windows (10 sau 11): Include formatare corectă, instalarea tuturor driverelor necesare și optimizarea sistemului pentru viteză.\n- Pachet Programe de Bază: Microsoft Office (Word, Excel, PowerPoint), playere video/audio, arhivatoare, browsere și antivirus.\n- Instalări software la cerere: Programe specifice pentru școală, editare sau design, plus diagnosticare și devirusare.\n\nGaranția calității: Predau echipamentul doar după ce îl testez complet. Suplimentar, beneficiezi de asistență tehnică gratuită după instalare, pentru a mă asigura că te bucuri de performanța maximă a noului tău sistem, fără nicio grijă.\n\nLucrez ordonat, rapid și îmi respect întotdeauna clienții. Salvează-ți datele importante înainte, sau te pot ajuta eu cu backup-ul! Pentru detalii și prețuri, lasă-mi un mesaj aici sau sună-mă."
+      },
+      "hardwareAnnouncement": {
+        "title": "Anunț Mentenanță Hardware & Termică",
+        "content": "Ofer servicii de mentenanță hardware cu maximă grijă pentru dispozitivul tău, folosind materiale premium pentru a-i prelungi durata de viață.\n\nCum te pot ajuta:\n- Curățare completă de praf: Demontare atentă, curățarea ventilatorului, a radiatoarelor și a plăcii de bază.\n- Înlocuire pastă termică: Folosesc pastă termică de înaltă performanță pentru o răcire optimă a procesorului și a plăcii video.\n- Upgrade-uri hardware: Asistență și montaj pentru SSD-uri sau memorie RAM suplimentară, dacă dorești ca laptopul/PC-ul tău să ruleze mult mai rapid.\n\nGaranția intervenției: Folosesc unelte adecvate și garantez o asamblare impecabilă. Facem testul de temperatură la fața locului, la predare, ca să vezi exact diferența înainte să plătești."
+      }
+    },
+    "softwareServices": [
+      {
+        "id": "win-install",
+        "title": "Instalare / Reinstalare Windows (10 sau 11)",
+        "shortDescription": "Formatare corectă, partiționare GPT/UEFI, instalare curată de la zero, toate driverele oficiale și optimizare completă pentru viteză.",
+        "duration": "2 - 3 ore",
+        "priceRange": "120 - 150 RON",
+        "features": [
+          "Formatare curată și structurare sigură a partițiilor (GPT / UEFI)",
+          "Instalare pachet complet de drivere oficiale (Chipset, GPU, Audio, Wi-Fi, Bluetooth)",
+          "Optimizare sistem de operare: dezactivare telemetrie, bloatware și servicii inutile de fundal",
+          "Optimizare setări de pornire (Startup) pentru timpi de boot ultra-rapizi",
+          "Actualizare securitate Windows Update la zi"
+        ],
+        "guarantee": "Testare completă de stabilitate înainte de predare + asistență tehnică gratuită post-instalare."
+      },
+      {
+        "id": "office-utility-pack",
+        "title": "Pachet Programe de Bază & Utilitare Esențiale",
+        "shortDescription": "Configurarea completă a aplicațiilor zilnice de birou, multimedia, navigare securizată și protecție antivirus.",
+        "duration": "1 - 2 ore",
+        "priceRange": "60 - 80 RON (40 RON în combinație cu reinstalarea Windows)",
+        "features": [
+          "Microsoft Office complet (Word, Excel, PowerPoint, Outlook) pregătit de lucru",
+          "Playere video/audio dedicate cu codecuri complete (VLC Media Player)",
+          "Utilitare de compresie și arhivare de înaltă viteză (7-Zip, WinRAR)",
+          "Browsere web rapide configurate cu extensii sigure anti-reclamă (Chrome, Brave, Firefox, Edge)",
+          "Soluție antivirus activă, firewall configurat și cititor PDF performant"
+        ],
+        "guarantee": "Fără programe ascunse, reclame sau extensii nedorite. Sistem curat și pregătit pentru utilizare imediată."
+      },
+      {
+        "id": "custom-software",
+        "title": "Instalări Software la Cerere & Programe Specializate",
+        "shortDescription": "Instalare și configurare de programe specifice pentru școală, facultate, programare, editare grafică, audio sau modelare 3D.",
+        "duration": "1 - 2 ore",
+        "priceRange": "50 - 100 RON (în funcție de volumul și specificul programelor)",
+        "features": [
+          "Programe educaționale și platforme universitare (Teams, Zoom, unelte de calcul/statistică)",
+          "Suite de creație și design grafic / editare foto & video",
+          "Medii de dezvoltare software și unelte de inginerie (IDE-uri, Git, Docker, Python/Java)",
+          "Configurare corectă a dependențelor de sistem (DirectX, Visual C++ Redistributables, .NET Runtime)"
+        ],
+        "guarantee": "Verificarea lansării și a compatibilității hardware pentru fiecare program instalat."
+      },
+      {
+        "id": "diagnostic-virus-removal",
+        "title": "Diagnosticare Sistem & Devirusare Profesională",
+        "shortDescription": "Scanare avansată și eliminare malware, spyware, mineri ascunși și recuperarea stabilității sistemului de operare.",
+        "duration": "2 - 3 ore",
+        "priceRange": "80 - 120 RON",
+        "features": [
+          "Scanare profundă la nivel de fișiere, memorie și regiștri Windows",
+          "Eliminare infecții troian, ransomware, adware intruziv și scripturi de minerit crypto",
+          "Reparare integritate fișiere sistem Windows (SFC / DISM repair)",
+          "Curățare regiștri deteriorați și eliminare extensii malițioase din browsere"
+        ],
+        "guarantee": "Curățare fără pierderea documentelor personale și recomandări personalizate pentru prevenție."
+      },
+      {
+        "id": "backup-data-migration",
+        "title": "Salvare & Migrare Date (Backup Profesional)",
+        "shortDescription": "Copiere de siguranță a documentelor, pozelor, parolelor și setărilor importante înainte de orice intervenție majoră.",
+        "duration": "1 - 3 ore (în funcție de volumul de date)",
+        "priceRange": "70 - 120 RON",
+        "features": [
+          "Backup selectiv complet: Desktop, Documente, Poze, Proiecte, Marcaje (Bookmarks) browser",
+          "Migrare sigură a datelor de pe HDD/SSD vechi pe medii externe sau pe noul drive de stocare",
+          "Verificare de integritate bit-cu-bit (checksum) pentru a preveni fișiere corupte",
+          "Restaurare structurată a folderelor pe noul sistem de operare"
+        ],
+        "guarantee": "Confidențialitate absolută a datelor. Datele tale personale nu sunt niciodată deschise, inspectate sau copiate în afara procedurii cerute."
+      }
+    ],
+    "hardwareServices": [
+      {
+        "id": "dust-cleaning",
+        "title": "Curățare Completă de Praf & Mentenanță Sistem Răcire",
+        "shortDescription": "Demontare atentă, îndepărtarea scamelor și prafului dens din radiatoare, palele ventilatoarelor și circuitele plăcii de bază.",
+        "duration": "1 - 2 ore",
+        "priceRange": "80 - 100 RON",
+        "features": [
+          "Dezasamblare meticuloasă folosind unelte specializate de precizie și brățară antistatică ESD",
+          "Curățare minuțioasă a turbinelor ventilatoarelor și degresare ax ventilator când este necesar",
+          "Desfundare canale de aerisire din radiatoarele din cupru/aluminiu prin suflare controlată cu aer uscat",
+          "Curățare fante de admisie aer de pe carcasa inferioară și filtrele antipraf"
+        ],
+        "guarantee": "Restabilirea fluxului optim de aer și reducerea imediată a turației agresive a ventilatoarelor."
+      },
+      {
+        "id": "thermal-paste-replacement",
+        "title": "Înlocuire Pastă Termică de Înaltă Performanță",
+        "shortDescription": "Curățare chimică a pastei vechi uscate și aplicare pastă termică premium (Arctic MX-4, Arctic MX-6 sau Noctua NT-H1) pe CPU și GPU.",
+        "duration": "1 - 2 ore",
+        "priceRange": "100 - 140 RON (Laptop) / 90 - 120 RON (Desktop PC)",
+        "features": [
+          "Îndepărtarea compusului termic vechi/întărit folosind alcool izopropilic de puritate 99.9% de grad electronic",
+          "Aplicare pastă termică de vârf: Arctic MX-4, Arctic MX-6 sau Noctua NT-H1 cu conductivitate termică excelentă",
+          "Verificare și repoziționare thermal pads pentru VRM și cipurile de memorie VRAM",
+          "Strângere uniformă în cruce a șuruburilor heatsink pentru presiune de contact optimă pe die-ul procesorului"
+        ],
+        "guarantee": "Garanția scăderii temperaturii: diferență de 15°C - 30°C în sarcină susținută și eliminarea thermal throttling-ului."
+      },
+      {
+        "id": "hardware-upgrades",
+        "title": "Upgrade-uri Hardware (SSD & Memorie RAM)",
+        "shortDescription": "Consultanță pentru alegerea componentelor potrivite, asistență la achiziție și montaj profesional pentru o viteză de lucru multiplicată.",
+        "duration": "1 - 2 ore",
+        "priceRange": "60 - 90 RON (Manoperă montaj / clonare)",
+        "features": [
+          "Consultanță tehnică compatibilitate hardware (NVMe M.2, SATA III, DDR4, DDR5)",
+          "Montaj atent al modulului SSD sau memoriei RAM fără forțare conectori sau cleme",
+          "Clonare completă disc vechi pe noul SSD (pornire identică a sistemului) sau instalare nouă de la zero",
+          "Testare stabilitate memorie (MemTest86) și bench de viteză read/write SSD"
+        ],
+        "guarantee": "Sistem de 4-10x mai rapid la deschiderea aplicațiilor și a fișierelor de mari dimensiuni."
+      },
+      {
+        "id": "thermal-bench-testing",
+        "title": "Testare Termică la Predare & Benchmarking Sintetic",
+        "shortDescription": "Sesiune de stres sintetic (Cinebench, FurMark, AIDA64) realizată la fața locului în prezența ta pentru a vedea datele reale înainte de plată.",
+        "duration": "20 - 30 minute",
+        "priceRange": "Inclus gratuit în pachetele de mentenanță (40 RON ca diagnostic separat)",
+        "features": [
+          "Monitorizare senzori temperatură în timp real (Core Temp, HWiNFO64)",
+          "Test de stres pe procesor (CPU) și placă video (GPU)",
+          "Măsurare precisă înainte și după mentenanță: temperaturi minime, maxime și medii",
+          "Verificarea menținerii frecvențelor Turbo Boost fără căderi de performanță"
+        ],
+        "guarantee": "Transparență 100%. Plătești doar când vezi dovada scăderii de temperatură și a stabilității sistemului."
+      }
+    ],
+    "packages": [
+      {
+        "id": "pkg-office-refresh",
+        "name": "Pachetul Office Refresh",
+        "badge": "Recomandat Pentru Birou & Școală",
+        "idealFor": "Laptopuri de uz zilnic, lucru de acasă, navigare web, studiu și aplicații office care au început să meargă greoi.",
+        "price": "200 RON",
+        "estimatedTime": "3 - 4 ore",
+        "savings": "Economisești 50 RON față de tarifele individuale",
+        "includes": [
+          "Curățare completă de praf a ventilatorului și radiatoarelor",
+          "Înlocuire pastă termică cu Arctic MX-4 / MX-6",
+          "Instalare / Reinstalare Windows 10 sau 11 curat cu drivere oficiale",
+          "Pachet complet Microsoft Office + Programe zilnice esențiale",
+          "Optimizare de pornire și testare stabilitate la predare"
+        ]
+      },
+      {
+        "id": "pkg-thermal-pro-gamer",
+        "name": "Pachetul Thermal Pro Gamer",
+        "badge": "Cel Mai Popular Printre Gameri",
+        "idealFor": "Laptopuri de gaming (Legion, ROG, Predator, TUF, Omen) și PC-uri care ating 90°C+ și pierd cadre în jocuri.",
+        "price": "220 RON",
+        "estimatedTime": "2 - 3 ore",
+        "savings": "Economisești 60 RON + include testare Cinebench & FurMark la fața locului",
+        "includes": [
+          "Demontare completă heatsink dual-fan / triple-fan și curățare profundă lamele radiator",
+          "Curățare die CPU/GPU cu alcool izopropilic 99.9% și aplicare pastă termică premium Noctua NT-H1 sau Arctic MX-6",
+          "Verificare și împrospătare contact thermal pads pe VRAM și circuite de alimentare VRM",
+          "Test de stres termic la predare (Cinebench + FurMark) pentru verificare scădere temperatură (15°C - 30°C drop)",
+          "Profil optimizare flux de aer și sfaturi dedicate de undervolting / cooling pad"
+        ]
+      },
+      {
+        "id": "pkg-rebirth-total",
+        "name": "Pachetul Rebirth Total",
+        "badge": "Transformare Radicală a Dispozitivului",
+        "idealFor": "Dispozitive vechi de 2-5 ani cu HDD lent sau memorie puțină, care se încălzesc și se blochează frecvent.",
+        "price": "280 RON",
+        "estimatedTime": "4 - 5 ore",
+        "savings": "Economisești 80 RON + manoperă completă hardware și software inclusă",
+        "includes": [
+          "Mentenanță termică completă (curățare meticuloasă de praf + pastă termică premium)",
+          "Montaj SSD nou de mare viteză și/sau upgrade memorie RAM (componente la alegerea clientului)",
+          "Backup și migrare completă fără pierderi a datelor și pozelor vechi",
+          "Instalare de la zero Windows 11 pe noul SSD cu optimizare extremă de viteză",
+          "Configurare suită Office, utilitare esențiale și testare comparativă înainte/după"
+        ]
+      }
+    ],
+    "guarantees": [
+      {
+        "id": "on-the-spot-testing",
+        "title": "Testare la Predare",
+        "subtitle": "Vezi diferența pe loc înainte să plătești",
+        "description": "Nu te lăsăm doar cu promisiuni. La predarea echipamentului rulăm teste de stres și comparăm temperaturile înainte și după intervenție. Vezi exact scăderea de 15°C - 30°C pe ecran, în timp real."
+      },
+      {
+        "id": "free-followup-support",
+        "title": "Asistență Tehnică Gratuită",
+        "subtitle": "Suport direct după instalare",
+        "description": "După fiecare intervenție software sau hardware, beneficiezi de asistență tehnică gratuită. Dacă ai o întrebare sau vreo setare suplimentară de făcut, sunt la un mesaj distanță pentru ca tu să fii 100% liniștit."
+      },
+      {
+        "id": "premium-compounds",
+        "title": "Materiale Premium & Unelte Adecvate",
+        "subtitle": "Arctic MX-4, Arctic MX-6 și Noctua NT-H1",
+        "description": "Refuzăm compromisurile. Folosim doar paste termice recunoscute internațional pentru fiabilitate și conductivitate termică pe termen lung, alcool izopropilic pur 99.9% și unelte antistatice de precizie."
+      },
+      {
+        "id": "data-privacy-respect",
+        "title": "Respect & Confidențialitate Date 100%",
+        "subtitle": "Securitate garantată pentru fișierele tale",
+        "description": "Fișierele, fotografiile și documentele tale sunt strict confidențiale. Lucrez ordonat, etic și profesionist. Datele tale nu sunt deschise, copiate sau distribuite niciodată."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Cât durează o intervenție obișnuită de curățare și înlocuire a pastei termice?",
+        "answer": "O mentenanță hardware completă (curățare meticuloasă de praf și aplicare pastă termică de top) durează în general între 1 și 2 ore. Dacă se alege un pachet complet cu reinstalare de Windows și migrare de date, durata este de 3 până la 4 ore. Echipamentul este returnat de regulă în aceeași zi."
+      },
+      {
+        "question": "Cum procedăm cu datele mele personale? Este nevoie să fac backup înainte?",
+        "answer": "Dacă este posibil, recomandăm să îți salvezi fișierele critice pe un stick USB sau în cloud înainte de predare. Totuși, dacă sistemul tău nu mai pornește sau ai nevoie de ajutor, oferim serviciu dedicat de salvare completă și restaurare a datelor, garantând confidențialitatea 100% a tuturor fișierelor."
+      },
+      {
+        "question": "Cum funcționează testul de temperatură la predare?",
+        "answer": "La predarea echipamentului pornim împreună un program de monitorizare a senzorilor termici (HWiNFO / Core Temp) și rulăm un test sintetic de stres (Cinebench pentru procesor și FurMark pentru placa video). Comparăm valorile maxime înregistrate înainte de curățare cu cele de după, pentru a vedea clar scăderea de temperatură (deseori între 15°C și 30°C) înainte de efectuarea plății."
+      },
+      {
+        "question": "Unde se face predarea echipamentului în Cluj-Napoca?",
+        "answer": "Suntem flexibili: putem stabili întâlnirea pentru predare și preluare în cartierele principale din Cluj-Napoca (Mănăștur, Mărăști, Zorilor, Centru, Gheorgheni) sau direct la locația stabilită de comun acord. Pentru cazuri speciale, putem discuta preluarea direct de la domiciliul tău."
+      },
+      {
+        "question": "De ce este necesară schimbarea pastei termice dacă laptopul încă funcționează?",
+        "answer": "Pasta termică din fabrică se usucă și se întărește în mod natural după 12 - 24 luni de utilizare. Când pasta se usucă, transferul de căldură către radiator scade dramatic, iar procesorul intră în protecție termică (thermal throttling), reducându-și frecvența pentru a nu se arde. Schimbarea periodică a pastei previne degradarea ireversibilă a plăcii de bază și menține laptopul silențios și rapid."
+      }
+    ],
+    "galleryCategories": [
+      "Toate",
+      "Curățare Laptop",
+      "Pastă Termică",
+      "Upgrade Hardware",
+      "Configurare Windows"
+    ],
+    "galleryItems": [
+      {
+        "id": "work-1",
+        "deviceModel": "Lenovo Legion Y540-15IRH",
+        "category": "Pastă Termică",
+        "categorySlug": "thermal-paste",
+        "image": "assets/images/gallery/work-1.jpg",
+        "tempBefore": 95,
+        "tempAfter": 69,
+        "thermalDrop": 26,
+        "compoundUsed": "Arctic MX-6",
+        "title": "Mentenanță Termică Laptop Gaming Lenovo Legion",
+        "clientIssue": "Laptopul se încălzea excesiv în jocuri (atingea 95°C), ventilatoarele zgomotoase rulau continuu la turație maximă și apăreau scăderi mari de cadre (FPS drops).",
+        "solution": "Curățare profundă de praf dens a celor două ventilatoare și a radiatoarelor din cupru. Curățare chimică a pastei vechi uscate de pe CPU și GPU cu alcool izopropilic 99.9% și aplicare pastă de vârf Arctic MX-6.",
+        "result": "Temperatură redusă cu 26°C sub sarcină susținută, tastatură vizibil mai rece la atingere și zero scăderi de FPS în sesiuni intense de gaming."
+      },
+      {
+        "id": "work-2",
+        "deviceModel": "Asus ROG Strix G15 G512",
+        "category": "Curățare Laptop",
+        "categorySlug": "laptop-cleaning",
+        "image": "assets/images/gallery/work-2.jpg",
+        "tempBefore": 93,
+        "tempAfter": 68,
+        "thermalDrop": 25,
+        "compoundUsed": "Noctua NT-H1",
+        "title": "Curățare Completă Sistem Răcire Asus ROG Strix",
+        "clientIssue": "Ventilatoarele scoteau un fluierat ascuțit, iar lamelele de evacuare erau complet blocate de scame și praf presat, provocând blocarea laptopului în randări 3D.",
+        "solution": "Demontare completă a modulului de răcire, desfundare radiatoare cu jet de aer uscat controlat, recondiționare pale ventilatoare și aplicare pastă Noctua NT-H1 pe procesor și placa video dedicată.",
+        "result": "Scădere de 25°C a temperaturii maxime, dispariția zgomotului parazit și funcționare stabilă în teste de stres FurMark și Cinebench."
+      },
+      {
+        "id": "work-3",
+        "deviceModel": "Dell Latitude 5420",
+        "category": "Upgrade Hardware",
+        "categorySlug": "hardware-upgrades",
+        "image": "assets/images/gallery/work-3.jpg",
+        "tempBefore": 89,
+        "tempAfter": 62,
+        "thermalDrop": 27,
+        "compoundUsed": "Arctic MX-4",
+        "title": "Upgrade SSD NVMe, Memorie RAM 32GB & Mentenanță Dell Latitude",
+        "clientIssue": "Laptop de birou lent la pornire (peste 90 secunde), ventilator turat deranjant în apeluri video Teams/Zoom și memorie insuficientă pentru fișiere Excel mari.",
+        "solution": "Curățare carcasă slim și ventilator, aplicare pastă termică Arctic MX-4, upgrade memorie de la 8GB la 32GB DDR4 dual-channel și clonare fără pierderi pe SSD rapid NVMe M.2 1TB.",
+        "result": "Timp de bootare redus la sub 8 secunde, temperatură în apeluri redusă cu 27°C, sistem complet silențios în scenarii de lucru intensiv de birou."
+      },
+      {
+        "id": "work-4",
+        "deviceModel": "HP Pavilion Gaming 15-dk",
+        "category": "Curățare Laptop",
+        "categorySlug": "laptop-cleaning",
+        "image": "assets/images/gallery/work-4.jpg",
+        "tempBefore": 96,
+        "tempAfter": 71,
+        "thermalDrop": 25,
+        "compoundUsed": "Arctic MX-6",
+        "title": "Mentenanță Termică & Optimizare Software HP Pavilion Gaming",
+        "clientIssue": "Laptopul se oprea brusc din cauza supraîncălzirii (96°C) și sistemul de operare era plin de programe malițioase de tip adware și reclame pop-up.",
+        "solution": "Curățare amănunțită a sistemului de răcire dual-fan, aplicare pastă Arctic MX-6, salvare securizată a pozelor și proiectelor, reinstalare curată Windows 11 și pachet complet de productivitate.",
+        "result": "Temperatură scăzută cu 25°C, eliminare completă a opririlor forțate și sistem de operare rapid, fără nicio urmă de adware."
+      },
+      {
+        "id": "work-5",
+        "deviceModel": "Acer Swift 3 SF314",
+        "category": "Configurare Windows",
+        "categorySlug": "windows-setup",
+        "image": "assets/images/gallery/work-5.jpg",
+        "tempBefore": 86,
+        "tempAfter": 58,
+        "thermalDrop": 28,
+        "compoundUsed": "Noctua NT-H1",
+        "title": "Configurare Windows 11 Curat & Mentenanță Ultrabook Acer Swift 3",
+        "clientIssue": "Ultrabook subțire care se încingea la baza carcasei chiar și la simpla navigare web, cu bateria descărcându-se rapid din cauza proceselor de fundal scăpate de sub control.",
+        "solution": "Curățare ventilator ultra-slim, înlocuire pastă uscată cu Noctua NT-H1, reinstalare Windows 11 optimizat fără servicii inutile și configurare curbe energetice pentru conservarea autonomiei.",
+        "result": "Temperatură redusă cu 28°C în sarcină, bază rece și confortabilă pe birou sau în poală, autonomie extinsă a bateriei cu peste 2 ore."
+      },
+      {
+        "id": "work-6",
+        "deviceModel": "Custom Gaming PC (Ryzen 5 5600X + RTX 3070)",
+        "category": "Upgrade Hardware",
+        "categorySlug": "hardware-upgrades",
+        "image": "assets/images/gallery/work-6.jpg",
+        "tempBefore": 84,
+        "tempAfter": 59,
+        "thermalDrop": 25,
+        "compoundUsed": "Arctic MX-6",
+        "title": "Mentenanță Completă PC Gaming, Re-Cable Management & Răcire",
+        "clientIssue": "Unitate centrală de gaming și randare video cu airflow strangulat de cabluri neordonate, filtre de praf îmbâcsite și temperaturi ridicate în DaVinci Resolve.",
+        "solution": "Suflare completă a carcasei cu aer uscat de înaltă presiune, spălare filtre magnetice, cable management profesional ascuns pe spatele carcasei, pastă Arctic MX-6 pe CPU și GPU și configurare curbe PWM silențioase în BIOS.",
+        "result": "Temperatură mai joasă cu 25°C în randare 4K susținută, flux de aer liber în carcasă și profil acustic aproape inaudibil în timpul sesiunilor de lucru."
+      }
+    ]
+  },
+  "en": {
+    "meta": {
+      "title": "Software Services & Hardware Maintenance for PC & Laptops | Dragoș Tecuci Cluj-Napoca",
+      "subtitle": "Precision thermal maintenance, premium thermal paste, clean Windows optimization, and fast hardware upgrades in Cluj-Napoca.",
+      "badge": "Cluj-Napoca & Surroundings",
+      "rating": "5.0 ★★★★★ (Verified On-Handover Guarantee)",
+      "location": "Cluj-Napoca (Mănăștur, Mărăști, Zorilor, City Center, Gheorgheni)"
+    },
+    "hero": {
+      "headline": "Peak Performance and Uncompromised Cooling for Your PC or Laptop",
+      "subheadline": "Fast software setup and meticulous hardware maintenance delivered by a software engineer. We benchmark and test temperatures live upon handover so you see the exact difference before paying.",
+      "ctaPrimary": "Request Booking",
+      "ctaSecondary": "View Services & Pricing",
+      "ctaGallery": "Work Gallery",
+      "whatsappCta": "Message on WhatsApp",
+      "phoneCta": "Call Now"
+    },
+    "originalAnnouncements": {
+      "softwareAnnouncement": {
+        "title": "Fast Software Services & System Optimization Announcement",
+        "content": "I assist you with fast software services, delivered with meticulous care and professionalism, so you can count on your machine at peak capacity.\n\nServices offered:\n- Windows 10 / 11 Clean Installation & Reinstallation: Includes correct disk formatting, complete official driver installations, and speed-tuned OS optimization.\n- Essential Productivity Pack: Microsoft Office suite (Word, Excel, PowerPoint), media players, archivers, secure browsers, and antivirus protection.\n- On-Demand Software Setup: Specialized tools for school, university, development, graphic design or video editing, plus deep diagnostics and malware disinfection.\n\nQuality Guarantee: I only hand back equipment after thorough stability testing. Additionally, you receive free follow-up technical support after setup to make sure you enjoy peak performance with zero friction.\n\nOrderly, fast, and always client-first. Please back up your essential data beforehand, or let me handle the full backup for you! Drop me a message here or call me for details and quotes."
+      },
+      "hardwareAnnouncement": {
+        "title": "Hardware Maintenance & Thermal Servicing Announcement",
+        "content": "I provide precision hardware maintenance with utmost care for your device, utilizing premium compounds to extend its operating lifespan.\n\nHow I can help you:\n- Deep Dust Cleaning: Careful chassis disassembly, thorough cleaning of cooling fans, copper heatsinks, and motherboard circuits.\n- Thermal Paste Replacement: High-performance thermal compound applied for optimal CPU and GPU cooling efficiency.\n- Hardware Upgrades: Sourcing guidance and precise installation for SSDs or additional RAM modules if you want your laptop or PC to run significantly faster.\n\nIntervention Guarantee: Professional ESD-safe tooling and guaranteed immaculate reassembly. We conduct an on-the-spot thermal benchmark test upon handover so you inspect the temperature drop before paying."
+      }
+    },
+    "softwareServices": [
+      {
+        "id": "win-install",
+        "title": "Windows 10 & 11 Clean Installation / Reinstallation",
+        "shortDescription": "Proper GPT/UEFI formatting, clean OS deployment from scratch, full official drivers, and performance debloating.",
+        "duration": "2 - 3 hours",
+        "priceRange": "120 - 150 RON",
+        "features": [
+          "Proper disk formatting and modern GPT / UEFI partition layout",
+          "Complete official manufacturer driver suite installation (Chipset, GPU, Audio, Wi-Fi, Bluetooth)",
+          "OS performance tuning: disabling background telemetry, telemetry bloat, and unnecessary daemons",
+          "Startup application streamlining for instant cold boot times",
+          "Full cumulative Windows Update security patch application"
+        ],
+        "guarantee": "Comprehensive pre-delivery stability testing + free post-installation follow-up support."
+      },
+      {
+        "id": "office-utility-pack",
+        "title": "Essential Office & Productivity Pack",
+        "shortDescription": "Turnkey configuration for everyday office tasks, multimedia playback, secure ad-free web browsing, and active protection.",
+        "duration": "1 - 2 hours",
+        "priceRange": "60 - 80 RON (40 RON when bundled with Windows reinstall)",
+        "features": [
+          "Full Microsoft Office setup (Word, Excel, PowerPoint, Outlook) ready for immediate productivity",
+          "Dedicated media playback suite with universal codec support (VLC Media Player)",
+          "High-performance compression and archiving utilities (7-Zip, WinRAR)",
+          "Modern web browsers secured with verified ad-blocking and privacy extensions (Chrome, Brave, Firefox, Edge)",
+          "Active antivirus protection, configured firewall, and lightweight PDF reader"
+        ],
+        "guarantee": "Strictly no bloatware, unwanted toolbars, or junk software. Clean, verified productivity setup."
+      },
+      {
+        "id": "custom-software",
+        "title": "Custom & Specialized Software Installations",
+        "shortDescription": "Installation and environment configuration for academic tools, software engineering, graphic design, audio workstations, or 3D modeling.",
+        "duration": "1 - 2 hours",
+        "priceRange": "50 - 100 RON (based on application scope and complexity)",
+        "features": [
+          "Educational and academic tool suites (Teams, Zoom, scientific/statistical computing)",
+          "Creative suites for design, photography, and high-bitrate video editing",
+          "Software development kits and developer tools (IDEs, Git, Docker, Python/Java runtimes)",
+          "Full runtime environment prerequisite resolution (DirectX, Visual C++ Redistributables, .NET)"
+        ],
+        "guarantee": "Launch verification and hardware capability check for every requested software package."
+      },
+      {
+        "id": "diagnostic-virus-removal",
+        "title": "Deep Diagnostics & Professional Malware Disinfection",
+        "shortDescription": "Advanced system scanning to eradicate hidden crypto miners, trojans, adware hijackers, and repair damaged OS binaries.",
+        "duration": "2 - 3 hours",
+        "priceRange": "80 - 120 RON",
+        "features": [
+          "Deep multi-engine scanning across system files, running memory, and Windows registry",
+          "Eradication of trojans, rootkits, persistent adware, and background crypto-mining malware",
+          "Windows system file integrity restoration (SFC / DISM image repair)",
+          "Registry repair and removal of malicious browser redirects and search hijacking extensions"
+        ],
+        "guarantee": "Full disinfection without compromising user documents, accompanied by tailored security guidance."
+      },
+      {
+        "id": "backup-data-migration",
+        "title": "Data Backup & Migration Services",
+        "shortDescription": "Complete safe backup of critical documents, photos, browser bookmarks, and settings prior to any major intervention.",
+        "duration": "1 - 3 hours (depends on storage volume)",
+        "priceRange": "70 - 120 RON",
+        "features": [
+          "Complete selective backup: Desktop, Documents, Photos, Work Folders, and Browser Bookmarks",
+          "Secure data migration from legacy HDDs/SSDs to external storage or a new high-speed drive",
+          "Bit-for-bit checksum verification to guarantee against file corruption during transfer",
+          "Clean, structured directory restoration onto the freshly installed operating system"
+        ],
+        "guarantee": "Strict 100% data confidentiality. Your private photos, projects, and documents are never inspected, copied, or shared."
+      }
+    ],
+    "hardwareServices": [
+      {
+        "id": "dust-cleaning",
+        "title": "Deep Dust Cleaning & Cooling Fan Servicing",
+        "shortDescription": "Careful chassis teardown, clearing dense dust blankets from copper heatsinks, cooling fan impellers, and motherboard components.",
+        "duration": "1 - 2 hours",
+        "priceRange": "80 - 100 RON",
+        "features": [
+          "Meticulous chassis disassembly utilizing precision ESD-safe magnetic tools and grounding straps",
+          "Thorough fan turbine blade cleaning and spindle lubrication when needed",
+          "Clearing clogged exhaust fin channels in copper/aluminum radiators using controlled dry air bursts",
+          "Chassis intake grill and magnetic dust filter deep cleaning"
+        ],
+        "guarantee": "Restoration of original airflow velocity and immediate reduction of fan acoustic whine."
+      },
+      {
+        "id": "thermal-paste-replacement",
+        "title": "High-Performance Thermal Compound Replacement",
+        "shortDescription": "Chemical decontamination of dry OEM paste and precision application of top-tier thermal compounds (Arctic MX-4, Arctic MX-6, Noctua NT-H1).",
+        "duration": "1 - 2 hours",
+        "priceRange": "100 - 140 RON (Laptop) / 90 - 120 RON (Desktop PC)",
+        "features": [
+          "Complete removal of hardened thermal compound using 99.9% electronic-grade isopropyl alcohol",
+          "Application of premium compounds: Arctic MX-4, Arctic MX-6, or Noctua NT-H1 with superior thermal conductivity",
+          "Inspection and repositioning of thermal pads across VRMs and high-speed VRAM chips",
+          "Torque-balanced cross-pattern screw fastening for optimal mounting pressure over the silicon dies"
+        ],
+        "guarantee": "Measurable thermal drop guarantee: 15°C to 30°C temperature reduction under load with zero thermal throttling."
+      },
+      {
+        "id": "hardware-upgrades",
+        "title": "Hardware Upgrades (Fast SSD & RAM Expansion)",
+        "shortDescription": "Hardware compatibility consulting, component procurement guidance, and professional installation for exponential speed boosts.",
+        "duration": "1 - 2 hours",
+        "priceRange": "60 - 90 RON (Installation labor / disk cloning)",
+        "features": [
+          "Technical compatibility validation (NVMe M.2 PCIe 3.0/4.0, 2.5\" SATA III, DDR4, DDR5)",
+          "Delicate component seating without straining motherboard connectors or retention clips",
+          "Bit-perfect drive cloning from legacy storage to fast SSD, or fresh OS installation",
+          "MemTest86 memory stability verification and sequential read/write throughput validation"
+        ],
+        "guarantee": "4x to 10x faster application launch times and instant multitasking responsiveness."
+      },
+      {
+        "id": "thermal-bench-testing",
+        "title": "On-the-Spot Thermal Benchmarking & Stress Testing",
+        "shortDescription": "Synthetic stress run (Cinebench, FurMark, AIDA64) executed live during handover so you inspect empirical data before payment.",
+        "duration": "20 - 30 minutes",
+        "priceRange": "Free in all maintenance packages (40 RON standalone diagnostic)",
+        "features": [
+          "Real-time sensor telemetry monitoring (Core Temp, HWiNFO64)",
+          "Simultaneous or sequential CPU and GPU full load generation",
+          "Side-by-side empirical metrics: minimum, maximum, and average operating temperatures",
+          "Sustained Turbo Boost frequency confirmation under heavy load"
+        ],
+        "guarantee": "100% transparency. You only pay once you witness undeniable thermal drop and system stability."
+      }
+    ],
+    "packages": [
+      {
+        "id": "pkg-office-refresh",
+        "name": "Office Refresh Bundle",
+        "badge": "Recommended for Work & Academics",
+        "idealFor": "Everyday work laptops, home office setups, web browsing, and student laptops that have begun lagging or heating up.",
+        "price": "200 RON",
+        "estimatedTime": "3 - 4 hours",
+        "savings": "Save 50 RON compared to individual service rates",
+        "includes": [
+          "Full dust disassembly and cleaning of cooling fans and radiators",
+          "Thermal paste repasting with Arctic MX-4 / MX-6",
+          "Clean Windows 10 or 11 reinstallation with official drivers",
+          "Full Microsoft Office deployment + essential daily utility pack",
+          "Startup speed debloating and on-handover stability verification"
+        ]
+      },
+      {
+        "id": "pkg-thermal-pro-gamer",
+        "name": "Thermal Pro Gamer Bundle",
+        "badge": "Most Popular for Gamers & Creators",
+        "idealFor": "Gaming rigs and performance laptops (Legion, ROG, Predator, TUF, Omen) that reach 90°C+ and throttle during intense gameplay.",
+        "price": "220 RON",
+        "estimatedTime": "2 - 3 hours",
+        "savings": "Save 60 RON + includes on-the-spot Cinebench & FurMark stress test",
+        "includes": [
+          "Dual/triple-fan heatsink deep cleaning and fin de-clogging",
+          "Die decontamination with 99.9% isopropyl alcohol and repasting with Noctua NT-H1 or Arctic MX-6",
+          "VRM and VRAM thermal pad contact inspection and refresh",
+          "Live thermal stress test on handover (Cinebench + FurMark) verifying a 15°C - 30°C temperature drop",
+          "Airflow optimization profile setup and cooling pad/undervolt advice"
+        ]
+      },
+      {
+        "id": "pkg-rebirth-total",
+        "name": "Total Rebirth Overhaul",
+        "badge": "Complete Device Transformation",
+        "idealFor": "Laptops or desktop PCs 2-5 years old with sluggish mechanical HDDs or low RAM that overheat and freeze.",
+        "price": "280 RON",
+        "estimatedTime": "4 - 5 hours",
+        "savings": "Save 80 RON + complete hardware and software labor included",
+        "includes": [
+          "Full thermal maintenance (meticulous dust clearing + premium thermal paste)",
+          "High-speed SSD installation and/or RAM memory module expansion (hardware chosen by client)",
+          "Zero-loss data backup and seamless personal file migration",
+          "Clean Windows 11 installation deployed onto the new SSD with maximum performance tweaks",
+          "Complete Office suite, essential utilities, and side-by-side performance benchmarks"
+        ]
+      }
+    ],
+    "guarantees": [
+      {
+        "id": "on-the-spot-testing",
+        "title": "On-the-Spot Thermal Testing",
+        "subtitle": "Inspect empirical metrics before paying",
+        "description": "We don't rely on empty promises. During device handover, we run synthetic stress tests and compare temperatures before and after the intervention. You inspect the exact 15°C - 30°C temperature drop on screen in real time."
+      },
+      {
+        "id": "free-followup-support",
+        "title": "Free Follow-Up Technical Support",
+        "subtitle": "Direct assistance following delivery",
+        "description": "Every software and hardware intervention comes with complimentary follow-up support. If you ever need advice or adjustments down the line, I'm just a quick message away so you enjoy total peace of mind."
+      },
+      {
+        "id": "premium-compounds",
+        "title": "Premium Compounds & Professional Tools",
+        "subtitle": "Arctic MX-4, Arctic MX-6 & Noctua NT-H1",
+        "description": "We never compromise on materials. We exclusively use internationally acclaimed thermal compounds known for long-term endurance, 99.9% pure electronic isopropyl alcohol, and ESD-safe precision toolsets."
+      },
+      {
+        "id": "data-privacy-respect",
+        "title": "100% Data Privacy & Respect",
+        "subtitle": "Guaranteed security for your files",
+        "description": "Your files, personal photos, and sensitive documents are treated with utmost confidentiality. I work with orderly ethics and engineering rigor. Your private data is never viewed, copied, or disclosed."
+      }
+    ],
+    "faq": [
+      {
+        "question": "How long does a standard cleaning and thermal paste replacement take?",
+        "answer": "A standard hardware maintenance service (meticulous dust removal and premium thermal repasting) typically takes between 1 and 2 hours. If paired with a full OS clean reinstallation and data migration, turnaround is usually 3 to 4 hours. Equipment is almost always returned on the exact same day."
+      },
+      {
+        "question": "What happens to my personal data? Should I back it up beforehand?",
+        "answer": "Whenever possible, we recommend saving your vital documents and files to a USB drive or cloud storage before handing over your machine. However, if your system fails to boot or you prefer assistance, we provide dedicated backup and migration services guaranteeing 100% data confidentiality."
+      },
+      {
+        "question": "How does the on-the-spot handover temperature test work?",
+        "answer": "Upon device handover, we boot your machine and launch hardware telemetry software (HWiNFO64 / Core Temp) alongside synthetic benchmark tools (Cinebench for CPU, FurMark for GPU). We review real-time maximum temperatures compared against pre-service baselines, demonstrating a verified 15°C to 30°C drop before you make any payment."
+      },
+      {
+        "question": "Where do we meet in Cluj-Napoca for pickup and handover?",
+        "answer": "We offer flexible handover options across primary Cluj-Napoca neighborhoods including Mănăștur, Mărăști, Zorilor, Centru (City Center), and Gheorgheni. Specific doorstep pickup and drop-off can also be arranged upon request."
+      },
+      {
+        "question": "Why should I replace thermal paste if my laptop is still running?",
+        "answer": "Factory thermal paste naturally dries out and hardens after 12 to 24 months of regular heat cycles. As it dries, heat transfer between the silicon die and copper heatsink degrades rapidly, forcing the CPU/GPU into severe thermal throttling. Regular repasting prevents permanent motherboard damage and keeps your machine quiet, cool, and fast."
+      }
+    ],
+    "galleryCategories": [
+      "All",
+      "Laptop Cleaning",
+      "Thermal Paste",
+      "Hardware Upgrades",
+      "Windows Setup"
+    ],
+    "galleryItems": [
+      {
+        "id": "work-1",
+        "deviceModel": "Lenovo Legion Y540-15IRH",
+        "category": "Thermal Paste",
+        "categorySlug": "thermal-paste",
+        "image": "assets/images/gallery/work-1.jpg",
+        "tempBefore": 95,
+        "tempAfter": 69,
+        "thermalDrop": 26,
+        "compoundUsed": "Arctic MX-6",
+        "title": "Gaming Laptop Thermal Overhaul - Lenovo Legion",
+        "clientIssue": "Laptop was reaching 95°C during gaming sessions with fans screeching at full speed and severe frame rate drops (throttling).",
+        "solution": "Deep dust extraction from dual cooling turbines and copper radiators. Chemical cleanup of dry factory paste using 99.9% isopropyl alcohol and precision application of Arctic MX-6.",
+        "result": "26°C temperature reduction under sustained full load, significantly cooler keyboard deck, and zero frame drops in demanding gaming titles."
+      },
+      {
+        "id": "work-2",
+        "deviceModel": "Asus ROG Strix G15 G512",
+        "category": "Laptop Cleaning",
+        "categorySlug": "laptop-cleaning",
+        "image": "assets/images/gallery/work-2.jpg",
+        "tempBefore": 93,
+        "tempAfter": 68,
+        "thermalDrop": 25,
+        "compoundUsed": "Noctua NT-H1",
+        "title": "Full Cooling Subsystem Servicing - Asus ROG Strix",
+        "clientIssue": "Cooling fans were emitting a high-pitched whine with radiator exhaust fins completely clogged by compressed lint and pet hair, triggering thermal crashes during 3D renders.",
+        "solution": "Complete heatsink teardown, fin channel de-clogging with controlled dry air bursts, turbine impeller restoration, and Noctua NT-H1 application across CPU and dedicated GPU.",
+        "result": "25°C drop in peak operating temperatures, complete elimination of abnormal noise, and verified stability in Cinebench and FurMark stress runs."
+      },
+      {
+        "id": "work-3",
+        "deviceModel": "Dell Latitude 5420",
+        "category": "Hardware Upgrades",
+        "categorySlug": "hardware-upgrades",
+        "image": "assets/images/gallery/work-3.jpg",
+        "tempBefore": 89,
+        "tempAfter": 62,
+        "thermalDrop": 27,
+        "compoundUsed": "Arctic MX-4",
+        "title": "NVMe SSD Upgrade, 32GB RAM & Thermal Servicing - Dell Latitude",
+        "clientIssue": "Sluggish business laptop taking over 90 seconds to cold boot, noisy fan spinning up in Zoom calls, and constant memory shortage with complex Excel models.",
+        "solution": "Slim-chassis dust cleaning, Arctic MX-4 compound repasting, memory expansion from 8GB to 32GB DDR4 dual-channel, and seamless cloning to a 1TB high-speed Samsung NVMe SSD.",
+        "result": "Boot time slashed to under 8 seconds, 27°C cooler operation in conference calls, and near-silent operation during heavy multitasking."
+      },
+      {
+        "id": "work-4",
+        "deviceModel": "HP Pavilion Gaming 15-dk",
+        "category": "Laptop Cleaning",
+        "categorySlug": "laptop-cleaning",
+        "image": "assets/images/gallery/work-4.jpg",
+        "tempBefore": 96,
+        "tempAfter": 71,
+        "thermalDrop": 25,
+        "compoundUsed": "Arctic MX-6",
+        "title": "Thermal Servicing & Software Cleanup - HP Pavilion Gaming",
+        "clientIssue": "Laptop suffered unexpected emergency shutdowns due to extreme overheating (96°C), compounded by browser hijacker malware and intrusive adware pop-ups.",
+        "solution": "Dual-fan radiator cleaning, Arctic MX-6 thermal repasting, secure document backup, clean Windows 11 deployment, and essential productivity suite installation.",
+        "result": "Temperatures dropped by 25°C, emergency shutdowns completely eliminated, and a snappy, sanitized operating environment."
+      },
+      {
+        "id": "work-5",
+        "deviceModel": "Acer Swift 3 SF314",
+        "category": "Windows Setup",
+        "categorySlug": "windows-setup",
+        "image": "assets/images/gallery/work-5.jpg",
+        "tempBefore": 86,
+        "tempAfter": 58,
+        "thermalDrop": 28,
+        "compoundUsed": "Noctua NT-H1",
+        "title": "Clean Windows 11 Setup & Ultrabook Maintenance - Acer Swift 3",
+        "clientIssue": "Ultra-thin laptop running hot on client's lap during simple web browsing, with rapid battery drain caused by runaway background tasks.",
+        "solution": "Micro-fan cleaning, old paste replaced with Noctua NT-H1, clean Windows 11 installation stripped of bloatware, and balanced power curve calibration.",
+        "result": "28°C lower temperature under load, comfortably cool chassis bottom on desk or lap, and over 2 additional hours of real-world battery life."
+      },
+      {
+        "id": "work-6",
+        "deviceModel": "Custom Gaming PC (Ryzen 5 5600X + RTX 3070)",
+        "category": "Hardware Upgrades",
+        "categorySlug": "hardware-upgrades",
+        "image": "assets/images/gallery/work-6.jpg",
+        "tempBefore": 84,
+        "tempAfter": 59,
+        "thermalDrop": 25,
+        "compoundUsed": "Arctic MX-6",
+        "title": "Full Desktop PC Overhaul, Re-Cable Management & Cooling",
+        "clientIssue": "Tower gaming PC suffering from compromised airflow due to rat's-nest cabling, dusty mesh filters, and high CPU/GPU thermals during 4K video renders.",
+        "solution": "Full internal air purge with high-pressure dry air, washable filter cleaning, comprehensive rear-tray cable routing, Arctic MX-6 application on CPU cooler and GPU, and silent PWM fan curves in BIOS.",
+        "result": "25°C lower temps in sustained 4K DaVinci Resolve rendering, unobstructed positive-pressure airflow, and near-silent acoustic signature."
+      }
+    ]
+  }
+}

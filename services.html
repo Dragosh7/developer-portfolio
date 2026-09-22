@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Servicii software rapide și mentenanță termică hardware meticuloasă în Cluj-Napoca. Înlocuire pastă termică Arctic MX-6 &amp; Noctua, curățare praf, reinstalare Windows curat și upgrade SSD/RAM. Testare de temperatură la fața locului la predare.">
+  <meta name="author" content="Dragoș Tecuci">
+  <meta name="keywords" content="reparatii laptop cluj, curatare praf laptop cluj, schimbare pasta termica cluj, instalare windows cluj, service calculatoare cluj, arctic mx-6 cluj, noctua cluj, mentenanta pc cluj-napoca">
+
+  <title>Servicii Software &amp; Mentenanță Hardware PC / Laptop | Dragoș Tecuci Cluj-Napoca</title>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Production & Specialized Modular Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/services.css">
+</head>
+<body>
+
+  <!-- ============================================================================
+       1. UNIFIED STICKY NAVBAR
+       Standardized branding (DT Tech Services), In-Page Navigation, Segmented Lang Pill,
+       Theme Switch & Quick Links (Portfolio, Blog, Evidence Log)
+       ============================================================================ -->
+  <header class="site-navbar liquid-glass-navbar" id="site-header">
+    <div class="navbar-island">
+      <!-- Brand Logo with Liquid Pill Glow -->
+      <a href="services.html" class="brand-logo" aria-label="DT Tech Services Cluj">
+        <span class="brand-mark"><img src="assets/images/me.jpg" alt="Dragoș Tecuci" class="brand-avatar-img"></span>
+        <span class="brand-name">DT Tech Services</span>
+      </a>
+
+      <!-- Center In-Page Navigation Menu (Guaranteed Single Row) -->
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <a href="#services-catalog" class="nav-link" data-i18n="nav.catalog">Servicii &amp; Tarife</a>
+        <a href="#command-center" class="nav-link" data-i18n="nav.commandCenter">Centru Comandă</a>
+        <a href="#gallery" class="nav-link" data-i18n="nav.gallery">Galerie Lucrări</a>
+        <a href="#guarantees" class="nav-link" data-i18n="nav.guarantees">Garanții</a>
+        <a href="#faq" class="nav-link" data-i18n="nav.faq">FAQ</a>
+      </nav>
+
+      <!-- Action Group: Language Switcher, Platform Dropdown & Theme Toggle -->
+      <div class="nav-actions">
+        <!-- Bilingual Segmented Switcher (RO | EN) -->
+        <div class="lang-toggle" data-active-lang="ro" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn active" data-lang="ro" aria-pressed="true" title="Comută în Română">RO</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false" title="Switch to English">EN</button>
+        </div>
+
+        <!-- Liquid Glass Platform Dropdown (Replaces crowded multiple buttons with 1 luxury pill) -->
+        <div class="nav-dropdown" id="platform-dropdown">
+          <button type="button" class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true" id="platform-menu-btn" title="Platformă &amp; Resurse">
+            <span data-i18n="nav.platform">Platformă</span>
+            <svg class="dropdown-chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu liquid-glass-dropdown" aria-labelledby="platform-menu-btn">
+            <a href="index.html" class="dropdown-link">
+              <span class="dropdown-icon">💻</span>
+              <div class="dropdown-link-text">
+                <strong data-i18n="nav.portfolio">Portofoliu Software</strong>
+                <small>Inginerie, proiecte &amp; stack</small>
+              </div>
+            </a>
+            <a href="blog.html" class="dropdown-link">
+              <span class="dropdown-icon">📝</span>
+              <div class="dropdown-link-text">
+                <strong data-i18n="nav.blog">Blog &amp; Ghiduri</strong>
+                <small>Articole tehnice &amp; optimizare</small>
+              </div>
+            </a>
+            <a href="evidence.html" class="dropdown-link highlight-pin">
+              <span class="dropdown-icon">🔒</span>
+              <div class="dropdown-link-text">
+                <strong data-i18n="nav.evidence">Registru Lucrări</strong>
+                <small>Telemetrie &amp; PIN securizat</small>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" type="button" aria-label="Comută tema întunecată/luminoasă" title="Comută tema întunecată/luminoasă">
+          <!-- Moon Icon (Dark Mode active) -->
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- Sun Icon (Light Mode active) -->
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Mobile Drawer Trigger -->
+        <button class="mobile-toggle-btn" type="button" aria-label="Deschide meniul de navigare" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer with Liquid Glass Style -->
+  <aside class="mobile-drawer liquid-glass-drawer" aria-label="Navigare Mobilă">
+    <div style="padding: var(--space-4); border-bottom: 1px solid var(--border-default); display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-family: var(--font-mono); font-size: var(--font-size-xs); font-weight: bold; color: var(--accent-primary);">DT TECH SERVICES</span>
+      <!-- Mobile Lang Toggle -->
+      <div class="lang-toggle" role="group" aria-label="Language selection">
+        <button type="button" class="lang-btn active" data-lang="ro">RO</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+
+    <a href="#services-catalog" class="nav-link" data-i18n="nav.catalog">Servicii &amp; Tarife</a>
+    <a href="#command-center" class="nav-link" data-i18n="nav.commandCenter">Centru Comandă</a>
+    <a href="#gallery" class="nav-link" data-i18n="nav.gallery">Galerie Lucrări</a>
+    <a href="#guarantees" class="nav-link" data-i18n="nav.guarantees">Garanții</a>
+    <a href="#faq" class="nav-link" data-i18n="nav.faq">FAQ</a>
+
+    <hr style="border: none; border-top: 1px solid var(--border-subtle); margin: var(--space-2) 0;">
+    <a href="index.html" class="nav-link" data-i18n="nav.portfolio">Portofoliu Software</a>
+    <a href="blog.html" class="nav-link" data-i18n="nav.blog">Blog &amp; Ghiduri</a>
+    <a href="evidence.html" class="nav-link" style="color: var(--accent-primary);" data-i18n="nav.evidence">Registru Lucrări 🔒</a>
+    <a href="https://wa.me/40700000000" class="nav-link" style="color: var(--brand-whatsapp); font-weight: bold;">WhatsApp: +40 700 000 000</a>
+  </aside>
+
+  <main id="main-content">
+    <!-- ============================================================================
+         2. STREAMLINED HERO SECTION
+         Cluj Trust Banner, Live Status Pill, Impact Headline, CTAs & Carta Serviciilor Cards
+         ============================================================================ -->
+    <section class="section hero-section" id="hero" style="padding-top: var(--space-8);">
+      <div class="container">
+        <!-- Trust Banner: Cluj-Napoca Local Pin & Live Availability Pulse -->
+        <div class="trust-banner">
+          <div class="trust-banner-left">
+            <div class="cluj-local-badge" title="Zonă de acoperire în Cluj-Napoca">
+              <svg class="pin-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"></path>
+              </svg>
+              <span data-i18n="hero.badge">Cluj-Napoca &amp; Împrejurimi</span>
+              <span class="cluj-neighborhoods-tag" data-i18n="hero.neighborhoods">Mănăștur • Mărăști • Zorilor • Centru • Gheorgheni</span>
+            </div>
+          </div>
+
+          <div class="trust-banner-right">
+            <div class="live-status-pill">
+              <span class="live-status-dot" aria-hidden="true"></span>
+              <span data-i18n="hero.liveStatus">Disponibil în Cluj-Napoca (Predare Rapidă)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Hero Content -->
+        <div class="hero-content" style="max-width: 960px; margin: 0 auto; text-align: center;">
+          <h1 class="hero-title" style="font-size: clamp(2rem, 4.5vw, 3.25rem); line-height: 1.15; margin-bottom: var(--space-4);">
+            <span class="text-accent-gradient" data-i18n="hero.headline">Performanță Maximă și Răcire Fără Compromis Pentru PC-ul Sau Laptopul Tău</span>
+          </h1>
+
+          <p class="hero-bio" style="max-width: 820px; margin: 0 auto var(--space-8) auto; font-size: var(--font-size-md);" data-i18n="hero.subheadline">
+            Servicii software rapide și mentenanță hardware meticuloasă realizate de un inginer software. Testăm temperaturile la fața locului, la predare, pentru ca tu să vezi exact diferența înainte să plătești.
+          </p>
+
+          <!-- Primary CTAs -->
+          <div class="hero-cta-group" style="justify-content: center; margin-bottom: var(--space-10);">
+            <a href="https://wa.me/40700000000?text=Bun%C4%83%20Drago%C8%99,%20a%C8%99%20dori%20o%20programare%20pentru%20servicii%20tehnice%20%C3%AEn%20Cluj-Napoca." class="btn btn-primary" target="_blank" rel="noopener noreferrer" id="hero-whatsapp-btn" style="background-color: var(--brand-whatsapp); border-color: var(--brand-whatsapp); box-shadow: 0 4px 18px var(--brand-whatsapp-glow);">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span data-i18n="hero.whatsappCta">Scrie-mi pe WhatsApp</span>
+            </a>
+
+            <a href="tel:+40700000000" class="btn btn-secondary" id="hero-phone-btn">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span data-i18n="hero.phoneCta">Apelează Acum</span>
+            </a>
+
+            <a href="#command-center" class="btn btn-outline" id="hero-calc-btn">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2;"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"></path></svg>
+              <span data-i18n="hero.ctaSecondary">Calculează Preț &amp; Vezi Servicii</span>
+            </a>
+          </div>
+
+          <!-- Carta Serviciilor / Service Charter Header Badge -->
+          <div style="text-align: center; margin-bottom: var(--space-2);">
+            <div class="charter-section-badge">
+              <span>📜</span>
+              <span data-i18n="charter.badge">Carta Serviciilor Dragoș Tecuci • Angajament de Calitate</span>
+            </div>
+          </div>
+
+          <!-- Polished Service Charter Deck (Software & Hardware) -->
+          <div class="announcements-wrapper" id="announcements-container">
+            <!-- Dynamic Injection via services.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         3. INTERACTIVE CATEGORY TABS & SERVICES CATALOG
+         Unified Catalog solving page clutter:
+         [ Toate / All ] | [ 💻 Servicii Software ] | [ 🔧 Mentenanță Hardware ] | [ ⚡ Pachete Promoționale ] | [ 🧮 Calculator Preț ]
+         ============================================================================ -->
+    <section class="section catalog-section" id="services-catalog">
+      <div class="container">
+        <div class="services-section-header">
+          <span class="section-eyebrow" data-i18n="catalog.eyebrow">Catalog &amp; Tarife</span>
+          <h2 class="section-title" data-i18n="catalog.title">Servicii Tehnice &amp; Pachete Complete</h2>
+          <p class="section-description" data-i18n="catalog.desc">
+            Filtrează rapid după nevoile tale sau explorează toate opțiunile disponibile.
+          </p>
+        </div>
+
+        <!-- Interactive Category Tabs Bar -->
+        <div class="services-tab-bar" role="tablist" aria-label="Categorii Servicii Tehnice">
+          <button type="button" class="service-tab-btn active" data-category-tab="all" role="tab" aria-selected="true" id="tab-btn-all" aria-controls="catalog-view">
+            <span class="tab-icon">✨</span>
+            <span data-i18n="tabs.all">Toate Serviciile</span>
+          </button>
+          <button type="button" class="service-tab-btn" data-category-tab="software" role="tab" aria-selected="false" id="tab-btn-software" aria-controls="catalog-view">
+            <span class="tab-icon">💻</span>
+            <span data-i18n="tabs.software">Servicii Software</span>
+          </button>
+          <button type="button" class="service-tab-btn" data-category-tab="hardware" role="tab" aria-selected="false" id="tab-btn-hardware" aria-controls="catalog-view">
+            <span class="tab-icon">🔧</span>
+            <span data-i18n="tabs.hardware">Mentenanță Hardware</span>
+          </button>
+          <button type="button" class="service-tab-btn" data-category-tab="packages" role="tab" aria-selected="false" id="tab-btn-packages" aria-controls="catalog-view">
+            <span class="tab-icon">⚡</span>
+            <span data-i18n="tabs.packages">Pachete Promoționale</span>
+          </button>
+          <button type="button" class="service-tab-btn" data-category-tab="calculator" role="tab" aria-selected="false" id="tab-btn-calculator" aria-controls="command-center">
+            <span class="tab-icon">🧮</span>
+            <span data-i18n="tabs.calculator">Calculator Preț</span>
+          </button>
+        </div>
+
+        <!-- Filterable Catalog Panels Container -->
+        <div id="catalog-view">
+          <!-- Panel 1: Software Services Grid -->
+          <div class="catalog-panel" data-panel="software" id="software-services">
+            <div class="catalog-panel-header">
+              <h3 class="catalog-panel-title">
+                <span>💻</span>
+                <span data-i18n="software.title">Servicii Software Rapide &amp; Configurare</span>
+              </h3>
+              <span class="catalog-panel-count" id="software-count">5 servicii</span>
+            </div>
+            <div class="services-grid" id="software-services-grid">
+              <!-- Dynamic 5 cards injected via services.js -->
+            </div>
+          </div>
+
+          <!-- Panel 2: Hardware Maintenance Grid -->
+          <div class="catalog-panel" data-panel="hardware" id="hardware-services">
+            <div class="catalog-panel-header">
+              <h3 class="catalog-panel-title">
+                <span>🔧</span>
+                <span data-i18n="hardware.title">Mentenanță Hardware &amp; Curățare Termică</span>
+              </h3>
+              <span class="catalog-panel-count" id="hardware-count">4 servicii</span>
+            </div>
+            <div class="services-grid" id="hardware-services-grid">
+              <!-- Dynamic 4 cards injected via services.js -->
+            </div>
+          </div>
+
+          <!-- Panel 3: Popular Combo Packages -->
+          <div class="catalog-panel" data-panel="packages" id="packages">
+            <div class="catalog-panel-header">
+              <h3 class="catalog-panel-title">
+                <span>⚡</span>
+                <span data-i18n="combos.title">Pachete Combinate Hardware + Software</span>
+              </h3>
+              <span class="catalog-panel-count" id="packages-count">3 pachete</span>
+            </div>
+            <div class="combo-grid" id="combo-packages-grid">
+              <!-- Dynamic 3 combo packages injected via services.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         4. INTERACTIVE THERMAL & QUOTE COMMAND CENTER
+         Side-by-side console: Thermal Telemetry Benchmarking + Interactive Quote Estimator
+         Supports anchors: #command-center, #calculator, #thermals
+         ============================================================================ -->
+    <section class="section command-center-section" id="command-center">
+      <!-- Hidden anchor compatibility targets -->
+      <div id="calculator" style="position: absolute; top: -80px; left: 0;"></div>
+      <div id="thermals" style="position: absolute; top: -80px; left: 0;"></div>
+
+      <div class="container">
+        <div class="services-section-header">
+          <span class="section-eyebrow" data-i18n="command.eyebrow">Dovadă Măsurabilă &amp; Estimare Instantă</span>
+          <h2 class="section-title" data-i18n="command.title">Centru de Comandă Termică &amp; Calculator Preț</h2>
+          <p class="section-description" data-i18n="command.desc">
+            Monitorizare termică live din teste de stres (FurMark + Cinebench) și configurator interactiv cu discount automat aplicat.
+          </p>
+        </div>
+
+        <div class="command-center-console">
+          <!-- Left Column: Thermal Telemetry Console Mount -->
+          <div class="console-column-thermal">
+            <div id="thermal-widget-mount">
+              <!-- Injected via services.js with Live Gauges & Interactive Preset Deck -->
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Quote Estimator Card -->
+          <!-- Right Column: Re-imagined Smart Configurator & Quote Engine -->
+          <div class="console-column-calculator">
+            <div class="quote-estimator-card smart-configurator-card">
+              <!-- Header -->
+              <div class="quote-estimator-header">
+                <div class="config-header-badge">
+                  <span class="pulse-dot"></span>
+                  <span data-i18n="calc.tag">Configurator Inteligent • Estimare Instantă</span>
+                </div>
+                <h3 class="config-main-title" data-i18n="calc.title">Personalizează sau Alege Rapid</h3>
+                <p class="config-subtitle" data-i18n="calc.desc">
+                  Selectează un pachet optimizat sau compune propria combinație cu discount calculat automat.
+                </p>
+              </div>
+
+              <!-- Top Segmented Mode Switcher Slider -->
+              <div class="config-mode-switch" role="tablist" aria-label="Mod Configurare">
+                <button type="button" class="config-mode-btn active" data-config-mode="bundles" id="mode-btn-bundles" role="tab" aria-selected="true" aria-controls="config-view-bundles">
+                  <span class="mode-icon">⚡</span>
+                  <div class="mode-text-wrap">
+                    <span class="mode-title" data-i18n="calc.mode_bundles">Pachete Recomandate</span>
+                    <span class="mode-sub" data-i18n="calc.mode_bundles_sub">1-Click • Discount Inclus</span>
+                  </div>
+                </button>
+                <button type="button" class="config-mode-btn" data-config-mode="custom" id="mode-btn-custom" role="tab" aria-selected="false" aria-controls="config-view-custom">
+                  <span class="mode-icon">🛠️</span>
+                  <div class="mode-text-wrap">
+                    <span class="mode-title" data-i18n="calc.mode_custom">Configurare la Bucată</span>
+                    <span class="mode-sub" data-i18n="calc.mode_custom_sub">Alege servicii pas-cu-pas</span>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Hidden Form with Checkboxes for State Management & Accessibility -->
+              <form id="quote-calc-form" onsubmit="return false;" style="display: none;">
+                <input type="checkbox" name="calc-service" value="win-clean" />
+                <input type="checkbox" name="calc-service" value="office-pack" />
+                <input type="checkbox" name="calc-service" value="custom-apps" />
+                <input type="checkbox" name="calc-service" value="virus-removal" />
+                <input type="checkbox" name="calc-service" value="data-backup" />
+                <input type="checkbox" name="calc-service" value="dust-clean" checked />
+                <input type="checkbox" name="calc-service" value="thermal-paste" checked />
+                <input type="checkbox" name="calc-service" value="hw-upgrade" />
+                <input type="checkbox" name="calc-service" value="bench-test" checked />
+              </form>
+
+              <!-- VIEW 1: Recommended Bundles Cards Deck -->
+              <div class="config-view active" id="config-view-bundles" role="tabpanel" aria-labelledby="mode-btn-bundles">
+                <div class="config-bundles-deck">
+                  <!-- Bundle 1: Office Refresh -->
+                  <div class="config-bundle-card" data-bundle-key="office" tabindex="0" role="button" aria-label="Selectează Pachetul Office Refresh">
+                    <div class="bundle-top-row">
+                      <div class="bundle-identity">
+                        <span class="bundle-type-badge">Birou &amp; Daily</span>
+                        <h4 class="bundle-title">Office Refresh</h4>
+                      </div>
+                      <div class="bundle-price-wrap">
+                        <span class="bundle-save-pill">Economisești 50 RON</span>
+                        <span class="bundle-price">200 <small>RON</small></span>
+                      </div>
+                    </div>
+                    <p class="bundle-desc">Laptop sau PC de birou/școală: viteză sporită, răcire silențioasă și Windows debloated cu suită Office.</p>
+                    <div class="bundle-highlights">
+                      <span class="bundle-tag">✓ Curățare Praf</span>
+                      <span class="bundle-tag">✓ Pastă Arctic</span>
+                      <span class="bundle-tag">✓ Windows 11</span>
+                      <span class="bundle-tag">✓ Pachet Office</span>
+                    </div>
+                    <div class="bundle-footer-row">
+                      <span class="bundle-eta">⏱️ 2 - 3 ore</span>
+                      <span class="bundle-select-action">
+                        <span class="select-indicator"></span>
+                        <span class="select-label">Alege Pachet</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Bundle 2: Thermal Pro Gamer ★ -->
+                  <div class="config-bundle-card is-popular is-selected" data-bundle-key="gamer" tabindex="0" role="button" aria-label="Selectează Pachetul Thermal Pro Gamer">
+                    <div class="popular-ribbon">★ Cel Mai Popular ★</div>
+                    <div class="bundle-top-row">
+                      <div class="bundle-identity">
+                        <span class="bundle-type-badge highlight">Gaming &amp; Performanță</span>
+                        <h4 class="bundle-title">Thermal Pro Gamer</h4>
+                      </div>
+                      <div class="bundle-price-wrap">
+                        <span class="bundle-save-pill highlight">Economisești 20 RON</span>
+                        <span class="bundle-price highlight">190 <small>RON</small></span>
+                      </div>
+                    </div>
+                    <p class="bundle-desc">Laptopuri și PC-uri de jocuri care ating 90°C+: curățare meticuloasă lamele, pastă Noctua/Arctic și test Cinebench la predare.</p>
+                    <div class="bundle-highlights">
+                      <span class="bundle-tag highlight">✓ Dezasamblare Radiator</span>
+                      <span class="bundle-tag highlight">✓ Noctua / Arctic MX-6</span>
+                      <span class="bundle-tag highlight">✓ Thermal Pads VRM</span>
+                      <span class="bundle-tag highlight">✓ Test Cinebench Live</span>
+                    </div>
+                    <div class="bundle-footer-row">
+                      <span class="bundle-eta">⏱️ 2 - 3 ore</span>
+                      <span class="bundle-select-action">
+                        <span class="select-indicator"></span>
+                        <span class="select-label">Selectat</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Bundle 3: Rebirth Total -->
+                  <div class="config-bundle-card" data-bundle-key="rebirth" tabindex="0" role="button" aria-label="Selectează Pachetul Rebirth Total">
+                    <div class="bundle-top-row">
+                      <div class="bundle-identity">
+                        <span class="bundle-type-badge">Overhaul Complet</span>
+                        <h4 class="bundle-title">Rebirth Total</h4>
+                      </div>
+                      <div class="bundle-price-wrap">
+                        <span class="bundle-save-pill">Economisești 80 RON</span>
+                        <span class="bundle-price">280 <small>RON</small></span>
+                      </div>
+                    </div>
+                    <p class="bundle-desc">Transformare radicală PC vechi: mentenanță termică, upgrade montaj SSD nou/RAM, salvare date vechi și Windows curat.</p>
+                    <div class="bundle-highlights">
+                      <span class="bundle-tag">✓ Mentenanță Termică</span>
+                      <span class="bundle-tag">✓ Montaj SSD / RAM</span>
+                      <span class="bundle-tag">✓ Backup &amp; Migrare Date</span>
+                      <span class="bundle-tag">✓ Windows 11 Curat</span>
+                    </div>
+                    <div class="bundle-footer-row">
+                      <span class="bundle-eta">⏱️ 4 - 5 ore</span>
+                      <span class="bundle-select-action">
+                        <span class="select-indicator"></span>
+                        <span class="select-label">Alege Pachet</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VIEW 2: Custom Service Selector with Category Pills -->
+              <div class="config-view" id="config-view-custom" role="tabpanel" aria-labelledby="mode-btn-custom" style="display: none;">
+                <!-- Category Filter Sub-Pills -->
+                <div class="config-category-pills" role="tablist" aria-label="Filtru categorii">
+                  <button type="button" class="category-pill active" data-custom-cat="all" role="tab" aria-selected="true">
+                    <span>✨ Toate Serviciile</span>
+                    <span class="pill-count">9</span>
+                  </button>
+                  <button type="button" class="category-pill" data-custom-cat="software" role="tab" aria-selected="false">
+                    <span>💻 Software &amp; Sistem</span>
+                    <span class="pill-count">5</span>
+                  </button>
+                  <button type="button" class="category-pill" data-custom-cat="hardware" role="tab" aria-selected="false">
+                    <span>🔧 Hardware &amp; Termic</span>
+                    <span class="pill-count">4</span>
+                  </button>
+                </div>
+
+                <!-- Custom Service Interactive Tiles Grid -->
+                <div class="config-custom-grid" id="config-custom-grid">
+                  <!-- Rendered dynamically via services.js -->
+                </div>
+              </div>
+
+              <!-- Integrated Live Order Receipt & Action Dock -->
+              <div class="config-summary-dock" id="config-summary-dock">
+                <div class="config-dock-top">
+                  <div class="dock-title-group">
+                    <span class="dock-title-icon">🧾</span>
+                    <span class="dock-title-text" data-i18n="calc.dock_title">Configurația Selectată:</span>
+                  </div>
+                  <button type="button" class="btn-clear-selection" id="btn-clear-selection" title="Resetează configurația">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    <span>Resetează</span>
+                  </button>
+                </div>
+
+                <!-- Interactive Chips Strip -->
+                <div class="config-chips-container" id="config-chips-container" aria-live="polite">
+                  <!-- Injected via services.js with interactive remove x buttons -->
+                </div>
+
+                <!-- Meta Badges & Breakdown -->
+                <div class="config-meta-bar">
+                  <div class="config-meta-item">
+                    <span class="meta-label">⏱️ Timp Estimat:</span>
+                    <span class="meta-val" id="calc-time-estimate">2 - 3 ore</span>
+                  </div>
+                  <div class="config-meta-item">
+                    <span class="meta-label">🛡️ Garanție Inclusă:</span>
+                    <span class="meta-val" id="calc-guarantee-estimate">30 - 90 zile</span>
+                  </div>
+                  <div class="config-savings-pill" id="calc-savings-alert" style="display: none;"></div>
+                </div>
+
+                <!-- Total & WhatsApp Order Button Row -->
+                <div class="config-dock-bottom">
+                  <div class="dock-price-display">
+                    <span class="dock-price-label" data-i18n="calc.total_label">Total Estimat:</span>
+                    <div class="dock-price-val">
+                      <span class="dock-price-num" id="calc-total-amount">190</span>
+                      <span class="dock-price-curr">RON</span>
+                    </div>
+                  </div>
+
+                  <a href="https://wa.me/40700000000" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-quote" id="calc-whatsapp-btn">
+                    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span data-i18n="calc.btnWhatsapp">Comandă pe WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         5. WORK & CLEANING GALLERY
+         Category Filters, Showcase Cards with Thermal Chips & Lightbox Modal
+         ============================================================================ -->
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="services-section-header">
+          <span class="section-eyebrow" data-i18n="gallery.eyebrow">Transparență Totală</span>
+          <h2 class="section-title" data-i18n="gallery.title">Galerie Lucrări &amp; Intervenții Reale</h2>
+          <p class="section-description" data-i18n="gallery.desc">
+            Fiecare laptop sau unitate PC este curățată și testată cu rigoare de inginer software. Fă click pe o lucrare pentru detalii.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="gallery-filters" id="gallery-filters">
+          <!-- Injected via services.js -->
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Injected via services.js with graceful SVG fallbacks -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         6. CORE GUARANTEES SECTION
+         4 Pillars: On-Handover Benchmarking, Free Technical Support, Premium Materials, Data Privacy
+         ============================================================================ -->
+    <section class="section guarantees-section" id="guarantees">
+      <div class="container">
+        <div class="services-section-header">
+          <span class="section-eyebrow" data-i18n="guarantees.eyebrow">Încredere &amp; Rigoare</span>
+          <h2 class="section-title" data-i18n="guarantees.title">Cele 4 Garanții ale Fiecărei Intervenții</h2>
+          <p class="section-description" data-i18n="guarantees.desc">
+            Standard etic de inginer software: transparență absolută, confidențialitatea datelor și materiale fără compromis.
+          </p>
+        </div>
+
+        <div class="guarantees-grid" id="guarantees-grid">
+          <!-- Injected via services.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================
+         7. FAQ ACCORDION
+         Practical Client Questions & Transparent Answers
+         ============================================================================ -->
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="services-section-header">
+          <span class="section-eyebrow" data-i18n="faq.eyebrow">Claritate &amp; Informații</span>
+          <h2 class="section-title" data-i18n="faq.title">Întrebări Frecvente (FAQ)</h2>
+          <p class="section-description" data-i18n="faq.desc">
+            Tot ce trebuie să știi înainte de a programa o intervenție pentru PC-ul sau laptopul tău în Cluj-Napoca.
+          </p>
+        </div>
+
+        <div class="faq-container" id="faq-container">
+          <!-- Injected via services.js with native <details> & <summary> -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================================
+       8. FLOATING CONTACT WIDGET
+       Bottom-Right Quick Action Capsule (WhatsApp with Pulse Ring & Direct Phone)
+       ============================================================================ -->
+  <aside class="floating-contact-widget" aria-label="Contact rapid Dragoș Tecuci">
+    <a href="https://wa.me/40700000000?text=Bun%C4%83%20Drago%C8%99,%20a%C8%99%20dori%20o%20programare%20pentru%20un%20laptop/PC%20%C3%AEn%20Cluj-Napoca." 
+       class="floating-contact-pill floating-btn-whatsapp" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       id="floating-whatsapp-btn"
+       title="Scrie direct pe WhatsApp">
+      <span class="floating-live-dot" aria-hidden="true"></span>
+      <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span data-i18n="floating.whatsapp">WhatsApp</span>
+    </a>
+
+    <a href="tel:+40700000000" 
+       class="floating-contact-pill floating-btn-phone" 
+       id="floating-phone-btn"
+       title="Apelează telefonic">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span data-i18n="floating.call">Sună</span>
+    </a>
+  </aside>
+
+  <!-- ============================================================================
+       9. CROSS-LINKING FOOTER
+       ============================================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 380px;">
+          <a href="services.html" class="brand-logo">
+            <span class="brand-mark"><img src="assets/images/me.jpg" alt="Dragoș Tecuci" class="brand-avatar-img"></span>
+            <span class="brand-name">DT Tech Services</span>
+          </a>
+          <p style="font-size: var(--font-size-xs); color: var(--text-secondary); line-height: 1.6;">
+            Platformă web pentru servicii software și mentenanță termică hardware de înaltă precizie în Cluj-Napoca. Realizat de un inginer software.
+          </p>
+          <div style="font-size: var(--font-size-xs); color: var(--text-tertiary); font-family: var(--font-mono);">
+            📍 Cluj-Napoca: Mănăștur, Mărăști, Zorilor, Centru, Gheorgheni
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+            <strong style="font-size: var(--font-size-xs); font-family: var(--font-mono); color: var(--text-primary); text-transform: uppercase;" data-i18n="nav.catalog">Servicii Tehnice</strong>
+            <a href="#services-catalog" class="footer-link" onclick="if(window.activateCategoryTab) window.activateCategoryTab('software')">Servicii Software</a>
+            <a href="#services-catalog" class="footer-link" onclick="if(window.activateCategoryTab) window.activateCategoryTab('hardware')">Mentenanță Hardware</a>
+            <a href="#services-catalog" class="footer-link" onclick="if(window.activateCategoryTab) window.activateCategoryTab('packages')">Pachete Complete</a>
+            <a href="#command-center" class="footer-link">Temperaturi &amp; Telemetrie</a>
+            <a href="#command-center" class="footer-link">Calculator Preț</a>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+            <strong style="font-size: var(--font-size-xs); font-family: var(--font-mono); color: var(--text-primary); text-transform: uppercase;">Platformă Inginerie</strong>
+            <a href="index.html" class="footer-link">Portofoliu Inginer Software</a>
+            <a href="blog.html" class="footer-link">Blog &amp; Articole Tehnice</a>
+            <a href="resume.html" class="footer-link">Mini-CV &amp; Experiență</a>
+            <a href="evidence.html" class="footer-link" style="color: var(--accent-primary);">Registru Lucrări 🔒</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Dragoș Tecuci. Crafted with precision in Cluj-Napoca, Romania.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/Dragosh7" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/tecuci-dragos" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://wa.me/40700000000" class="footer-link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="tel:+40700000000" class="footer-link">Telefon</a>
+          <a href="mailto:tecuci.dragos@example.com" class="footer-link">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Gallery Lightbox Modal Mount -->
+  <div id="gallery-lightbox-modal" class="lightbox-modal" aria-hidden="true"></div>
+
+  <!-- Dedicated Client-Side Services Portal Script -->
+  <script src="assets/js/services.js"></script>
+
+</body>
+</html>
