@@ -28,7 +28,7 @@
   const PIN_STORAGE_KEY = 'dt_evidence_pin';
   const SESSION_AUTH_KEY = 'dt_evidence_auth';
   const THEME_STORAGE_KEY = 'dt-portfolio-theme';
-  const DEFAULT_PIN = '1234';
+  const DEFAULT_PIN = '6969X';
 
   /**
    * Seed data mirroring data/evidence.json.
@@ -326,19 +326,48 @@
       }, 500);
     }
 
+    // Inactivity timeout: 15 minutes
+    let inactivityTimer = null;
+    const INACTIVITY_LIMIT_MS = 15 * 60 * 1000;
+
+    function resetInactivityTimer() {
+      if (!isSessionAuthenticated()) return;
+      if (inactivityTimer) clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(() => {
+        if (isSessionAuthenticated()) {
+          clearSessionAuthentication();
+          overlay.classList.remove('is-hidden');
+          clearInputs();
+          showToast('Sesiune expirată din motive de securitate (inactivitate 15 min). Registrul a fost blocat.');
+        }
+      }, INACTIVITY_LIMIT_MS);
+    }
+
+    function startInactivityTimer() {
+      ['mousemove', 'keydown', 'scroll', 'click', 'touchstart'].forEach(evt => {
+        window.addEventListener(evt, resetInactivityTimer, { passive: true });
+      });
+      resetInactivityTimer();
+    }
+
+    if (isSessionAuthenticated()) {
+      startInactivityTimer();
+    }
+
     function attemptUnlock() {
-      const entered = getEnteredPin();
-      if (entered.length < 4) {
-        errorMsg.textContent = 'Introduceți toate cele 4 cifre ale codului PIN.';
+      const entered = getEnteredPin().trim().toUpperCase();
+      const validPin = getStoredPin().trim().toUpperCase();
+      if (entered.length < validPin.length) {
+        errorMsg.textContent = `Introduceți codul complet (${validPin.length} caractere).`;
         return;
       }
 
-      const validPin = getStoredPin();
       if (entered === validPin) {
         errorMsg.textContent = '';
         markSessionAuthenticated();
         overlay.classList.add('is-hidden');
         showToast('Acces autorizat. Registrul de intervenții este deblocat.');
+        startInactivityTimer();
         
         // Focus search bar
         const searchInput = document.getElementById('evidenceSearchInput');
@@ -350,20 +379,23 @@
       }
     }
 
-    // Event listeners for digit inputs
+    // Event listeners for digit/char inputs
     digitInputs.forEach((input, index) => {
       input.addEventListener('input', e => {
         const val = e.target.value;
         if (val.length > 0) {
-          // Keep only the last character if more were typed
-          input.value = val.slice(-1).replace(/[^0-9]/g, '');
+          // Keep only the last character, uppercase it, filter alphanumeric
+          const cleanChar = val.slice(-1).toUpperCase().replace(/[^0-9A-Z]/g, '');
+          input.value = cleanChar;
           
-          if (input.value && index < digitInputs.length - 1) {
+          if (cleanChar && index < digitInputs.length - 1) {
             digitInputs[index + 1].focus();
           }
 
-          // If all digits entered, auto-attempt unlock
-          if (getEnteredPin().length === 4) {
+          // If all characters entered, auto-attempt unlock
+          const currentPin = getEnteredPin();
+          const targetLen = getStoredPin().length || 5;
+          if (currentPin.length === targetLen) {
             attemptUnlock();
           }
         }
@@ -389,17 +421,18 @@
       input.addEventListener('paste', e => {
         e.preventDefault();
         const pastedData = (e.clipboardData || window.clipboardData).getData('text');
-        const digits = pastedData.replace(/\D/g, '').slice(0, 4);
-        if (digits.length > 0) {
-          digits.split('').forEach((d, i) => {
+        const chars = pastedData.toUpperCase().replace(/[^0-9A-Z]/g, '').slice(0, digitInputs.length);
+        if (chars.length > 0) {
+          chars.split('').forEach((c, i) => {
             if (digitInputs[i]) {
-              digitInputs[i].value = d;
+              digitInputs[i].value = c;
             }
           });
-          if (digits.length === 4) {
+          const targetLen = getStoredPin().length || 5;
+          if (chars.length === targetLen) {
             attemptUnlock();
-          } else if (digitInputs[digits.length]) {
-            digitInputs[digits.length].focus();
+          } else if (digitInputs[chars.length]) {
+            digitInputs[chars.length].focus();
           }
         }
       });
@@ -407,17 +440,6 @@
 
     if (btnUnlock) {
       btnUnlock.addEventListener('click', attemptUnlock);
-    }
-
-    const btnQuickUnlock = document.getElementById('btnQuickUnlockDemo');
-    if (btnQuickUnlock) {
-      btnQuickUnlock.addEventListener('click', () => {
-        const defaultPin = '1234';
-        digitInputs.forEach((input, i) => {
-          input.value = defaultPin[i] || '';
-        });
-        attemptUnlock();
-      });
     }
 
     // Lock Registry button
@@ -521,12 +543,21 @@
 
     if (!isNaN(before) && !isNaN(after) && before > 0 && after > 0) {
       const dropTag = drop && drop > 0 ? `<span class="temp-drop-tag">-${drop}°C</span>` : '';
+      const hotPct = Math.min(100, Math.max(10, Math.round((before / 105) * 100)));
+      const coolPct = Math.min(100, Math.max(10, Math.round((after / 105) * 100)));
       return `
         <div class="temp-table-badge">
-          <span style="color: var(--temp-hot); font-weight: 600;">${before}°C</span>
-          <span style="color: var(--text-tertiary);">→</span>
-          <span style="color: var(--temp-cool); font-weight: 600;">${after}°C</span>
-          ${dropTag}
+          <div class="temp-badge-row">
+            <span style="color: var(--temp-hot, #f43f5e); font-weight: 600;">${before}°C</span>
+            <span style="color: var(--text-tertiary, #94a3b8);">→</span>
+            <span style="color: var(--temp-cool, #10b981); font-weight: 600;">${after}°C</span>
+            ${dropTag}
+          </div>
+          <!-- Visual Thermal Delta Meter Track [5.2] -->
+          <div class="thermal-meter-track" title="Temp: ${before}°C ➔ ${after}°C (-${drop}°C)">
+            <div class="thermal-meter-fill-hot" style="width: ${hotPct}%;"></div>
+            <div class="thermal-meter-fill-cool" style="width: ${coolPct}%;"></div>
+          </div>
         </div>
       `;
     }
@@ -848,16 +879,21 @@
 
     let thermalSectionHtml = '';
     if (!isNaN(before) && !isNaN(after) && before > 0 && after > 0) {
+      const percentReduction = Math.min(100, Math.round((drop / before) * 100));
       thermalSectionHtml = `
         <div class="job-thermal-badge-card">
           <div class="thermal-metric-item">
-            <span class="thermal-metric-label">Temp. Inițială</span>
+            <span class="thermal-metric-label">Temp. Inițială (Load)</span>
             <span class="thermal-metric-val hot">${before}°C</span>
           </div>
           <div class="thermal-metric-delta">
-            -${drop}°C Scădere
+            <span class="delta-text">-${drop}°C Scădere</span>
+            <div class="thermal-reduction-progress-wrap" title="Eficiență disipare: -${drop}°C (-${percentReduction}%)">
+              <div class="thermal-reduction-progress-bar" style="width: ${percentReduction}%;"></div>
+            </div>
+            <span class="delta-percent">-${percentReduction}% Sarcină Termică</span>
           </div>
-          <div class="thermal-metric-item">
+          <div class="thermal-metric-item" style="text-align: right;">
             <span class="thermal-metric-label">Temp. Stabilizată</span>
             <span class="thermal-metric-val cool">${after}°C</span>
           </div>
@@ -958,7 +994,7 @@
       <div class="print-header">
         <div>
           <div class="print-title">DRAGOȘ TECUCI — REPARAȚII &amp; MENTENANȚĂ IT</div>
-          <div class="print-sub">Cluj-Napoca, România &bull; Tel: +40 742 123 456 &bull; Web: tecuci.dev</div>
+          <div class="print-sub">Cluj-Napoca, România &bull; Tel: +40 750 186 095 &bull; Web: dt-tech-service.vercel.app</div>
           <div class="print-sub">Fișă de Lucru Tehnic &amp; Proces Verbal Predare-Primire</div>
         </div>
         <div style="text-align: right;">
@@ -1176,8 +1212,8 @@
         return;
       }
 
-      if (!/^\d{4}$/.test(newVal)) {
-        errorMsg.textContent = 'PIN-ul nou trebuie să conțină exact 4 cifre numerice.';
+      if (!/^[0-9a-zA-Z]{4,8}$/.test(newVal)) {
+        errorMsg.textContent = 'PIN-ul nou trebuie să aibă între 4 și 8 caractere alfanumerice.';
         return;
       }
 

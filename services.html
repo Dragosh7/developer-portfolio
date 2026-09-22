@@ -134,7 +134,7 @@
     <a href="index.html" class="nav-link" data-i18n="nav.portfolio">Portofoliu Software</a>
     <a href="blog.html" class="nav-link" data-i18n="nav.blog">Blog &amp; Ghiduri</a>
     <a href="evidence.html" class="nav-link" style="color: var(--accent-primary);" data-i18n="nav.evidence">Registru Lucrări 🔒</a>
-    <a href="https://wa.me/40700000000" class="nav-link" style="color: var(--brand-whatsapp); font-weight: bold;">WhatsApp: +40 700 000 000</a>
+    <a href="https://wa.me/40750186095" class="nav-link" style="color: var(--brand-whatsapp); font-weight: bold;">WhatsApp: +40 750 186 095</a>
   </aside>
 
   <main id="main-content">
@@ -176,12 +176,12 @@
 
           <!-- Primary CTAs -->
           <div class="hero-cta-group" style="justify-content: center; margin-bottom: var(--space-10);">
-            <a href="https://wa.me/40700000000?text=Bun%C4%83%20Drago%C8%99,%20a%C8%99%20dori%20o%20programare%20pentru%20servicii%20tehnice%20%C3%AEn%20Cluj-Napoca." class="btn btn-primary" target="_blank" rel="noopener noreferrer" id="hero-whatsapp-btn" style="background-color: var(--brand-whatsapp); border-color: var(--brand-whatsapp); box-shadow: 0 4px 18px var(--brand-whatsapp-glow);">
+            <a href="https://wa.me/40750186095?text=Bun%C4%83%20Drago%C8%99,%20a%C8%99%20dori%20o%20programare%20pentru%20servicii%20tehnice%20%C3%AEn%20Cluj-Napoca." class="btn btn-primary" target="_blank" rel="noopener noreferrer" id="hero-whatsapp-btn" style="background-color: var(--brand-whatsapp); border-color: var(--brand-whatsapp); box-shadow: 0 4px 18px var(--brand-whatsapp-glow);">
               <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
               <span data-i18n="hero.whatsappCta">Scrie-mi pe WhatsApp</span>
             </a>
 
-            <a href="tel:+40700000000" class="btn btn-secondary" id="hero-phone-btn">
+            <a href="tel:+40750186095" class="btn btn-secondary" id="hero-phone-btn">
               <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span data-i18n="hero.phoneCta">Apelează Acum</span>
             </a>
@@ -513,6 +513,31 @@
                   <div class="config-savings-pill" id="calc-savings-alert" style="display: none;"></div>
                 </div>
 
+                <!-- [2.2] Cluj Neighborhood Selector -->
+                <div class="config-neighborhood-picker">
+                  <label for="cluj-neighborhood-select" class="neighborhood-picker-label">
+                    <span class="loc-icon">📍</span>
+                    <span data-i18n="calc.neighborhood_label">Zonă / Cartier Cluj-Napoca (Preluare sau Predare):</span>
+                  </label>
+                  <div class="neighborhood-select-wrap">
+                    <select id="cluj-neighborhood-select" class="neighborhood-select">
+                      <option value="Mănăștur" selected>Mănăștur (Str. Bucium / Primăverii / Calea Florești)</option>
+                      <option value="Mărăști">Mărăști (Piața Mărăști / Expo Transilvania)</option>
+                      <option value="Zorilor">Zorilor (Spitalul de Recuperare / Observator)</option>
+                      <option value="Centru">Centru (Piața Unirii / Eroilor / Muzeului)</option>
+                      <option value="Gheorgheni">Gheorgheni (Iulius Mall / Str. Titulescu)</option>
+                      <option value="Grigorescu">Grigorescu (Parcul Rozelor / Str. 1 Decembrie)</option>
+                      <option value="Bună Ziua">Bună Ziua / Andrei Mureșanu</option>
+                      <option value="Florești">Florești (Str. Eroilor / VIVO! Mall)</option>
+                      <option value="Alta">Alt cartier / Zona Metropolitană Cluj</option>
+                    </select>
+                  </div>
+                  <div class="neighborhood-badge-info" id="neighborhood-badge-info">
+                    <span class="info-dot"></span>
+                    <span id="neighborhood-eta-text">Preluare / predare rapidă în Mănăștur: disponibil în ~30 min</span>
+                  </div>
+                </div>
+
                 <!-- Total & WhatsApp Order Button Row -->
                 <div class="config-dock-bottom">
                   <div class="dock-price-display">
@@ -523,7 +548,7 @@
                     </div>
                   </div>
 
-                  <a href="https://wa.me/40700000000" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-quote" id="calc-whatsapp-btn">
+                  <a href="https://wa.me/40750186095" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-quote" id="calc-whatsapp-btn">
                     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                     <span data-i18n="calc.btnWhatsapp">Comandă pe WhatsApp</span>
                   </a>
@@ -547,6 +572,102 @@
           <p class="section-description" data-i18n="gallery.desc">
             Fiecare laptop sau unitate PC este curățată și testată cu rigoare de inginer software. Fă click pe o lucrare pentru detalii.
           </p>
+        </div>
+
+        <!-- [2.1] Interactive Heatsink Before/After Split Comparison Slider -->
+        <div class="before-after-showcase-container" id="before-after-showcase">
+          <div class="showcase-header">
+            <span class="showcase-tag" data-i18n="split.tag">⚡ Comparație Interactivă Înainte / După</span>
+            <h3 class="showcase-title" data-i18n="split.title">Impact Termic &amp; Mentenanță Heatsink</h3>
+            <p class="showcase-desc" data-i18n="split.desc">Trage de cursorul central pentru a compara starea inițială (pastă uscată, praf compactat) cu rezultatul curățării riguroase și aplicării compusului Arctic MX-6.</p>
+          </div>
+
+          <div class="split-slider-container" id="splitSliderContainer" style="--split-pos: 50%;">
+            <!-- BEFORE LAYER (Clogged, Crusty, Hot) -->
+            <div class="split-layer split-layer-before">
+              <div class="split-layer-content before-content">
+                <div class="split-status-tag tag-before">ÎNAINTE DE INTERVENȚIE</div>
+                <div class="split-visual-graphic">
+                  <div class="heatsink-art heatsink-dirty">
+                    <div class="heatsink-fan fan-struggling">💨 Ventilator Forțat (100% RPM Turbină)</div>
+                    <div class="heatsink-core core-hot">
+                      <span class="temp-indicator">🔥 94°C</span>
+                      <span class="throttle-warning">THERMAL THROTTLING ACTIV</span>
+                    </div>
+                    <div class="heatsink-dust-overlay">Pastă Termică Uscată / Cimentată &amp; Radiator Blocat</div>
+                  </div>
+                </div>
+                <div class="split-layer-footer">
+                  <span class="split-spec-chip chip-warning">⚠️ Frecvență CPU: 2.4 GHz (-44% degradare)</span>
+                  <span class="split-spec-chip chip-warning">🔊 Zgomot: 49 dB (Turbină)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- AFTER LAYER (Mirror-Clean, Arctic MX-6, Ice Cool) -->
+            <div class="split-layer split-layer-after">
+              <div class="split-layer-content after-content">
+                <div class="split-status-tag tag-after">DUPĂ MENTENANȚĂ RIGUROASĂ</div>
+                <div class="split-visual-graphic">
+                  <div class="heatsink-art heatsink-clean">
+                    <div class="heatsink-fan fan-optimal">❄️ Răcire Fluidă &amp; Silențioasă (45% RPM)</div>
+                    <div class="heatsink-core core-cool">
+                      <span class="temp-indicator">🧊 68°C</span>
+                      <span class="boost-success">BOOST MAXIM SUSȚINUT</span>
+                    </div>
+                    <div class="heatsink-paste-overlay">Arctic MX-6 Proaspătă &amp; Lamele Cupru Lustruite</div>
+                  </div>
+                </div>
+                <div class="split-layer-footer">
+                  <span class="split-spec-chip chip-success">🚀 Frecvență CPU: 4.3 GHz Stabil</span>
+                  <span class="split-spec-chip chip-success">🔇 Zgomot: 25 dB (Silențios)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- DRAGGABLE DIVIDER & RANGE INPUT -->
+            <div class="split-divider-line" aria-hidden="true">
+              <div class="split-handle-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </div>
+            </div>
+
+            <!-- Range control spanning entire width for accessible drag and touch -->
+            <input type="range" class="split-range-input" id="splitRangeInput" min="0" max="100" value="50" aria-label="Glisează pentru a compara starea înainte și după intervenție">
+          </div>
+
+          <!-- Bottom Telemetry Delta Metric Cards -->
+          <div class="split-metrics-summary">
+            <div class="split-metric-card">
+              <span class="metric-card-icon">🌡️</span>
+              <div class="metric-card-data">
+                <span class="metric-card-val">-26°C</span>
+                <span class="metric-card-label" data-i18n="split.delta_temp">Delta Temperatură</span>
+              </div>
+            </div>
+            <div class="split-metric-card">
+              <span class="metric-card-icon">⚡</span>
+              <div class="metric-card-data">
+                <span class="metric-card-val">+79%</span>
+                <span class="metric-card-label" data-i18n="split.boost">Stabilitate CPU Boost</span>
+              </div>
+            </div>
+            <div class="split-metric-card">
+              <span class="metric-card-icon">🔇</span>
+              <div class="metric-card-data">
+                <span class="metric-card-val">-24 dB</span>
+                <span class="metric-card-label" data-i18n="split.noise">Reducere Zgomot Ventilator</span>
+              </div>
+            </div>
+            <div class="split-metric-card">
+              <span class="metric-card-icon">🛡️</span>
+              <div class="metric-card-data">
+                <span class="metric-card-val">0% Risc</span>
+                <span class="metric-card-label" data-i18n="split.risk">Degradare Termică Siliciu</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Filter Buttons -->
@@ -607,7 +728,7 @@
        Bottom-Right Quick Action Capsule (WhatsApp with Pulse Ring & Direct Phone)
        ============================================================================ -->
   <aside class="floating-contact-widget" aria-label="Contact rapid Dragoș Tecuci">
-    <a href="https://wa.me/40700000000?text=Bun%C4%83%20Drago%C8%99,%20a%C8%99%20dori%20o%20programare%20pentru%20un%20laptop/PC%20%C3%AEn%20Cluj-Napoca." 
+    <a href="https://wa.me/40750186095?text=Bun%C4%83%20Drago%C8%99,%20a%C8%99%20dori%20o%20programare%20pentru%20un%20laptop/PC%20%C3%AEn%20Cluj-Napoca." 
        class="floating-contact-pill floating-btn-whatsapp" 
        target="_blank" 
        rel="noopener noreferrer" 
@@ -618,7 +739,7 @@
       <span data-i18n="floating.whatsapp">WhatsApp</span>
     </a>
 
-    <a href="tel:+40700000000" 
+    <a href="tel:+40750186095" 
        class="floating-contact-pill floating-btn-phone" 
        id="floating-phone-btn"
        title="Apelează telefonic">
@@ -673,9 +794,9 @@
         <div class="flex items-center gap-4">
           <a href="https://github.com/Dragosh7" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/tecuci-dragos" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://wa.me/40700000000" class="footer-link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-          <a href="tel:+40700000000" class="footer-link">Telefon</a>
-          <a href="mailto:tecuci.dragos@example.com" class="footer-link">Email</a>
+          <a href="https://wa.me/40750186095" class="footer-link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="tel:+40750186095" class="footer-link">Telefon</a>
+          <a href="mailto:dragostecuci@yahoo.com" class="footer-link">Email</a>
         </div>
       </div>
     </div>

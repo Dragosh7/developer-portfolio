@@ -481,15 +481,16 @@
 
       <h2 id="pinGateTitle" class="pin-gate-title">Panou Evidență Lucrări</h2>
       <p class="pin-gate-desc">
-        Acces privat securizat pentru evidența intervențiilor tehnice, gestiunea clienților și telemetrie termică. Introduceți codul PIN (implicit: <strong>1234</strong>).
+        Acces privat securizat pentru evidența intervențiilor tehnice, gestiunea clienților și telemetrie termică. Introduceți codul de securitate al administratorului.
       </p>
 
       <form id="pinGateForm" onsubmit="return false;">
         <div class="pin-input-group" id="pinInputGroup">
-          <input type="password" class="pin-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" autocomplete="off" data-index="0" aria-label="PIN digit 1" autofocus>
-          <input type="password" class="pin-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" autocomplete="off" data-index="1" aria-label="PIN digit 2">
-          <input type="password" class="pin-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" autocomplete="off" data-index="2" aria-label="PIN digit 3">
-          <input type="password" class="pin-digit-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" autocomplete="off" data-index="3" aria-label="PIN digit 4">
+          <input type="password" class="pin-digit-input" maxlength="1" autocomplete="off" data-index="0" aria-label="PIN char 1" autofocus>
+          <input type="password" class="pin-digit-input" maxlength="1" autocomplete="off" data-index="1" aria-label="PIN char 2">
+          <input type="password" class="pin-digit-input" maxlength="1" autocomplete="off" data-index="2" aria-label="PIN char 3">
+          <input type="password" class="pin-digit-input" maxlength="1" autocomplete="off" data-index="3" aria-label="PIN char 4">
+          <input type="password" class="pin-digit-input" maxlength="1" autocomplete="off" data-index="4" aria-label="PIN char 5">
         </div>
 
         <div class="pin-actions-row">
@@ -499,12 +500,6 @@
               <circle cx="12" cy="12" r="3"></circle>
             </svg>
             <span id="pinToggleLabel">Afișează PIN</span>
-          </button>
-        </div>
-
-        <div style="margin-bottom: var(--space-3);">
-          <button type="button" id="btnQuickUnlockDemo" class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center; gap: 0.5rem; background: rgba(99, 102, 241, 0.12); color: var(--accent-primary); border-color: rgba(99, 102, 241, 0.35); font-weight: 600;">
-            <span>⚡ Deblocare Rapidă Demo (PIN: 1234)</span>
           </button>
         </div>
 
@@ -1009,17 +1004,17 @@
         <form id="changePinForm">
           <div class="form-group" style="margin-bottom: var(--space-4);">
             <label for="currentPinInput" class="form-label">PIN Curent *</label>
-            <input type="password" id="currentPinInput" class="form-input" maxlength="4" inputmode="numeric" placeholder="4 cifre" required autocomplete="off">
+            <input type="password" id="currentPinInput" class="form-input" maxlength="8" placeholder="Introduceți PIN-ul actual" required autocomplete="off">
           </div>
 
           <div class="form-group" style="margin-bottom: var(--space-4);">
-            <label for="newPinInput" class="form-label">PIN Nou (4 cifre) *</label>
-            <input type="password" id="newPinInput" class="form-input" maxlength="4" inputmode="numeric" placeholder="4 cifre" required autocomplete="off">
+            <label for="newPinInput" class="form-label">PIN Nou (4-8 caractere) *</label>
+            <input type="password" id="newPinInput" class="form-input" maxlength="8" placeholder="Noul cod de securitate" required autocomplete="off">
           </div>
 
           <div class="form-group" style="margin-bottom: var(--space-4);">
             <label for="confirmPinInput" class="form-label">Confirmare PIN Nou *</label>
-            <input type="password" id="confirmPinInput" class="form-input" maxlength="4" inputmode="numeric" placeholder="repetați cele 4 cifre" required autocomplete="off">
+            <input type="password" id="confirmPinInput" class="form-input" maxlength="8" placeholder="Repetați noul cod" required autocomplete="off">
           </div>
 
           <div id="changePinErrorMessage" class="pin-error-message" role="alert"></div>

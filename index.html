@@ -158,7 +158,7 @@
             </a>
 
 
-            <button type="button" class="social-pill" data-copy-text="tecuci.dragos@example.com" data-copy-message="Email address copied to clipboard!" title="Copy Email">
+            <button type="button" class="social-pill" data-copy-text="dragostecuci@yahoo.com" data-copy-message="Email address copied to clipboard!" title="Copy Email">
               <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               <span>Copy Email</span>
             </button>
@@ -200,7 +200,7 @@
                   <span>Vezi Catalog &amp; Tarife</span>
                   <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
-                <a href="https://wa.me/40700000000?text=Salut%20Drago%C8%99,%20a%C8%99%20dori%20o%20programare%20pentru%20servicii%20PC%20%C3%AEn%20Cluj." target="_blank" class="btn btn-secondary btn-sm" style="background: rgba(37, 211, 102, 0.12); color: var(--brand-whatsapp); border-color: rgba(37, 211, 102, 0.3);">
+                <a href="https://wa.me/40750186095?text=Salut%20Drago%C8%99,%20a%C8%99%20dori%20o%20programare%20pentru%20servicii%20PC%20%C3%AEn%20Cluj." target="_blank" class="btn btn-secondary btn-sm" style="background: rgba(37, 211, 102, 0.12); color: var(--brand-whatsapp); border-color: rgba(37, 211, 102, 0.3);">
                   <span>💬 WhatsApp</span>
                 </a>
               </div>
@@ -360,7 +360,7 @@
             <a href="services.html" class="btn btn-primary" data-i18n="techspotlight.banner_btn1" style="white-space: nowrap;">
               <span>Deschide Pagina de Servicii &amp; Calculator ➔</span>
             </a>
-            <a href="https://wa.me/40700000000?text=Salut%20Drago%C8%99,%20am%20o%20problem%C4%83%20cu%20laptopul/PC-ul%20%C3%AEn%20Cluj." target="_blank" class="btn btn-secondary" data-i18n="techspotlight.banner_btn2" style="background: var(--brand-whatsapp); color: #fff; border-color: var(--brand-whatsapp); white-space: nowrap;">
+            <a href="https://wa.me/40750186095?text=Salut%20Drago%C8%99,%20am%20o%20problem%C4%83%20cu%20laptopul/PC-ul%20%C3%AEn%20Cluj." target="_blank" class="btn btn-secondary" data-i18n="techspotlight.banner_btn2" style="background: var(--brand-whatsapp); color: #fff; border-color: var(--brand-whatsapp); white-space: nowrap;">
               <span>💬 Scrie-mi pe WhatsApp</span>
             </a>
           </div>
@@ -561,55 +561,100 @@
 
         <!-- Project Category Filter Bar -->
         <div class="filter-bar projects-filter-bar justify-center">
-          <button class="filter-btn active" data-filter="all" type="button"><span class="filter-label" data-i18n="proj.filter_all">Toate Proiectele</span> <span class="filter-count">4</span></button>
-          <button class="filter-btn" data-filter="backend" type="button"><span class="filter-label" data-i18n="proj.filter_backend">Backend &amp; Fullstack</span> <span class="filter-count">2</span></button>
+          <button class="filter-btn active" data-filter="all" type="button"><span class="filter-label" data-i18n="proj.filter_all">Toate Proiectele</span> <span class="filter-count">5</span></button>
+          <button class="filter-btn" data-filter="backend" type="button"><span class="filter-label" data-i18n="proj.filter_backend">Backend &amp; Microservicii</span> <span class="filter-count">2</span></button>
+          <button class="filter-btn" data-filter="security" type="button"><span class="filter-label" data-i18n="proj.filter_security">Securitate &amp; Criptografie</span> <span class="filter-count">1</span></button>
           <button class="filter-btn" data-filter="qa" type="button"><span class="filter-label" data-i18n="proj.filter_qa">QA &amp; Automatizare</span> <span class="filter-count">1</span></button>
-          <button class="filter-btn" data-filter="strategy" type="button"><span class="filter-label" data-i18n="proj.filter_strategy">Sisteme &amp; Strategie</span> <span class="filter-count">1</span></button>
+          <button class="filter-btn" data-filter="strategy" type="button"><span class="filter-label" data-i18n="proj.filter_strategy">Sisteme &amp; Hardware</span> <span class="filter-count">1</span></button>
         </div>
 
         <div class="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card" data-category="backend">
+          <!-- Project 1: Microservices Platform (RabbitMQ & Reverse Proxy) -->
+          <article class="project-card" data-category="backend" data-project-id="fullstack">
             <div class="project-badge-bar">
-              <span class="project-badge">Backend &amp; Fullstack</span>
+              <span class="project-badge">Microservicii &amp; Distributed</span>
               <span class="project-year">2024–2025</span>
             </div>
-            <h3 class="project-title" data-i18n="projects.p1_title">Scalable Energy Management &amp; Real-Time Telemetry Platform</h3>
+            <h3 class="project-title" data-i18n="projects.p1_title">Scalable Microservices Platform &amp; Real-Time Telemetry</h3>
             <p class="project-description">
-              A high-performance fullstack platform designed for real-time sensor data ingestion, scalable processing, 
-              and intuitive energy telemetry monitoring with Java, Spring Boot, and React.
+              Arhitectură de microservicii distribuite pentru ingestie de date senzor în timp real. Integrează RabbitMQ pentru cozi asincrone de mesaje, reverse proxy cu load balancing, WebSockets pentru actualizări live, backend Spring Boot și containerizare Docker.
             </p>
             <div style="background-color: var(--bg-secondary); border-radius: var(--radius-md); padding: var(--space-3); margin-bottom: var(--space-4); border: 1px solid var(--border-subtle);">
               <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-emerald); font-weight: bold; margin-bottom: 2px;">
-                ⚡ Real-time Ingestion • Modular Architecture • 99.9% Reliability
+                ⚡ Broker RabbitMQ • Reverse Proxy &amp; Load Balancing • 99.9% Fiabilitate
               </div>
               <div style="font-size: 0.75rem; color: var(--text-tertiary);">
-                Engineered for high scalability, asynchronous processing, and resilient data persistence.
+                Decuplare asincronă a sarcinilor de ingestie, persistență tranzacțională și streaming live prin WebSockets.
               </div>
             </div>
             <div class="tag-list">
               <span class="tag">Java</span>
               <span class="tag">Spring Boot</span>
-              <span class="tag">React</span>
-              <span class="tag">REST APIs</span>
-              <span class="tag">Distributed Systems</span>
-              <span class="tag">PostgreSQL</span>
+              <span class="tag">RabbitMQ</span>
+              <span class="tag">Reverse Proxy</span>
+              <span class="tag">Load Balancing</span>
               <span class="tag">Docker</span>
+              <span class="tag">WebSockets</span>
+              <span class="tag">React</span>
+              <span class="tag">MySQL</span>
             </div>
             <div class="project-actions">
               <a href="https://github.com/Dragosh7/FullStackApplication" class="project-action-link" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                 <span data-i18n="projects.btn_repo">GitHub Repository ↗</span>
               </a>
-              <a href="blog.html" class="project-action-link">
-                <span>Arhitectură &amp; Articol 📖</span>
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+              <button type="button" class="project-action-link btn-open-blueprint" data-blueprint="fullstack" style="background: none; border: none; cursor: pointer; padding: 0;">
+                <span>Blueprint Arhitectură 📐</span>
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              </button>
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="project-card" data-category="backend">
+          <!-- Project 2: dotPass Zero-Knowledge Password Vault -->
+          <article class="project-card" data-category="security" data-project-id="dotpass">
+            <div class="project-badge-bar">
+              <span class="project-badge" style="background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3);">Securitate &amp; Criptografie</span>
+              <span class="project-year">2024–2025</span>
+            </div>
+            <h3 class="project-title">dotPass — Zero-Knowledge Secure Password Manager &amp; Intrusion Shield</h3>
+            <p class="project-description">
+              Seif desktop de credențiale cu arhitectură Zero-Knowledge dezvoltat în Python. Include derivare de chei PBKDF2 (100.000+ iterații), criptare simetrică autentificată AES-256, seif SQLite securizat, verificare breach k-Anonymity cu API-ul HaveIBeenPwned și alerte geofence/SMS la tentative anormale de autentificare.
+            </p>
+            <div style="background-color: var(--bg-secondary); border-radius: var(--radius-md); padding: var(--space-3); margin-bottom: var(--space-4); border: 1px solid var(--border-subtle);">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-emerald); font-weight: bold; margin-bottom: 2px;">
+                ⚡ PBKDF2 (100k iterații) • Criptare AES-256 • k-Anonymity HIBP
+              </div>
+              <div style="font-size: 0.75rem; color: var(--text-tertiary);">
+                Model Zero-Knowledge garantat: parola master nu este stocată niciodată în clar pe disc sau rețea.
+              </div>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Criptografie</span>
+              <span class="tag">PBKDF2</span>
+              <span class="tag">AES-256</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">CustomTkinter</span>
+              <span class="tag">HaveIBeenPwned API</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/Dragosh7/dotPass" class="project-action-link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="projects.btn_repo">GitHub Repository ↗</span>
+              </a>
+              <a href="blog.html?post=dotpass-cryptographic-architecture" class="project-action-link">
+                <span>Studiu Criptografic 📖</span>
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <button type="button" class="project-action-link btn-open-blueprint" data-blueprint="dotpass" style="background: none; border: none; cursor: pointer; padding: 0;">
+                <span>Blueprint 📐</span>
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card" data-category="backend" data-project-id="concurrency">
             <div class="project-badge-bar">
               <span class="project-badge">Concurrency &amp; Systems</span>
               <span class="project-year">2024</span>
@@ -639,15 +684,15 @@
                 <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                 <span data-i18n="projects.btn_repo">GitHub Repository ↗</span>
               </a>
-              <a href="https://github.com/Dragosh7/Multi-threading-queue-management#readme" class="project-action-link" target="_blank" rel="noopener noreferrer">
+              <button type="button" class="project-action-link btn-open-blueprint" data-blueprint="concurrency" style="background: none; border: none; cursor: pointer; padding: 0;">
                 <span>Arhitectură &amp; Benchmarks ⚡</span>
-                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-              </a>
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              </button>
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project-card" data-category="qa">
+          <!-- Project 4 -->
+          <article class="project-card" data-category="qa" data-project-id="cypress">
             <div class="project-badge-bar">
               <span class="project-badge">QA Automation</span>
               <span class="project-year">2024</span>
@@ -677,15 +722,15 @@
                 <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                 <span data-i18n="projects.btn_repo">GitHub Repository ↗</span>
               </a>
-              <a href="blog.html" class="project-action-link">
-                <span>Ghid QA &amp; Cypress 🎯</span>
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+              <button type="button" class="project-action-link btn-open-blueprint" data-blueprint="cypress" style="background: none; border: none; cursor: pointer; padding: 0;">
+                <span>Ghid &amp; Mocking 🎯</span>
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              </button>
             </div>
           </article>
 
-          <!-- Project 4 -->
-          <article class="project-card" data-category="strategy">
+          <!-- Project 5 -->
+          <article class="project-card" data-category="strategy" data-project-id="benchmark">
             <div class="project-badge-bar">
               <span class="project-badge">Hardware &amp; Systems</span>
               <span class="project-year">2024</span>
@@ -715,10 +760,10 @@
                 <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                 <span data-i18n="projects.btn_repo">GitHub Repository ↗</span>
               </a>
-              <a href="services.html#thermals" class="project-action-link">
-                <span>Simulator Termic Live 🧪</span>
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+              <button type="button" class="project-action-link btn-open-blueprint" data-blueprint="benchmark" style="background: none; border: none; cursor: pointer; padding: 0;">
+                <span>Blueprint &amp; Thermals 🧪</span>
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              </button>
             </div>
           </article>
         </div>
@@ -930,7 +975,7 @@
         </p>
 
         <div class="hero-cta-group justify-center">
-          <button type="button" class="btn btn-primary" data-copy-text="tecuci.dragos@example.com" data-copy-message="Email address copied to clipboard!" data-i18n="contact.btn_email">
+          <button type="button" class="btn btn-primary" data-copy-text="dragostecuci@yahoo.com" data-copy-message="Email address copied to clipboard!" data-i18n="contact.btn_email">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <span>Copiază Email</span>
           </button>
@@ -946,6 +991,47 @@
       </div>
     </section>
   </main>
+
+  <!-- ============================================================================
+       ARCHITECTURE BLUEPRINT MODAL ([1.1])
+       ============================================================================ -->
+  <div id="blueprintModalBackdrop" class="blueprint-modal-backdrop" aria-modal="true" role="dialog" aria-labelledby="blueprintModalTitle" style="display: none;">
+    <div class="blueprint-modal-card">
+      <div class="blueprint-modal-header">
+        <div>
+          <span id="blueprintModalBadge" class="tag" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-primary); margin-bottom: 0.25rem;">Arhitectură de Sistem</span>
+          <h3 id="blueprintModalTitle" class="blueprint-modal-title">Blueprint Arhitectură</h3>
+        </div>
+        <button type="button" class="blueprint-close-btn" id="btnCloseBlueprintModal" aria-label="Închide blueprint">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="blueprint-modal-body" id="blueprintModalContent">
+        <!-- Injected dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================================
+       MOBILE STICKY ACTION STRIP ([1.4])
+       ============================================================================ -->
+  <aside class="mobile-sticky-action-strip" aria-label="Acțiuni rapide mobile">
+    <a href="https://wa.me/40750186095?text=Salut%20Drago%C8%99,%20am%20v%C4%83zut%20portofoliul%20t%C4%83u." class="mobile-action-btn action-whatsapp" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; fill: currentColor;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+40750186095" class="mobile-action-btn action-call">
+      <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <span>Apelează</span>
+    </a>
+    <a href="resume.html" class="mobile-action-btn action-cv">
+      <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+      <span>Mini-CV</span>
+    </a>
+    <a href="services.html" class="mobile-action-btn action-services">
+      <span>🛠️ Servicii</span>
+    </a>
+  </aside>
 
   <!-- ============================================================================
        SITE FOOTER
@@ -975,7 +1061,7 @@
         <div class="flex items-center gap-4">
           <a href="https://www.linkedin.com/in/tecuci-dragos" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/Dragosh7" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <button type="button" class="footer-link" data-copy-text="tecuci.dragos@example.com" data-copy-message="Email copied to clipboard!" style="background: none; border: none; cursor: pointer; padding: 0;">Email</button>
+          <button type="button" class="footer-link" data-copy-text="dragostecuci@yahoo.com" data-copy-message="Email copied to clipboard!" style="background: none; border: none; cursor: pointer; padding: 0;">Email</button>
         </div>
       </div>
     </div>

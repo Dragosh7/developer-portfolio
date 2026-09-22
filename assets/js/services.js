@@ -33,13 +33,10 @@
       "tagline": "Making coding look easy, with coffee",
       "github": "https://github.com/Dragosh7",
       "linkedin": "https://www.linkedin.com/in/tecuci-dragos",
-      "phone": "+40 700 000 000",
-      "phonePlaceholderNote": "[TODO: Customize phone]",
-      "whatsappUrl": "https://wa.me/40700000000",
-      "whatsappPlaceholderNote": "[TODO: Customize WhatsApp]",
-      "email": "tecuci.dragos@example.com",
-      "emailPlaceholderNote": "[TODO: Customize email]",
-      "location": "Cluj-Napoca, Romania",
+      "phone": "+40 750 186 095",
+            "whatsappUrl": "https://wa.me/40750186095",
+            "email": "dragostecuci@yahoo.com",
+            "location": "Cluj-Napoca, Romania",
       "neighborhoods": [
         "Mănăștur",
         "Mărăști",
@@ -2016,6 +2013,59 @@
     });
   }
 
+  /* ============================================================================
+     7.7 HEATSINK BEFORE / AFTER SPLIT SLIDER ([2.1])
+     ============================================================================ */
+  function initBeforeAfterSlider() {
+    const container = document.getElementById('splitSliderContainer');
+    const rangeInput = document.getElementById('splitRangeInput');
+    if (!container || !rangeInput) return;
+
+    function setSplit(pos) {
+      const clamped = Math.max(0, Math.min(100, pos));
+      container.style.setProperty('--split-pos', `${clamped}%`);
+    }
+
+    rangeInput.addEventListener('input', e => {
+      setSplit(e.target.value);
+    });
+
+    let isDragging = false;
+    function updateFromPointer(clientX) {
+      const rect = container.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const pct = (x / rect.width) * 100;
+      rangeInput.value = pct;
+      setSplit(pct);
+    }
+
+    container.addEventListener('mousedown', e => {
+      isDragging = true;
+      updateFromPointer(e.clientX);
+    });
+
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      updateFromPointer(e.clientX);
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    container.addEventListener('touchstart', e => {
+      if (e.touches && e.touches[0]) {
+        updateFromPointer(e.touches[0].clientX);
+      }
+    }, { passive: true });
+
+    container.addEventListener('touchmove', e => {
+      if (e.touches && e.touches[0]) {
+        updateFromPointer(e.touches[0].clientX);
+      }
+    }, { passive: true });
+  }
+
   // 7.8 Guarantees Grid
   function renderGuarantees(guarantees) {
     const container = document.getElementById('guarantees-grid');
@@ -2244,6 +2294,14 @@
       });
     }
 
+    // [2.2] Cluj Neighborhood selector change
+    const nSelect = document.getElementById('cluj-neighborhood-select');
+    if (nSelect) {
+      nSelect.addEventListener('change', () => {
+        updateNeighborhoodEta();
+      });
+    }
+
     // Hidden form change listener
     form.addEventListener('change', () => {
       updateCalculatorTotal();
@@ -2252,6 +2310,38 @@
     // Render initial custom tiles and setup initial state
     renderConfigCustomTiles();
     selectConfigBundle('gamer', false); // Initial default bundle
+  }
+
+  function updateNeighborhoodEta() {
+    const nSelect = document.getElementById('cluj-neighborhood-select');
+    const etaText = document.getElementById('neighborhood-eta-text');
+    if (!nSelect || !etaText) return;
+    const val = nSelect.value;
+    const etaMapRo = {
+      'Mănăștur': '📍 Preluare / predare rapidă în Mănăștur: disponibil în ~30 min',
+      'Mărăști': '📍 Preluare / predare în Mărăști: disponibil în ~45 min',
+      'Zorilor': '📍 Preluare / predare în Zorilor: disponibil în ~40 min',
+      'Centru': '📍 Preluare / predare în Centru: disponibil în ~35 min',
+      'Gheorgheni': '📍 Preluare / predare în Gheorgheni: disponibil în ~45 min',
+      'Grigorescu': '📍 Preluare / predare în Grigorescu: disponibil în ~40 min',
+      'Bună Ziua': '📍 Preluare / predare în Bună Ziua: disponibil în ~50 min',
+      'Florești': '📍 Preluare / predare în Florești: disponibil în ~60 min',
+      'Alta': '📍 Disponibil pentru preluare în zona metropolitană Cluj: confirmare rapidă'
+    };
+    const etaMapEn = {
+      'Mănăștur': '📍 Fast handover in Mănăștur: available in ~30 mins',
+      'Mărăști': '📍 Handover in Mărăști: available in ~45 mins',
+      'Zorilor': '📍 Handover in Zorilor: available in ~40 mins',
+      'Centru': '📍 Handover in Downtown / Centru: available in ~35 mins',
+      'Gheorgheni': '📍 Handover in Gheorgheni: available in ~45 mins',
+      'Grigorescu': '📍 Handover in Grigorescu: available in ~40 mins',
+      'Bună Ziua': '📍 Handover in Bună Ziua: available in ~50 mins',
+      'Florești': '📍 Handover in Florești: available in ~60 mins',
+      'Alta': '📍 Available across Cluj Metropolitan area: quick confirmation'
+    };
+    const map = currentLang === 'ro' ? etaMapRo : etaMapEn;
+    etaText.textContent = map[val] || map['Mănăștur'];
+    updateCalculatorTotal();
   }
 
   function switchConfigMode(mode) {
@@ -2681,9 +2771,12 @@
     const waBtn = document.getElementById('calc-whatsapp-btn');
     if (!waBtn) return;
 
+    const nSelect = document.getElementById('cluj-neighborhood-select');
+    const neighborhood = nSelect ? nSelect.value : 'Mănăștur';
+
     let text = '';
     if (currentLang === 'ro') {
-      text = `Bună Dragoș,\n\nAș dori o programare în Cluj-Napoca pentru echipamentul meu. Am configurat următoarele pe site:\n\n`;
+      text = `Bună Dragoș,\n\nAș dori o programare în Cluj-Napoca (Cartier: ${neighborhood}) pentru echipamentul meu. Am configurat următoarele pe site:\n\n`;
       if (selectedItems.length > 0) {
         selectedItems.forEach(item => {
           text += `• ${item.icon} ${item.name} (${item.price > 0 ? item.price + ' RON' : 'Gratuit'})\n`;
@@ -2693,13 +2786,14 @@
         }
         text += `\nTotal estimat: ${finalSum} RON`;
         if (eta && eta !== '—') text += `\n⏱️ Timp estimat intervenție: ${eta}`;
-        if (guarantee && guarantee !== '—') text += `\n🛡️ Garanție oferită: ${guarantee}\n`;
+        if (guarantee && guarantee !== '—') text += `\n🛡️ Garanție oferită: ${guarantee}`;
+        text += `\n📍 Punct preferat preluare / predare: ${neighborhood}\n`;
       } else {
-        text += `Aș dori o evaluare / diagnosticare pentru laptopul / PC-ul meu.\n`;
+        text += `Aș dori o evaluare / diagnosticare pentru laptopul / PC-ul meu în zona ${neighborhood}.\n`;
       }
       text += `\nCând am putea stabili o întâlnire de predare în Cluj-Napoca? Mulțumesc!`;
     } else {
-      text = `Hello Dragoș,\n\nI would like to book a service appointment in Cluj-Napoca for my machine. I configured the following options:\n\n`;
+      text = `Hello Dragoș,\n\nI would like to book a service appointment in Cluj-Napoca (Neighborhood: ${neighborhood}) for my machine. I configured the following options:\n\n`;
       if (selectedItems.length > 0) {
         selectedItems.forEach(item => {
           text += `• ${item.icon} ${item.name} (${item.price > 0 ? item.price + ' RON' : 'Free'})\n`;
@@ -2709,9 +2803,10 @@
         }
         text += `\nEstimated total: ${finalSum} RON`;
         if (eta && eta !== '—') text += `\n⏱️ Estimated turnaround: ${eta}`;
-        if (guarantee && guarantee !== '—') text += `\n🛡️ Guarantee included: ${guarantee}\n`;
+        if (guarantee && guarantee !== '—') text += `\n🛡️ Guarantee included: ${guarantee}`;
+        text += `\n📍 Handover area: ${neighborhood}\n`;
       } else {
-        text += `I would like a diagnostic assessment for my laptop / PC.\n`;
+        text += `I would like a diagnostic assessment for my laptop / PC in ${neighborhood} area.\n`;
       }
       text += `\nWhen could we schedule a handover in Cluj-Napoca? Thank you!`;
     }
@@ -2734,8 +2829,8 @@
         }
       }
     } catch (e) {
-      // Fallback is already loaded synchronously, guaranteed zero failure on file:///
-      // Silently proceed with SERVICES_DATA_FALLBACK
+      // Graceful offline fallback: appData is pre-populated
+      console.warn('Using embedded service fallback data.');
     }
   }
 
@@ -2743,7 +2838,7 @@
      10. ESCAPE HTML HELPER
      ============================================================================ */
   function escapeHtml(str) {
-    if (!str) return '';
+    if (!str && str !== 0) return '';
     return String(str)
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
@@ -2777,6 +2872,7 @@
     // 7. Setup Gallery Interactions and Lightbox
     initGalleryInteractions();
     initLightboxListeners();
+    initBeforeAfterSlider();
 
     // 8. Setup Quote Calculator
     initQuoteCalculator();

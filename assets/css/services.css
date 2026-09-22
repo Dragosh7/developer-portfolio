@@ -4454,3 +4454,503 @@ body.light-theme .site-navbar.liquid-glass-navbar .navbar-island {
   white-space: nowrap !important;
 }
 
+/* ==============================================================================
+   CLUJ NEIGHBORHOOD SELECTOR ([2.2])
+   ============================================================================== */
+.config-neighborhood-picker {
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md, 8px);
+}
+
+.neighborhood-picker-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary, #f8fafc);
+  margin-bottom: 0.45rem;
+}
+
+.neighborhood-picker-label .loc-icon {
+  font-size: 0.95rem;
+}
+
+.neighborhood-select-wrap {
+  position: relative;
+}
+
+.neighborhood-select {
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  background: var(--bg-surface, #0f172a);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 6px;
+  color: var(--text-primary, #f8fafc);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neighborhood-select:focus {
+  border-color: var(--accent-primary, #6366f1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+.neighborhood-select option {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.neighborhood-badge-info {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+  font-size: 0.74rem;
+  color: var(--accent-primary, #38bdf8);
+  font-weight: 500;
+}
+
+.neighborhood-badge-info .info-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  flex-shrink: 0;
+}
+
+/* ==============================================================================
+   BEFORE / AFTER INTERACTIVE SPLIT SLIDER ([2.1])
+   ============================================================================== */
+.before-after-showcase-container {
+  margin-bottom: 2.5rem;
+  background: var(--bg-glass-card, rgba(15, 23, 42, 0.7));
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+.showcase-header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.showcase-tag {
+  display: inline-block;
+  padding: 3px 12px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-primary, #6366f1);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.showcase-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary, #f8fafc);
+  margin: 0 0 0.4rem 0;
+}
+
+.showcase-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary, #94a3b8);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.45;
+}
+
+.split-slider-container {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  user-select: none;
+  background: #020617;
+  touch-action: pan-y;
+}
+
+.split-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.split-layer-before {
+  background: linear-gradient(135deg, rgba(69, 10, 10, 0.6) 0%, rgba(30, 27, 75, 0.7) 100%);
+  z-index: 1;
+}
+
+.split-layer-after {
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.6) 0%, rgba(15, 23, 42, 0.9) 100%);
+  z-index: 2;
+  clip-path: polygon(var(--split-pos, 50%) 0, 100% 0, 100% 100%, var(--split-pos, 50%) 100%);
+  will-change: clip-path;
+}
+
+.split-layer-content {
+  padding: 1.25rem 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.split-layer-content.after-content {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.split-status-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.tag-before {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.tag-after {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.split-visual-graphic {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.heatsink-art {
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.heatsink-dirty {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.heatsink-clean {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.fan-struggling {
+  color: #fca5a5;
+  font-weight: 600;
+}
+
+.fan-optimal {
+  color: #6ee7b7;
+  font-weight: 600;
+}
+
+.heatsink-core {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+}
+
+.after-content .heatsink-core {
+  justify-content: flex-end;
+}
+
+.temp-indicator {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.core-hot .temp-indicator {
+  color: #ef4444;
+  text-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+}
+
+.core-cool .temp-indicator {
+  color: #10b981;
+  text-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+}
+
+.throttle-warning {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.15);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.boost-success {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.heatsink-dust-overlay {
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.heatsink-paste-overlay {
+  color: #e2e8f0;
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.split-layer-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.after-content .split-layer-footer {
+  justify-content: flex-end;
+}
+
+.split-spec-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.chip-warning {
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.chip-success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.split-divider-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--split-pos, 50%);
+  width: 2px;
+  background: #ffffff;
+  z-index: 10;
+  transform: translateX(-50%);
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.split-handle-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.split-range-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 20;
+  margin: 0;
+  padding: 0;
+}
+
+.split-metrics-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.split-metric-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+}
+
+.metric-card-icon {
+  font-size: 1.3rem;
+}
+
+.metric-card-val {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #38bdf8;
+  font-family: var(--font-mono, monospace);
+}
+
+.metric-card-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-tertiary, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ==============================================================================
+   EVIDENCE REGISTRY: THERMAL METERS & VISUAL DELTA PROGRESS ([5.2])
+   ============================================================================== */
+.job-thermal-badge-card {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+.thermal-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.thermal-metric-label {
+  font-size: 0.7rem;
+  color: var(--text-tertiary, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.thermal-metric-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+}
+
+.thermal-metric-val.hot {
+  color: #ef4444;
+}
+
+.thermal-metric-val.cool {
+  color: #10b981;
+}
+
+.thermal-metric-delta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 140px;
+}
+
+.thermal-metric-delta .delta-text {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #34d399;
+  font-family: var(--font-mono, monospace);
+  margin-bottom: 4px;
+}
+
+.thermal-reduction-progress-wrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(239, 68, 68, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 3px 0;
+}
+
+.thermal-reduction-progress-bar {
+  height: 100%;
+  background: #10b981;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.thermal-metric-delta .delta-percent {
+  font-size: 0.68rem;
+  color: var(--text-secondary, #94a3b8);
+  font-family: var(--font-mono, monospace);
+}
+
+.temp-table-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.temp-badge-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+}
+
+.thermal-meter-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+}
+
+.thermal-meter-fill-hot {
+  background: #f43f5e;
+  height: 100%;
+  border-radius: 2px 0 0 2px;
+  opacity: 0.4;
+}
+
+.thermal-meter-fill-cool {
+  background: #10b981;
+  height: 100%;
+  border-radius: 0 2px 2px 0;
+}
+
+

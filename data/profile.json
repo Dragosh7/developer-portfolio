@@ -2,7 +2,7 @@
   "name": "Dragoș Tecuci",
   "title": "Software Engineer & QA Specialist",
   "location": "Cluj-Napoca, Romania",
-  "email": "tecuci.dragos@example.com",
+  "email": "dragostecuci@yahoo.com",
   "github": "https://github.com/Dragosh7",
   "linkedin": "https://www.linkedin.com/in/tecuci-dragos",
   "avatarUrl": "assets/images/me.jpg",
@@ -25,7 +25,8 @@
   },
   "contact": {
     "location": "Cluj-Napoca, Romania",
-    "email": "tecuci.dragos@example.com",
+    "phone": "+40 750 186 095",
+    "email": "dragostecuci@yahoo.com",
     "linkedin": "https://www.linkedin.com/in/tecuci-dragos",
     "github": "https://github.com/Dragosh7"
   }

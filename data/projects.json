@@ -1,27 +1,55 @@
 [
   {
     "id": "fullstack-energy-management",
-    "title": "Scalable Energy Management & Real-Time Telemetry Platform",
-    "subtitle": "High-throughput distributed backend built with Java and Spring Boot",
+    "title": "Scalable Microservices Platform & Real-Time Energy Telemetry",
+    "subtitle": "Distributed microservices architecture with Spring Boot, RabbitMQ & Reverse Proxy Load Balancing",
     "featured": true,
-    "summary": "A high-performance fullstack platform designed for real-time sensor data ingestion, scalable processing, and intuitive energy telemetry visualization.",
-    "description": "Architected for high scalability and real-time interaction in distributed environments. The system handles continuous data streams from remote energy nodes, processing inputs through optimized Java pipelines and persisting state with robust consistency guarantees. Features modular service separation, RESTful APIs, and responsive client monitoring.",
+    "summary": "A high-performance fullstack microservices platform designed for real-time sensor data ingestion, RabbitMQ message queuing, and reverse proxy load-balanced processing.",
+    "description": "Architected for high scalability and real-time interaction in distributed enterprise environments. The system ingests continuous sensor data streams, distributes asynchronous message pipelines via RabbitMQ brokers, routes traffic through a reverse proxy with load balancing, and persists transactional state across Spring Boot backend services and MySQL. Features real-time WebSockets synchronization, Docker containerization, and responsive React monitoring dashboards.",
     "techTags": [
       "Java",
       "Spring Boot",
+      "RabbitMQ",
+      "Reverse Proxy",
+      "Load Balancing",
+      "Docker",
+      "WebSockets",
       "React",
-      "REST APIs",
-      "Distributed Systems",
-      "PostgreSQL",
-      "Docker"
+      "MySQL"
     ],
     "impactMetrics": [
-      { "label": "Processing Model", "value": "Real-time", "description": "Continuous data streaming with low-latency state synchronization." },
-      { "label": "Architecture", "value": "Decoupled", "description": "Independent backend service contracts for reliable scaling." },
-      { "label": "Reliability", "value": "99.9%", "description": "Zero packet drop under sustained simulated data bursts." }
+      { "label": "Queue Architecture", "value": "RabbitMQ", "description": "Decoupled asynchronous message broker ensuring zero packet drop." },
+      { "label": "Traffic Routing", "value": "Load Balanced", "description": "Reverse proxy distributing client requests evenly across backend nodes." },
+      { "label": "Reliability", "value": "99.9%", "description": "Resilient failover and low-latency WebSockets state streaming." }
     ],
     "repoUrl": "https://github.com/Dragosh7/FullStackApplication",
     "demoUrl": "https://github.com/Dragosh7/FullStackApplication",
+    "date": "2024 - 2025"
+  },
+  {
+    "id": "dotpass-password-vault",
+    "title": "dotPass — Zero-Knowledge Secure Password Manager & Intrusion Shield",
+    "subtitle": "Python desktop security vault with PBKDF2 key derivation, AES-256 encryption & HaveIBeenPwned k-Anonymity API",
+    "featured": true,
+    "summary": "A zero-knowledge cryptographic vault written in Python. Protects master credentials via salted PBKDF2 HMAC-SHA256, encrypts vault data via AES-256, checks breach status via HaveIBeenPwned k-Anonymity API, and sends real-time intrusion alerts.",
+    "description": "Engineered as an authentic high-security personal credential manager. Implements a strictly zero-knowledge architecture where the master password is never stored or transmitted. Symmetric AES-256 encryption keys are derived on-the-fly using 100,000+ PBKDF2 iterations with unique per-user cryptographic salts. Incorporates HaveIBeenPwned SHA-1 5-character prefix queries to detect pwned credentials with mathematical anonymity, and external API alerting for suspicious login attempts with SMS/geolocation warnings.",
+    "techTags": [
+      "Python",
+      "Cryptography",
+      "PBKDF2",
+      "AES-256",
+      "SQLite",
+      "CustomTkinter",
+      "HaveIBeenPwned API",
+      "Security Auditing"
+    ],
+    "impactMetrics": [
+      { "label": "Key Derivation", "value": "PBKDF2 (100k)", "description": "Brute-force resistant memory-hard key derivation with per-user salt." },
+      { "label": "Encryption", "value": "AES-256", "description": "Zero-knowledge authenticated credential storage in encrypted SQLite vault." },
+      { "label": "Breach Verification", "value": "k-Anonymity", "description": "Zero plaintext leakage via 5-character SHA-1 prefix API checks." }
+    ],
+    "repoUrl": "https://github.com/Dragosh7/dotPass",
+    "demoUrl": "https://github.com/Dragosh7/dotPass",
     "date": "2024 - 2025"
   },
   {

@@ -301,6 +301,195 @@ When software engineers appreciate balance sheets and cost models, we make smart
 
 Bridging the gap between code and capital is where true innovation happens—and that is the mindset I bring to every project, codebase, and team I join.
 `
+,
+
+    'dotpass-cryptographic-architecture': `---
+title: "Cryptographic Architecture of a Zero-Knowledge Password Vault: From PBKDF2 Key Derivation to AES Encryption and k-Anonymity Verification"
+date: "2026-09-12"
+author: "Dragoș Tecuci"
+tags: ["Cryptography", "Python", "PBKDF2", "AES-256", "Zero-Knowledge", "Security Architecture", "UTCN Thesis"]
+readingTime: "8 min"
+summary: "An engineering deep-dive into the architectural decisions, threat models, and cryptographic primitives behind dotPass — a desktop password vault built with salted PBKDF2 key stretching, AES-256 encryption, and HaveIBeenPwned k-Anonymity breach detection."
+---
+
+# Cryptographic Architecture of a Zero-Knowledge Password Vault: From PBKDF2 Key Derivation to AES Encryption and k-Anonymity Verification
+
+Password managers represent one of the most critical trust boundaries in modern software. If a password manager is compromised, every account, API key, and confidential credential stored within it is immediately jeopardized. 
+
+During my Computer Science graduation work at the **Technical University of Cluj-Napoca (UTCN)**, I designed and implemented **dotPass** ([GitHub: Dragosh7/dotPass](https://github.com/Dragosh7/dotPass))—a desktop credential vault engineered around strict **Zero-Knowledge principles**, authenticated symmetric encryption, memory-hard key stretching, and privacy-preserving breach detection.
+
+This article details the underlying threat modeling, cryptographic trade-offs, and architectural paradigms that differentiate a truly secure password manager from a naive database wrapper.
+
+---
+
+## 1. The Zero-Knowledge Threat Model
+
+In cryptographic engineering, security is not defined by features; it is defined by the **threat model** and what the system guarantees under adversarial conditions.
+
+For \`dotPass\`, the security architecture assumes three primary threat scenarios:
+1. **Compromised Host Storage (Offline Attack):** An adversary steals the SQLite database file (\`vault.db\`) or gains physical access to the device's secondary storage.
+2. **Side-Channel & In-Memory Inspection:** Malicious processes running on the user's operating system attempting to dump RAM or sniff cryptographic artifacts.
+3. **Network Eavesdropping:** An adversary intercepting outbound traffic when the vault validates credentials against external breach databases.
+
+To withstand these vectors, \`dotPass\` enforces a **strict Zero-Knowledge invariant**:
+> *The master password is never written to disk, never logged, and never transmitted over any network socket. The decryption key exists exclusively in transient memory during active vault access and is derived deterministically from the user's master secret and a cryptographic salt.*
+
+\`\`\`
+ ┌─────────────────────────┐
+ │ Master Password (Secret)│
+ └───────────┬─────────────┘
+             │ + Cryptographic Per-User Salt (16 bytes CSPRNG)
+             ▼
+ ┌─────────────────────────────────────────────────────────┐
+ │ PBKDF2 Key Derivation (HMAC-SHA256, 100,000+ Iterations) │
+ └───────────────────────────┬─────────────────────────────┘
+                             │
+            ┌────────────────┴────────────────┐
+            ▼                                 ▼
+ ┌─────────────────────────┐      ┌─────────────────────────┐
+ │ 256-bit Symmetric Key   │      │ Key Verification Token   │
+ │ (Transient In-Memory)   │      │ (Salted Hash for Auth)  │
+ └──────────┬──────────────┘      └─────────────────────────┘
+            │
+            ▼
+ ┌─────────────────────────────────────────────────────────┐
+ │ AES-256 Symmetric Encryption Engine                     │
+ │ (Encrypts/Decrypts Records On-Demand in SQLite Vault)   │
+ └─────────────────────────────────────────────────────────┘
+\`\`\`
+
+---
+
+## 2. Key Derivation: Why Plain Hashes Fail and PBKDF2 Prevails
+
+A fundamental mistake in amateur credential storage is computing a direct cryptographic hash (such as \`SHA-256(password)\`) and using the digest as an encryption key.
+
+Modern GPUs and custom ASIC rigs can compute **billions of SHA-256 hashes per second**. If an attacker extracts the encrypted database, a simple SHA-256 key allows offline brute-forcing of standard 8-to-12 character passwords within minutes.
+
+### The Mathematics of Salted PBKDF2
+To render brute-force attacks computationally and economically infeasible, \`dotPass\` utilizes **PBKDF2 (Password-Based Key Derivation Function 2)** with \`HMAC-SHA256\`:
+
+$DK = \\text{PBKDF2}(\\text{PRF}, \\text{Password}, \\text{Salt}, c, dkLen)$
+
+Where:
+- **PRF:** Pseudorandom function (\`HMAC-SHA256\`).
+- **Salt:** 16 bytes of high-entropy random data generated via the operating system's Cryptographically Secure Pseudorandom Number Generator (\`secrets.token_bytes(16)\`). The salt prevents precomputed **Rainbow Table attacks** and ensures that identical passwords yield distinct encryption keys across different users.
+- **Iteration Count ($c$):** Configured to **100,000+ iterations**. This forces an adversary attempting an offline dictionary attack to compute 100,000 chained HMAC operations for every single password candidate, increasing attack time from microseconds to multi-millennia for complex passphrases.
+- **Key Length ($dkLen$):** 32 bytes (256 bits) perfectly matching the key requirements of AES-256.
+
+\`\`\`python
+import os
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.backends import default_backend
+
+def derive_vault_key(master_password: str, salt: bytes) -> bytes:
+    """
+    Derives a 256-bit AES symmetric key from the master password using PBKDF2-HMAC-SHA256.
+    Enforces a minimum iteration factor of 100,000 cycles.
+    """
+    kdf = PBKDF2HMAC(
+        algorithm=hashes.SHA256(),
+        length=32,
+        salt=salt,
+        iterations=100_000,
+        backend=default_backend()
+    )
+    return kdf.derive(master_password.encode('utf-8'))
+\`\`\`
+
+While newer memory-hard functions like **Argon2id** offer superior resistance against memory-constrained ASIC attacks, PBKDF2 with HMAC-SHA256 provides universal cross-platform compatibility without external C-extension binary compilation bottlenecks, ensuring flawless execution across Linux, Windows, and macOS desktops.
+
+---
+
+## 3. Symmetric Vault Encryption: Authenticated Cipher Architecture
+
+Once the 256-bit encryption key is derived, individual credentials (usernames, passwords, secure notes, TOTP seeds) must be encrypted before serialization into the SQLite relational schema.
+
+### CBC vs. GCM / Fernet: The Need for Authenticity
+Standard block cipher modes like **CBC (Cipher Block Chaining)** provide confidentiality, but they do NOT guarantee **integrity**. Under CBC mode, an adversary who modifies ciphertext bits without knowing the key can induce predictable plaintext changes upon decryption (malleability) or mount **Padding Oracle Attacks**.
+
+\`dotPass\` incorporates authenticated symmetric encryption (Fernet / AES-CBC + HMAC-SHA256 or AES-256-GCM):
+1. **IV (Initialization Vector):** 16 bytes of fresh random IV per record, preventing identical plaintexts from producing identical ciphertexts.
+2. **Encryption:** Plaintext is padded and encrypted via 256-bit AES.
+3. **Authentication Tag (MAC):** An HMAC-SHA256 signature is calculated over the IV and ciphertext. If any byte in the database is tampered with, signature verification fails immediately before decryption is even attempted.
+
+\`\`\`
+       Plaintext Record ───► [ AES-256 Encrypt (Key, IV) ] ───► Ciphertext
+                                                                   │
+                                     [ HMAC-SHA256 Signature ] ◄──┤
+                                                │                  ▼
+                                                └─────────► Final Vault Payload
+                                                            [IV + Ciphertext + MAC]
+\`\`\`
+
+---
+
+## 4. Privacy-Preserving Breach Verification via k-Anonymity
+
+One of \`dotPass\`'s flagship security features is automated breach detection: warning the user if their stored credentials have been exposed in known public data breaches.
+
+However, sending stored passwords—or even full hashes of passwords—to an external REST API (such as HaveIBeenPwned) would fundamentally violate Zero-Knowledge principles.
+
+### The k-Anonymity Mathematical Model
+To solve this dilemma, \`dotPass\` implements **Troy Hunt's k-Anonymity protocol**:
+
+1. When checking password $P$, the client calculates its full SHA-1 digest:
+   $\\text{Hash} = \\text{SHA1}(P)$
+   *(e.g., \`21BD84B15C...\`)*
+2. The client splits the hash into a **5-character prefix** and a **35-character suffix**:
+   - Prefix: \`21BD8\`
+   - Suffix: \`4B15C...\`
+3. The client queries the API sending **ONLY the 5-character prefix**:
+   \`GET https://api.pwnedpasswords.com/range/21BD8\`
+4. The API returns a list of *all* compromised hash suffixes starting with that 5-character prefix (typically 400–600 candidates), along with their breach prevalence count.
+5. The client searches the received candidate list **locally in memory** for its matching suffix.
+
+\`\`\`
+ Client Vault                                   HaveIBeenPwned API
+ ────────────                                   ──────────────────
+ SHA-1("MySecretPass")
+ = 21BD8 4B15C...
+      │
+      │ 1. Sends ONLY 5-char prefix: "21BD8"
+      ├───────────────────────────────────────────────► 
+      │                                                Searches database for
+      │                                                prefix "21BD8"...
+      │ 2. Returns ~500 anonymous matching suffixes
+      │    [ 01A2F... : 12, 4B15C... : 4, ... ]
+      ◄───────────────────────────────────────────────┤
+      │
+ Local Memory Match:
+ Found suffix "4B15C..." with count 4!
+ -> Alert user: "Password exposed in 4 breaches!"
+ (Plaintext never left the client computer!)
+\`\`\`
+
+Through this protocol, **the remote server never learns what password the user is testing**, nor can network eavesdroppers deduce the credential. True privacy is mathematically guaranteed.
+
+---
+
+## 5. Defense-in-Depth: Intrusion Detection & Real-Time Alerts
+
+Beyond static vault encryption, \`dotPass\` integrates dynamic telemetry and defensive tripwires:
+
+- **Brute-Force Lockout:** Tracking failed decryption attempts with exponential backoff timers.
+- **Geographic & SMS Alerts:** When an abnormal unlock attempt is detected (e.g., from an unverified IP or device context), the system triggers asynchronous notification hooks via external REST APIs, dispatching an immediate SMS alert to the user's verified phone number with geo-coordinates.
+- **Cryptographic Password Generator:** Passwords generated within \`dotPass\` utilize system entropy sources (\`secrets.choice\`) rather than standard pseudorandom seeds (\`random\`), preventing PRNG state reconstruction.
+
+---
+
+## 6. Engineering Takeaways
+
+Building \`dotPass\` reinforced several core principles that guide my software engineering and QA philosophy:
+
+1. **Don't Roll Your Own Cryptography:** Rely on audited, battle-tested standard libraries (\`cryptography\`, standard NIST primitives) rather than inventing proprietary obfuscation algorithms.
+2. **Shift Security Left:** Architectural decisions made during database design (such as storing independent salts per record and enforcing authenticated ciphertext envelopes) cannot be easily bolted on later.
+3. **Verify Edge Cases with Chaos Testing:** In automated test suites, test what happens when network payloads are interrupted, when keys are misaligned by 1 bit, or when database files are corrupted. A resilient vault must fail safely and closed.
+
+The complete open-source codebase for \`dotPass\` is available on GitHub:
+👉 **[github.com/Dragosh7/dotPass](https://github.com/Dragosh7/dotPass)**
+`
   };
 
   /* ============================================================================
@@ -1589,6 +1778,423 @@ Bridging the gap between code and capital is where true innovation happens—and
   }
 
   /* ============================================================================
+     8. ARCHITECTURE BLUEPRINT MODALS ([1.1])
+     ============================================================================ */
+  const BLUEPRINT_SPECS = {
+    fullstack: {
+      badge: 'Microservicii & Event-Driven Architecture',
+      title: 'Platformă Microservicii: Reverse Proxy, Load Balancing & RabbitMQ Broker',
+      diagram: 
+`  [ Client Browser / React 18 SPA ]
+                 │  HTTPS / WSS (Port 443)
+                 ▼
+  ┌─────────────────────────────────────────────────────────────┐
+  │         NGINX REVERSE PROXY & LAYER-7 LOAD BALANCER         │
+  │    (Active Health Checks • SSL Termination • Rate Limiting) │
+  └──────────────┬───────────────────────────────┬──────────────┘
+                 │ /api/v1/auth                  │ /api/v1/telemetry
+                 ▼                               ▼
+  ┌─────────────────────────────┐ ┌─────────────────────────────┐
+  │   Auth Microservice (JWT)   │ │  Smart Meter Ingestion API  │
+  │  Spring Security 6 • Redis  │ │ Spring Boot 3 • Virtual Th. │
+  └─────────────────────────────┘ └──────────────┬──────────────┘
+                                                 │ Produce Events
+                                                 ▼
+        ┌───────────────────────────────────────────────────────┐
+        │       RABBITMQ EVENT BUS (Topic Exchange: meters.dx)  │
+        │      (Durable Queues • Dead-Letter Exchange • Ack)    │
+        └──────────────┬─────────────────────────┬──────────────┘
+                       │                         │
+                       ▼                         ▼
+        ┌─────────────────────────────┐ ┌───────────────────────┐
+        │  Billing Calculation Worker │ │ Anomaly Detection ML  │
+        │ Spring Boot Consumer Client │ │ Threshold Analytics   │
+        └──────────────┬──────────────┘ └───────────┬───────────┘
+                       │                            │
+                       ▼                            ▼
+        ┌───────────────────────────────────────────────────────┐
+        │        POSTGRESQL CLUSTER + TIMESCALEDB EXTENSION     │
+        │   (Partitioned Continuous Aggregates • Read Replicas) │
+        └───────────────────────────────────────────────────────┘`,
+      components: [
+        {
+          title: 'Reverse Proxy & Load Balancing',
+          desc: 'Nginx acționează ca punct unic de intrare (API Gateway), terminând conexiunile TLS, aplicând rate-limiting și distribuind traficul round-robin către instanțele de microservicii.'
+        },
+        {
+          title: 'RabbitMQ Message Broker',
+          desc: 'Decuplează asincron ingestia de telemetrie de consumatorii de calcul (facturare și anomalii) prin cozi persistente cu garanție at-least-once delivery și DLX (Dead Letter Exchange).'
+        },
+        {
+          title: 'PostgreSQL + TimescaleDB',
+          desc: 'Stocare optimizată pentru serii de timp (timestamptz, device_id, kw_consumption), partiționare automată pe chunks temporale și interogări analitice rapide.'
+        },
+        {
+          title: 'Docker Compose Orchestration',
+          desc: 'Rețea internă privată izolată între containere, volume persistente pentru broker și baze de date, scripturi de healthcheck integrate.'
+        }
+      ],
+      metrics: [
+        { label: 'Throughput Ingestion', val: '12,500 msg/s' },
+        { label: 'Broker Latency', val: '< 4.2 ms' },
+        { label: 'High Availability', val: 'Active-Standby' },
+        { label: 'Container Isolation', val: 'Docker Network' }
+      ]
+    },
+    dotpass: {
+      badge: 'Zero-Knowledge Cryptographic Architecture',
+      title: 'dotPass: Master Key Derivation & AES-256-GCM Local Vault',
+      diagram:
+`  [ Master Password (Utilizator) ] ───► [ Salt Unic (128-bit CSPRNG) ]
+                 │
+                 ▼
+  ┌─────────────────────────────────────────────────────────────┐
+  │       PBKDF2 KEY DERIVATION (100,000 Iterations / SHA-256)  │
+  │     (Rezistență la atacuri brute-force GPU / ASIC FPGA)     │
+  └──────────────┬───────────────────────────────┬──────────────┘
+                 │ Key A (256-bit)               │ Key B (256-bit Auth Hash)
+                 ▼                               ▼
+  ┌─────────────────────────────┐ ┌─────────────────────────────┐
+  │  AES-256-GCM Cipher Suite   │ │  Zero-Knowledge Local Auth  │
+  │ (Auth Tag 128-bit + 96 Nonce)│ │ (Verifică Master fără a-l  │
+  └──────────────┬──────────────┘ │           stoca vreodată)   │
+                 │                └─────────────────────────────┘
+  [ Secret JSON Plaintext ]
+                 │
+                 ▼
+  ┌─────────────────────────────────────────────────────────────┐
+  │     LOCAL ENCRYPTED SQLITE DATABASE (Zero Cloud Exposure)   │
+  │ (Ciphertext + Salt + Nonce + Tag • Zero Metadata Leakage)   │
+  └─────────────────────────────────────────────────────────────┘
+                 │
+                 ▼
+  ┌─────────────────────────────────────────────────────────────┐
+  │   HIBP AUDIT via k-ANONYMITY MODEL                          │
+  │ SHA-1(Password) ──► Trimite doar prefix de 5 caractere hex  │
+  │ Serverul întoarce ~500 hash-uri; clientul compară local!    │
+  └─────────────────────────────────────────────────────────────┘`,
+      components: [
+        {
+          title: 'Derivare Chei PBKDF2',
+          desc: '100,000 de iterații cu HMAC-SHA256 și salt generat criptografic (16 octeți). Calculează două chei distincte: una pentru criptare AES și una pentru validarea identității.'
+        },
+        {
+          title: 'Criptare Autentificată AES-256-GCM',
+          desc: 'Criptare simetrică cu verificare a integrității (Galois/Counter Mode). Fiecare scriere utilizează un Nonce (IV) unic de 96-biți, eliminând orice atac de tip ciphertext tampering.'
+        },
+        {
+          title: 'Model k-Anonymity HaveIBeenPwned',
+          desc: 'Parola este supusă SHA-1. Se trimit către API doar primele 5 caractere hexazecimale. Niciun serviciu extern nu poate reconstitui parola verificată.'
+        },
+        {
+          title: 'Zero-Knowledge Local Storage',
+          desc: 'Baza de date SQLite stochează exclusiv date criptate. Nici cheia de criptare, nici parola principală nu ating discul în text clar.'
+        }
+      ],
+      metrics: [
+        { label: 'PBKDF2 Rounds', val: '100,000 it.' },
+        { label: 'Cipher Suite', val: 'AES-256-GCM' },
+        { label: 'k-Anonymity Hash Leak', val: '0 bit expus' },
+        { label: 'Cold-Start Decrypt', val: '< 65 ms' }
+      ]
+    },
+    concurrency: {
+      badge: 'High-Throughput Parallel Computing',
+      title: 'Arhitectură de Concomitență Java: Virtual Threads & Non-blocking Pipeline',
+      diagram:
+`  [ Ingestion Inbound Tasks ] ──► [ Request Executor (Project Loom) ]
+                                            │
+                                            ▼
+                       ┌────────────────────────────────────────┐
+                       │   VIRTUAL THREAD PER TASK EXECUTOR     │
+                       │   (Cost infim de memorie: ~1 KB/thread)│
+                       └────────────────────┬───────────────────┘
+                                            │
+              ┌─────────────────────────────┼─────────────────────────────┐
+              ▼                             ▼                             ▼
+  ┌───────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────┐
+  │ Semaphore Throttling  │   │   ConcurrentHashMap Store │   │  Async REST Pipeline  │
+  │ (Prevenire OOM / DB)  │   │   (Non-blocking Lock Strip)│   │ (CompletableFuture DAG)│
+  └───────────┬───────────┘   └─────────────┬─────────────┘   └───────────┬───────────┘
+              │                             │                             │
+              └─────────────────────────────┼─────────────────────────────┘
+                                            ▼
+                       ┌────────────────────────────────────────┐
+                       │        COMPLETED ASYNC RESPONSE        │
+                       │    (Zero thread pinning • Max IO)      │
+                       └────────────────────────────────────────┘`,
+      components: [
+        {
+          title: 'Virtual Threads (Project Loom)',
+          desc: 'Mii de fluxuri de execuție concurente alocate pe câteva thread-uri native OS (carrier threads), oferind scalare masivă pe operațiuni I/O fără complexitatea programării reactive.'
+        },
+        {
+          title: 'Semaphore & Resource Throttling',
+          desc: 'Controlează presiunea asupra resurselor externe (conexiuni bază de date, API-uri downstream) prevenind supraîncărcarea memoriei sub spike-uri de trafic.'
+        },
+        {
+          title: 'CompletableFuture Orchestration',
+          desc: 'Compoziție asincronă cu allOf/anyOf și mecanisme de fallback pentru pipeline-uri distribuite.'
+        }
+      ],
+      metrics: [
+        { label: 'Active Concurrency', val: '10,000+ th.' },
+        { label: 'Memory / Thread', val: '~1-2 KB' },
+        { label: 'Lock Contention', val: '< 0.05%' },
+        { label: 'Throughput Gain', val: '+340%' }
+      ]
+    },
+    cypress: {
+      badge: 'QA Automation & Regression Matrix',
+      title: 'Harness de Testare Automatizată: Cypress, CI/CD Gates & POM',
+      diagram:
+`  [ Git Push / Pull Request ] ──► [ GitHub Actions / Jenkins Runner ]
+                                                │
+                                                ▼
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │         DOCKERIZED TEST HARNESS & MATRIX TEST RUNNER (Headless)            │
+  │        (Chrome • Firefox • Edge • Isolated Network Sandboxes)              │
+  └──────────────────────────────────────┬──────────────────────────────────────┘
+                                         │
+                    ┌────────────────────┴───────────────────┐
+                    ▼                                        ▼
+  ┌───────────────────────────────────┐    ┌───────────────────────────────────┐
+  │  Page Object Model (POM) Abstraction│   │  API Mocking & Fixture State Inj. │
+  │  (Component Selectors & Actions)  │    │  (cy.intercept • Deterministic)   │
+  └─────────────────┬─────────────────┘    └─────────────────┬─────────────────┘
+                    │                                        │
+                    └────────────────────┬───────────────────┘
+                                         ▼
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │        QUALITY GATES & AUDIT REPORTING (Mochawesome • JUnit XML)            │
+  │     (Screenshots & Videos on Failure • Zero-Flakiness Threshold: 99.8%)    │
+  └─────────────────────────────────────────────────────────────────────────────┘`,
+      components: [
+        {
+          title: 'Page Object Model (POM)',
+          desc: 'Structură modulară care separă logica paginilor de asserții, reducând drastic mentenanța suitei de teste la modificări de UI.'
+        },
+        {
+          title: 'Determinism prin cy.intercept',
+          desc: 'Mocking precis al apelurilor de rețea pentru testarea scenariilor edge-case (404, 500, network latency, timeout) fără dependență de backend live.'
+        },
+        {
+          title: 'Automated CI/CD Quality Gate',
+          desc: 'Execuție paralelă în containere Docker cu generare automată de artefacte video/capturi de ecran la eșec și blocare PR la regresie.'
+        }
+      ],
+      metrics: [
+        { label: 'Test Suite Coverage', val: '94.2%' },
+        { label: 'Flakiness Rate', val: '< 0.2%' },
+        { label: 'Parallel Pipeline', val: '4x Workers' },
+        { label: 'Regression Speed', val: '3m 45s' }
+      ]
+    },
+    benchmark: {
+      badge: 'Thermal Telemetry & Hardware Testing',
+      title: 'Harness de Diagnosticare Termică & Validare Hardware',
+      diagram:
+`  [ Intervenție Fizică: Curățare Heatsink + Arctic MX-6 Paste + Termopad-uri ]
+                                      │
+                                      ▼
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │      ETAPA 1: STRESS TEST PRE-MĂSURAT (FurMark GPU + Cinebench R23 CPU)     │
+  │      Înregistrare temperaturi vârf: 92°C - 98°C • Thermal Throttling Activ  │
+  └───────────────────────────────────┬─────────────────────────────────────────┘
+                                      │
+                                      ▼
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │     ETAPA 2: MONITORIZARE TELEMETRIE HARDWARE SENZORI (HWiNFO / AIDA64)     │
+  │  Logare la 1 sec: Core Clock (GHz) • Package Power (W) • Fan RPM • Delta T  │
+  └───────────────────────────────────┬─────────────────────────────────────────┘
+                                      │
+                                      ▼
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │     ETAPA 3: TEST POST-MĂSURAT & RAPORT DE PREDARE SEMNAT CĂTRE CLIENT     │
+  │ Temperatură stabilizată: 68°C - 74°C • Frecvență boost stabilă • 0 dB coil  │
+  └─────────────────────────────────────────────────────────────────────────────┘`,
+      components: [
+        {
+          title: 'FurMark & Cinebench Stress Pipeline',
+          desc: 'Simulare sarcină maximă de lucru pentru evaluarea eficienței transferului termic prin camera de vapori și heatpipe-uri din cupru.'
+        },
+        {
+          title: 'Telemetrie Senzori în Timp Real',
+          desc: 'Monitorizare delta T între nuclee individuale (Hotspot vs Core Avg) pentru a depista aplicări neuniforme de pastă termică.'
+        },
+        {
+          title: 'Fișă de Service Imprimabilă & Arhivată',
+          desc: 'Fiecare lucrare primește un raport măsurabil (înainte vs după) atașat bonului fiscal și salvat în registrul privat.'
+        }
+      ],
+      metrics: [
+        { label: 'Scădere Termică Medie', val: '-18°C ... -26°C' },
+        { label: 'Stabilitate Boost CPU', val: '100% Sustained' },
+        { label: 'Zgomot Ventilator', val: '-20 dB' },
+        { label: 'Garanție Lucrare', val: '30 Zile' }
+      ]
+    }
+  };
+
+  function initBlueprintModals() {
+    const backdrop = document.getElementById('blueprintModalBackdrop');
+    const modalTitle = document.getElementById('blueprintModalTitle');
+    const modalBadge = document.getElementById('blueprintModalBadge');
+    const modalContent = document.getElementById('blueprintModalContent');
+    const btnClose = document.getElementById('btnCloseBlueprintModal');
+    if (!backdrop || !modalContent) return;
+
+    function openBlueprint(key) {
+      const spec = BLUEPRINT_SPECS[key] || BLUEPRINT_SPECS.fullstack;
+      if (modalBadge) modalBadge.textContent = spec.badge;
+      if (modalTitle) modalTitle.textContent = spec.title;
+
+      const componentsHtml = (spec.components || []).map(c => `
+        <div class="blueprint-component-card">
+          <h5><span>⚡</span> ${escapeHtml(c.title)}</h5>
+          <p>${escapeHtml(c.desc)}</p>
+        </div>
+      `).join('');
+
+      const metricsHtml = (spec.metrics || []).map(m => `
+        <div class="blueprint-metric-item">
+          <div class="blueprint-metric-val">${escapeHtml(m.val)}</div>
+          <div class="blueprint-metric-label">${escapeHtml(m.label)}</div>
+        </div>
+      `).join('');
+
+      modalContent.innerHTML = `
+        <div class="blueprint-metrics-bar">
+          ${metricsHtml}
+        </div>
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">
+            📐 Diagramă Topologie &amp; Flux Date:
+          </div>
+          <div class="blueprint-diagram-box">${escapeHtml(spec.diagram)}</div>
+        </div>
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">
+            🧩 Module Arhitecturale &amp; Decizii Tehnice:
+          </div>
+          <div class="blueprint-components-grid">
+            ${componentsHtml}
+          </div>
+        </div>
+      `;
+
+      backdrop.style.display = 'flex';
+      void backdrop.offsetWidth;
+      backdrop.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      if (btnClose) btnClose.focus();
+    }
+
+    function closeBlueprint() {
+      backdrop.classList.remove('is-open');
+      setTimeout(() => {
+        if (!backdrop.classList.contains('is-open')) {
+          backdrop.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      }, 250);
+    }
+
+    document.addEventListener('click', e => {
+      const btn = e.target.closest('.btn-open-blueprint');
+      if (btn) {
+        e.preventDefault();
+        const key = btn.getAttribute('data-blueprint');
+        if (key) openBlueprint(key);
+      }
+    });
+
+    if (btnClose) {
+      btnClose.addEventListener('click', closeBlueprint);
+    }
+
+    backdrop.addEventListener('click', e => {
+      if (e.target === backdrop) {
+        closeBlueprint();
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && backdrop.classList.contains('is-open')) {
+        closeBlueprint();
+      }
+    });
+  }
+
+  /* ============================================================================
+     9. SKILLS-TO-PROJECTS FILTER INTERACTION ([1.3])
+     ============================================================================ */
+  function initSkillsToProjectsFilter() {
+    const skillsMatrix = document.querySelector('.skills-matrix');
+    if (!skillsMatrix) return;
+
+    function mapSkillToCategory(text) {
+      const t = text.toLowerCase();
+      if (t.includes('java') || t.includes('spring') || t.includes('microservice') || t.includes('rest') || t.includes('sql') || t.includes('postgres') || t.includes('docker') || t.includes('hibernate') || t.includes('fullstack') || t.includes('linux')) {
+        return 'backend';
+      }
+      if (t.includes('pass') || t.includes('security') || t.includes('crypto') || t.includes('auth')) {
+        return 'security';
+      }
+      if (t.includes('selenium') || t.includes('playwright') || t.includes('cypress') || t.includes('junit') || t.includes('testng') || t.includes('postman') || t.includes('test')) {
+        return 'qa';
+      }
+      if (t.includes('modeling') || t.includes('economics') || t.includes('strategy') || t.includes('agile') || t.includes('leadership')) {
+        return 'strategy';
+      }
+      return 'all';
+    }
+
+    skillsMatrix.addEventListener('click', e => {
+      const chip = e.target.closest('.skill-chip');
+      if (!chip) return;
+
+      const skillName = chip.textContent.trim();
+      const targetCategory = mapSkillToCategory(skillName);
+
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      const filterBar = document.getElementById('projectFilterBar');
+      if (filterBar) {
+        const filterBtn = filterBar.querySelector(`button[data-filter="${targetCategory}"]`) || filterBar.querySelector('button[data-filter="all"]');
+        if (filterBtn) {
+          filterBtn.click();
+        }
+      }
+
+      setTimeout(() => {
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (targetCategory === 'all' || cardCat === targetCategory) {
+            card.classList.remove('filter-highlight');
+            void card.offsetWidth;
+            card.classList.add('filter-highlight');
+            setTimeout(() => card.classList.remove('filter-highlight'), 1800);
+          }
+        });
+      }, 400);
+
+      const categoryLabels = {
+        backend: 'Backend & Microservicii',
+        security: 'Securitate & Criptografie',
+        qa: 'QA & Automatizare Teste',
+        strategy: 'Strategie & Leadership',
+        all: 'Toate Proiectele'
+      };
+      showToast(`Filtru proiecte: ${categoryLabels[targetCategory] || targetCategory}`, 'info');
+    });
+  }
+
+  /* ============================================================================
      10. GLOBAL INITIALIZATION
      ============================================================================ */
   document.addEventListener('DOMContentLoaded', () => {
@@ -1599,6 +2205,8 @@ Bridging the gap between code and capital is where true innovation happens—and
     initCopyButtons();
     initBlogPortal();
     initNavHighlight();
+    initBlueprintModals();
+    initSkillsToProjectsFilter();
   });
 
   // Export minimal API to window for inline onclick handlers if needed
@@ -1613,3 +2221,4 @@ Bridging the gap between code and capital is where true innovation happens—and
   };
 
 })();
+

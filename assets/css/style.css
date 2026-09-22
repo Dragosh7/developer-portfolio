@@ -592,15 +592,13 @@ p {
   background: conic-gradient(
     from 0deg,
     #6366f1 0deg,
-    #38bdf8 72deg,
-    #10b981 144deg,
-    #f59e0b 216deg,
-    #ec4899 288deg,
+    #3b82f6 120deg,
+    #06b6d4 240deg,
     #6366f1 360deg
   );
   animation: avatar-spin-ring 4s linear infinite;
   z-index: 1;
-  opacity: 0.9;
+  opacity: 0.95;
   transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
@@ -613,13 +611,12 @@ p {
   background: conic-gradient(
     from 0deg,
     #6366f1 0deg,
-    #38bdf8 72deg,
-    #10b981 144deg,
-    #ec4899 288deg,
+    #3b82f6 120deg,
+    #06b6d4 240deg,
     #6366f1 360deg
   );
-  filter: blur(6px);
-  opacity: 0.45;
+  filter: blur(8px);
+  opacity: 0.55;
   animation: avatar-spin-ring 4s linear infinite;
   z-index: 0;
   transition: opacity 0.3s ease, filter 0.3s ease;
@@ -947,21 +944,21 @@ body.light-theme .icon-sun {
   transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Ambient Pulsating Glow Aura */
+/* Ambient Pulsating Glow Aura (Matching "Inginer Software" Indigo-Cyan Gradient) */
 .hero-avatar-glow {
   position: absolute;
-  inset: -12px;
+  inset: -14px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, rgba(56, 189, 248, 0.3) 45%, transparent 70%);
-  filter: blur(16px);
-  opacity: 0.75;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.6) 0%, rgba(59, 130, 246, 0.35) 45%, rgba(6, 182, 212, 0.15) 70%, transparent 80%);
+  filter: blur(18px);
+  opacity: 0.85;
   animation: hero-avatar-glow-breathe 4s ease-in-out infinite;
   z-index: 0;
   pointer-events: none;
   transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
 }
 
-/* Rotating Iridescent Rainbow Conic Border */
+/* Rotating "Inginer Software" Conic Border (Electric Indigo -> Blue -> Cyan) */
 .hero-avatar-ring {
   position: relative;
   width: 100%;
@@ -983,10 +980,8 @@ body.light-theme .icon-sun {
   background: conic-gradient(
     from 0deg,
     #6366f1 0deg,
-    #38bdf8 72deg,
-    #10b981 144deg,
-    #f59e0b 216deg,
-    #ec4899 288deg,
+    #3b82f6 120deg,
+    #06b6d4 240deg,
     #6366f1 360deg
   );
   animation: avatar-spin-ring 5s linear infinite;
@@ -1094,14 +1089,13 @@ body.light-theme .icon-sun {
   height: 68px;
   border-radius: 50%;
   padding: 2px;
-  background: conic-gradient(from 0deg, #6366f1, #38bdf8, #10b981, #ec4899, #6366f1);
+  background: conic-gradient(from 0deg, #6366f1, #3b82f6, #06b6d4, #6366f1);
   animation: avatar-spin-ring 6s linear infinite;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
-  margin-bottom: var(--space-2);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
 }
 
 .resume-avatar-img {
@@ -3204,4 +3198,340 @@ pre.code-block code {
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
+
+  /* [3.4] Print-Only Discrete QR Code */
+  .resume-header {
+    position: relative !important;
+    padding-right: 75pt !important;
+  }
+
+  .resume-print-qr {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    padding: 3pt 5pt !important;
+    background: #ffffff !important;
+    border: 1pt solid #cbd5e1 !important;
+    border-radius: 4pt !important;
+  }
+
+  .resume-print-qr .print-qr-code-svg {
+    width: 44pt !important;
+    height: 44pt !important;
+    display: block !important;
+  }
+
+  .resume-print-qr .resume-qr-caption {
+    font-size: 6pt !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin-top: 1pt !important;
+  }
+
+  .resume-print-qr .resume-qr-url {
+    font-size: 5.5pt !important;
+    font-family: monospace !important;
+    color: #475569 !important;
+  }
 }
+
+/* ==============================================================================
+   SCREEN: RESUME PRINT QR HIDE
+   ============================================================================== */
+.resume-print-qr {
+  display: none !important;
+}
+
+/* ==============================================================================
+   ARCHITECTURE BLUEPRINT MODAL ([1.1])
+   ============================================================================== */
+.blueprint-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blueprint-modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.blueprint-modal-card {
+  background: var(--bg-surface, #0f172a);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px rgba(99, 102, 241, 0.18);
+  width: 100%;
+  max-width: 840px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.95) translateY(12px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blueprint-modal-backdrop.is-open .blueprint-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.blueprint-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.blueprint-modal-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary, #f8fafc);
+  margin: 0;
+}
+
+.blueprint-close-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary, #94a3b8);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.blueprint-close-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.4);
+  transform: rotate(90deg);
+}
+
+.blueprint-close-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.blueprint-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.blueprint-diagram-box {
+  background: rgba(2, 6, 23, 0.85);
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  border-radius: 12px;
+  padding: 1.25rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #38bdf8;
+  overflow-x: auto;
+  white-space: pre;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.blueprint-components-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.85rem;
+}
+
+.blueprint-component-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.blueprint-component-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.blueprint-component-card h5 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-primary, #6366f1);
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.blueprint-component-card p {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #94a3b8);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.blueprint-metrics-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(99, 102, 241, 0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  align-items: center;
+  justify-content: space-around;
+}
+
+.blueprint-metric-item {
+  text-align: center;
+}
+
+.blueprint-metric-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #38bdf8;
+  font-family: var(--font-mono, monospace);
+}
+
+.blueprint-metric-label {
+  font-size: 0.7rem;
+  color: var(--text-tertiary, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* ==============================================================================
+   MOBILE STICKY ACTION STRIP ([1.4])
+   ============================================================================== */
+.mobile-sticky-action-strip {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-action-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: rgba(15, 23, 42, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.45rem 0.6rem calc(0.45rem + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  .mobile-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 6px 4px;
+    border-radius: 8px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+    min-height: 44px;
+  }
+
+  .mobile-action-btn:active {
+    transform: scale(0.96);
+  }
+
+  .action-whatsapp {
+    background: rgba(37, 211, 102, 0.15);
+    color: #25d366;
+    border: 1px solid rgba(37, 211, 102, 0.28);
+  }
+
+  .action-call {
+    background: rgba(59, 130, 246, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(59, 130, 246, 0.28);
+  }
+
+  .action-cv {
+    background: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.28);
+  }
+
+  .action-services {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.28);
+  }
+
+  /* Ensure footer has clearance so sticky strip does not obscure content */
+  body {
+    padding-bottom: 64px;
+  }
+}
+
+/* ==============================================================================
+   SKILLS-TO-PROJECTS INTERACTIVE CHIPS ([1.3])
+   ============================================================================== */
+.skill-chip {
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+}
+
+.skill-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary, #6366f1);
+  background: rgba(99, 102, 241, 0.12);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.skill-chip:active {
+  transform: translateY(0);
+}
+
+/* Highlight pulse on project card when filtered from skills matrix */
+@keyframes projectCardHighlight {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+    border-color: rgba(99, 102, 241, 0.9);
+  }
+  50% {
+    box-shadow: 0 0 25px 6px rgba(99, 102, 241, 0.5);
+    border-color: #38bdf8;
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+.project-card.filter-highlight {
+  animation: projectCardHighlight 1.6s ease-out;
+}
+
